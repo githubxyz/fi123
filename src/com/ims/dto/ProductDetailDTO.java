@@ -126,7 +126,9 @@ public class ProductDetailDTO implements Serializable {
 	public String toString() {
 		return "ProductDetailDTO [id=" + id + ", quantity=" + quantity + ", weight=" + weight + ", purchaseDate="
 				+ purchaseDate + ", amount=" + amount + ", vat=" + vat + ", type=" + type + ", productMaster="
-				+ productMaster + ", branch=" + branch + "]";
+				+ productMaster + ", branch=" + branch + ", user=" + user + "]";
 	}
+
+
 
 }
