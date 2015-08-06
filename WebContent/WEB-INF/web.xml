@@ -9,4 +9,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <session-config>
+	<session-timeout>10</session-timeout>
+	</session-config>
+	<servlet>
+		<servlet-name>loader</servlet-name>
+		<servlet-class>com.ims.ui.startup.LoaderServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>loader</servlet-name>
+		<url-pattern>/loader</url-pattern>
+	</servlet-mapping>
 </web-app>

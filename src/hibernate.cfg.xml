@@ -24,7 +24,7 @@
         <property name="hibernate.connection.pool_size">1</property>
 
         <!-- Echo all executed SQL to stdout -->
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
 
         <!-- C3P0 Stuff -->
         <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
@@ -41,7 +41,8 @@
 
         <!--DTOs-->
 		<mapping class="com.ims.dto.UserDTO"/>
-
+		<mapping class="com.ims.dto.ProductMasterDTO"/>
+		<mapping class="com.ims.dto.ProductDetailDTO"/>
     </session-factory>
 
 </hibernate-configuration>
