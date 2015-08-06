@@ -1,3 +1,4 @@
+<%@page import="org.apache.log4j.Logger"%>
 <%@page import="com.ims.utility.Messages"%>
 <%@page import="com.ims.dto.UserDTO"%>
 <%@page import="org.hibernate.Session"%>
@@ -16,7 +17,8 @@
  IPersistenceManager per=new PersistenceManagerImpl();
  Session ses= per.openSessionAndBeginTransaction();
  UserDTO user=(UserDTO)ses.load(UserDTO.class, 1);
- Messages.getInstance("ims");
+   Logger logger = Logger.getLogger("com.biz");
+   logger.info("gjk");
  %>
  <%=Messages.getString("company_name") %>
  <%=user %>
