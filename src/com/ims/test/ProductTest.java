@@ -2,12 +2,10 @@ package com.ims.test;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.ims.dto.ProductDetailDTO;
 import com.ims.dto.ProductMasterDTO;
-import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.persistence.hibernate.IPersistenceManager;
 import com.ims.persistence.hibernate.PersistenceException;

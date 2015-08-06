@@ -27,6 +27,10 @@ public class ProductDetailDTO implements Serializable {
 	private ProductMasterDTO productMaster;
 	private int branch;
 	private int user;
+	private double saleQuantity;
+	private boolean available;
+	private boolean deleted;
+	private String kAndP;
 
 	@Id
 	@Column(name = "id")
@@ -120,6 +124,42 @@ public class ProductDetailDTO implements Serializable {
 
 	public void setUser(int user) {
 		this.user = user;
+	}
+	
+	
+	@Column(name="sale_quantity")
+	public double getSaleQuantity() {
+		return saleQuantity;
+	}
+
+	public void setSaleQuantity(double saleQuantity) {
+		this.saleQuantity = saleQuantity;
+	}
+	@Column(name="is_available")
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	@Column(name="deleted")
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	
+	@Column(name="k_and_p")
+	public String getkAndP() {
+		return kAndP;
+	}
+
+	public void setkAndP(String kAndP) {
+		this.kAndP = kAndP;
 	}
 
 	@Override
