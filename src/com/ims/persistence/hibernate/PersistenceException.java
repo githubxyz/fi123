@@ -21,7 +21,6 @@ public class PersistenceException extends Exception {
 		return errorCode;
 	}
 
-	@Override
 	public void printStackTrace() {
 		if (e != null) {
 			e.printStackTrace();
