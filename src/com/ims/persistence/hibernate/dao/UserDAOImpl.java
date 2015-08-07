@@ -1,9 +1,12 @@
 package com.ims.persistence.hibernate.dao;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
+import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.UserDTO;
 import com.ims.exception.IPersistenceErrorCode;
 import com.ims.persistence.hibernate.PersistenceException;
@@ -46,10 +49,9 @@ public class UserDAOImpl implements IUserDAO {
 		logger.info("Entry");
 		logger.info("userName recived="+userId);
 		try {
-			String sql="FROM UserDTO where userName=:userId";
-			Query query = session.createQuery(sql);
-			query.setParameter("userId", userId);
-			userDTO=(UserDTO) query.uniqueResult();
+			Criteria q=session.createCriteria(UserDTO.class);
+			q.add(Restrictions.eq("userName", userId));
+			userDTO=(UserDTO)q.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
