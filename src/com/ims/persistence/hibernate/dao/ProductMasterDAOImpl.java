@@ -1,6 +1,10 @@
 package com.ims.persistence.hibernate.dao;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.ims.dto.ProductMasterDTO;
@@ -45,6 +49,26 @@ public class ProductMasterDAOImpl implements IProductMasterDAO {
 	public ProductMasterDTO updateProductMaster(ProductMasterDTO productMasterDTO) throws PersistenceException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public List<ProductMasterDTO> listProductMaster() throws PersistenceException {
+		// TODO Auto-generated method stub
+				logger.info("Entry");
+				List<ProductMasterDTO> list=null;
+				try {
+					
+					Criteria q=session.createCriteria(ProductMasterDTO.class);
+					list=q.list();
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.error(e);
+					throw new PersistenceException(e,
+							IPersistenceErrorCode.DATABASE_PROBLEM);
+				}
+				
+				logger.info("Exit");
+			
+		return list;
 	}
 
 }

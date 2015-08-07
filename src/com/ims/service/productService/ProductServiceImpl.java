@@ -1,6 +1,8 @@
 package com.ims.service.productService;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -86,6 +88,41 @@ public ProductDetailDTO saveProductDetail(ProductDetailDTO productDetailDTO) thr
 
 
 	return productDetailDTO;
+
+}
+@Override
+public List<ProductMasterDTO> listProduct() throws OperationFailedException {
+	logger.info("ENTRY....");
+	List<ProductMasterDTO> dtos=new ArrayList<ProductMasterDTO>();
+	// create a session
+	Session session = null;
+	// create PersistenceManagerImpl
+	IPersistenceManager impl = new PersistenceManagerImpl();
+	
+	try {
+		session = impl.openSessionAndBeginTransaction();
+		IProductMasterDAO productMasterDAO=new ProductMasterDAOImpl(session);
+		dtos=productMasterDAO.listProductMaster();
+	} catch (Exception e) {
+		e.printStackTrace();
+		logger.error(e);
+		throw new OperationFailedException();
+
+	}finally {
+		try {
+			// close session
+			impl.closeAndCommitSession();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new OperationFailedException();
+		}
+	}
+	logger.info("Exit.........");
+
+
+	return dtos;
+
 
 }
 

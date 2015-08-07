@@ -1,5 +1,7 @@
 package com.ims.test;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.junit.Test;
@@ -62,8 +64,11 @@ public class ProductTest {
 		productDetailDTO.setProductMaster(productMasterDTO);
 		productDetailDTO.setUser(1);
 		productDetailDTO.setType(1);
+		
 		try {
 			productService.saveProductDetail(productDetailDTO);
+			List<ProductMasterDTO> li=productService.listProduct();
+			System.out.println(li);
 		} catch (OperationFailedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

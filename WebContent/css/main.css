@@ -40,3 +40,5 @@ body { margin: 50px 0 0; background: #fff url(../images/bg.gif) repeat-x; font: 
 #footer { clear: both; width: 70%; margin: 0 auto; padding: 15px; border-top: 1px solid #e0e0e0; background: #fff  right 13px; }	
 	#footer .right { float: right; margin: 0 55px 0 0; }
 	#footer a { color: #808080; font-weight: bold; }
+	
+.col2 { float: left; width: 560px; margin: 0 30px 16px 0; }	

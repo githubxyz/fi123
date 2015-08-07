@@ -55,6 +55,11 @@ public class ProductMasterDTO implements Serializable {
 	public void setUnitOfMesure(int unitOfMesure) {
 		this.unitOfMesure = unitOfMesure;
 	}
+	@Override
+	public String toString() {
+		return "ProductMasterDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
+				+ ", unitOfMesure=" + unitOfMesure + "]";
+	}
 	
 	
 }

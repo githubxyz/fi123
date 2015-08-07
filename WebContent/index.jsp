@@ -39,9 +39,9 @@
   </div>
 </div>
 <div id="footer">
-  
+  <div align=center><p>Copyright&copy;  insonera.com    &middot; All Rights Reserved</p></div>
   <p><!-- Copyright&copy; insonera.com   <a href="http://www.insonera.com">Web Application</a> &middot; All Rights Reserved --></p>
 </div>
-<div align=center><p>Copyright&copy;  insonera.com    &middot; All Rights Reserved</p></div>
+
 </body>
 </html>

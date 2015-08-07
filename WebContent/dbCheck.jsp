@@ -19,6 +19,7 @@
  UserDTO user=(UserDTO)ses.load(UserDTO.class, 1);
    Logger logger = Logger.getLogger("com.biz");
    logger.info("gjk");
+   Messages.getInstance("ims");
  %>
  <%=Messages.getString("company_name") %>
  <%=user %>
