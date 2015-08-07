@@ -64,7 +64,7 @@ public class ProductTest {
 		productDetailDTO.setProductMaster(productMasterDTO);
 		productDetailDTO.setUser(1);
 		productDetailDTO.setType(1);
-		
+		 
 		try {
 			productService.saveProductDetail(productDetailDTO);
 			List<ProductMasterDTO> li=productService.listProduct();
