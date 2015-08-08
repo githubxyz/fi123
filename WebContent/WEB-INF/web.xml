@@ -9,6 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <security-constraint>
+    <display-name>Restrict direct access to certain folders</display-name>
+    <web-resource-collection>
+        <web-resource-name>Restricted folders</web-resource-name>
+        <url-pattern>/pages/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint />
+  </security-constraint>
+
   <session-config>
     <session-timeout>10</session-timeout>
   </session-config>
