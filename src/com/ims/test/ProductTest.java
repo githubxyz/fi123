@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import com.ims.dto.ProductDetailDTO;
 import com.ims.dto.ProductMasterDTO;
+import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.persistence.hibernate.IPersistenceManager;
 import com.ims.persistence.hibernate.PersistenceException;
@@ -62,7 +63,9 @@ public class ProductTest {
 		productDetailDTO.setWeight(10.0);
 		productDetailDTO.setBranch(1);
 		productDetailDTO.setProductMaster(productMasterDTO);
-		productDetailDTO.setUser(1);
+			UserDTO user = new UserDTO(); 
+			user.setId(1);
+		productDetailDTO.setUser(user);
 		productDetailDTO.setType(1);
 		 
 		try {

@@ -41,8 +41,10 @@
 
         <!--DTOs-->
 		<mapping class="com.ims.dto.UserDTO"/>
-		<mapping class="com.ims.dto.ProductMasterDTO"/>
+		<mapping class="com.ims.dto.ProductMasterDTO"/>StockAlertDTO
 		<mapping class="com.ims.dto.ProductDetailDTO"/>
+		<mapping class="com.ims.dto.StockDetailDTO"/>
+		<mapping class="com.ims.dto.StockAlertDTO"/>
     </session-factory>
 
 </hibernate-configuration>

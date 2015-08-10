@@ -26,7 +26,7 @@ public class ProductDetailDTO implements Serializable {
 	private Integer type;
 	private ProductMasterDTO productMaster;
 	private int branch;
-	private int user;
+	private UserDTO user;
 	private double saleQuantity;
 	private boolean available;
 	private boolean deleted;
@@ -117,12 +117,13 @@ public class ProductDetailDTO implements Serializable {
 		this.branch = branch;
 	}
 
-	@Column(name = "user_master_id")
-	public int getUser() {
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_master_id", nullable = false)
+	public UserDTO getUser() {
 		return user;
 	}
 
-	public void setUser(int user) {
+	public void setUser(UserDTO user) {
 		this.user = user;
 	}
 	
