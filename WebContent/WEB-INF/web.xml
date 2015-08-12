@@ -9,15 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <security-constraint>
+  <!-- <security-constraint>
     <display-name>Restrict direct access to certain folders</display-name>
     <web-resource-collection>
-        <web-resource-name>Restricted folders</web-resource-name>
-        <url-pattern>/pages/*</url-pattern>
+      <web-resource-name>Restricted folders</web-resource-name>
+      <url-pattern>/pages/*</url-pattern>
     </web-resource-collection>
-    <auth-constraint />
-  </security-constraint>
-
+    <auth-constraint/>
+  </security-constraint> -->
   <session-config>
     <session-timeout>10</session-timeout>
   </session-config>
@@ -29,5 +28,23 @@
   <servlet-mapping>
     <servlet-name>loader</servlet-name>
     <url-pattern>/loader</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>stock</servlet-name>
+    <servlet-class>com.ims.ui.saveStock</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>stock</servlet-name>
+    <url-pattern>/saveStock</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>productMaster</servlet-name>
+    <servlet-class>com.ims.ui.SaveProduct</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>productMaster</servlet-name>
+    <url-pattern>/saveProduct</url-pattern>
   </servlet-mapping>
 </web-app>

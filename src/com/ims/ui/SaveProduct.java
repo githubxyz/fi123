@@ -21,7 +21,7 @@ import com.mchange.v2.beans.BeansUtils;
 /**
  * Servlet implementation class SaveProduct
  */
-@WebServlet("/pages/saveProduct")
+//@WebServlet("/saveProduct")
 public class SaveProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
