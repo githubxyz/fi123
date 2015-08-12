@@ -31,7 +31,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>stock</servlet-name>
-    <servlet-class>com.ims.ui.saveStock</servlet-class>
+    <servlet-class>com.ims.ui.SaveStock</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
