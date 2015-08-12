@@ -22,13 +22,13 @@ import com.ims.service.productService.ProductServiceImpl;
 /**
  * Servlet implementation class saveStock
  */
-public class saveStock extends HttpServlet {
+public class SaveStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public saveStock() {
+    public SaveStock() {
         super();
         // TODO Auto-generated constructor stub
     }
