@@ -9,18 +9,23 @@
         <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
         <meta name="author" content="Codrops" />
         <link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <script src="js/modernizr.custom.63321.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="../../ims/css/style.css" />
+        <link rel="stylesheet" href="../../ims/css/include-style.css" type="text/css" media="all">
         <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
-		<style>
+		<!-- style>
 			body {
 				background: #e1c192 url(images/wood_pattern.jpg);
 			}
-		</style>
+		</style-->
     </head>
     <body>
     
-        <div class="container">					
+        <div id="container" class="container" >	
+        <div id="header">
+        	<%@ include file="./pages/include/header.jsp"%>
+        </div>  
+        				
 			<section class="main">
 				<form class="form-2" method="post" action="login">
 					<h1><span class="log-in">Log in</span> or <span class="sign-up">sign up</span></h1>
@@ -38,7 +43,11 @@
 						<input type="submit" name="submit" value="Log in">
 					</p>
 				</form>​​
-			</section>			
+			</section>
+			<br><br><br><br><br><br><br><br>		
+			<div id="footer">
+			<%@ include file="./pages/include/footer.jsp"%>
+			</div>	
         </div>
        
 		<!-- jQuery if needed -->

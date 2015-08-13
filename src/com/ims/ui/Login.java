@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
 			else
 			{				
 				s.setAttribute(ISessionAttribute.LOGGEDINUSER, result);
-				RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("/success.jsp");
+				RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("./pages/dashboard.jsp");
                 requestDispatcher1.forward(request, response);
 			}
 		} catch (OperationFailedException e) {
