@@ -1,3 +1,4 @@
+<%@page import="com.ims.utility.ISessionAttribute"%>
 <%@page import="com.ims.dto.StockDetailDTO"%>
 <%@page import="com.ims.utility.Messages"%>
 <%@page import="java.util.Iterator"%>
@@ -34,7 +35,7 @@
 	<div class="wrap">
 		<div class="col">
 			<ul>
-			<% List<StockDetailDTO> stockList=(List<StockDetailDTO>)request.getAttribute("productList");
+			<% List<StockDetailDTO> stockList=(List<StockDetailDTO>)request.getAttribute(ISessionAttribute.STOCK_LIST);
 			if(stockList!=null){
 			for(Iterator it=stockList.iterator();it.hasNext();){
 				StockDetailDTO sd=(StockDetailDTO)it.next();%>
@@ -42,8 +43,6 @@
 			<%}}	%>
 			
 				
-				<li>jhgjg</li>
-				<li>jhgjg</li>
 			</ul>
 		</div>
 

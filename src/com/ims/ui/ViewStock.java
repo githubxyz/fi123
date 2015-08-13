@@ -3,6 +3,8 @@ package com.ims.ui;
 import com.ims.dto.StockDetailDTO;
 import com.ims.service.viewStock.IViewStockService;
 import com.ims.service.viewStock.ViewStockServiceImpl;
+import com.ims.utility.ISessionAttribute;
+
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.RequestDispatcher;
@@ -41,7 +43,7 @@ public class ViewStock extends HttpServlet {
 			if(sd!=null)
 				viewStockService.getAllStockDetail(1);
 			List<StockDetailDTO> list=viewStockService.getAllStockDetail(1);
-			request.setAttribute("viewStockList", list);
+			request.setAttribute(ISessionAttribute.STOCK_LIST, list);
 			
 		} catch (Exception e) {
 			error=true;
@@ -71,7 +73,7 @@ public class ViewStock extends HttpServlet {
 			if(sd!=null)
 				viewStockService.getAllStockDetail(1);
 			List<StockDetailDTO> list=viewStockService.getAllStockDetail(1);
-			request.setAttribute("viewStockList", list);
+			request.setAttribute(ISessionAttribute.STOCK_LIST, list);
 			
 		} catch (Exception e) {
 			error=true;

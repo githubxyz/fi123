@@ -32,6 +32,7 @@ public class StockDetailDAOImpl implements IStockDetailDAO {
 			Criteria criteria=session.createCriteria(StockDetailDTO.class);
 			criteria.add(Restrictions.eq("branchId", branchId));
 			stockDetailDTOs=(List<StockDetailDTO>)criteria.list();
+			logger.info(stockDetailDTOs);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
