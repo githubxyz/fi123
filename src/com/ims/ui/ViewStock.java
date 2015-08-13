@@ -45,7 +45,7 @@ public class ViewStock extends HttpServlet {
 			
 		} catch (Exception e) {
 			error=true;
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch block 
 			e.printStackTrace();
 		}
 		if(error){
