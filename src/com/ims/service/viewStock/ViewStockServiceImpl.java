@@ -13,27 +13,75 @@ import java.util.List;
 
 public class ViewStockServiceImpl implements IViewStockService {
 	private static Logger logger = Logger.getLogger("com.biz");
-/**
- * Save product master
- */
-	/*public ProductMasterDTO saveProduct(ProductMasterDTO productMasterDTO) throws OperationFailedException {
-		// TODO Auto-generated method stub
+
+	/**
+	 * Save product master
+	 */
+	/*
+	 * public ProductMasterDTO saveProduct(ProductMasterDTO productMasterDTO)
+	 * throws OperationFailedException { // TODO Auto-generated method stub
+	 * logger.info("ENTRY...."); // create a session Session session = null; //
+	 * create PersistenceManagerImpl IPersistenceManager impl = new
+	 * PersistenceManagerImpl();
+	 * 
+	 * try { session = impl.openSessionAndBeginTransaction(); IProductMasterDAO
+	 * productMasterDAO=new ProductMasterDAOImpl(session);
+	 * productMasterDAO.saveProductMaster(productMasterDTO); } catch (Exception
+	 * e) { e.printStackTrace(); logger.error(e); throw new
+	 * OperationFailedException();
+	 * 
+	 * }finally { try { // close session impl.closeAndCommitSession();
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); throw new
+	 * OperationFailedException(); } } logger.info("Exit.........");
+	 * 
+	 * 
+	 * return productMasterDTO; }
+	 */
+	/*
+	 * @Override public ProductDetailDTO saveProductDetail(ProductDetailDTO
+	 * productDetailDTO) throws OperationFailedException {
+	 * logger.info("ENTRY...."); // create a session Session session = null; //
+	 * create PersistenceManagerImpl IPersistenceManager impl = new
+	 * PersistenceManagerImpl();
+	 * 
+	 * try { session = impl.openSessionAndBeginTransaction(); IProductDetailDAO
+	 * productDetailDAO=new ProductDetailDAOImpl(session);
+	 * if(productDetailDTO.getPurchaseDate()==null)
+	 * productDetailDTO.setPurchaseDate(new Date());
+	 * productDetailDAO.saveProductDetail(productDetailDTO); } catch (Exception
+	 * e) { e.printStackTrace(); logger.error(e); throw new
+	 * OperationFailedException();
+	 * 
+	 * }finally { try { // close session impl.closeAndCommitSession();
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); throw new
+	 * OperationFailedException(); } } logger.info("Exit.........");
+	 * 
+	 * 
+	 * return productDetailDTO;
+	 * 
+	 * }
+	 */
+	@Override
+	public List<StockDetailDTO> getAllStockDetail(int branchcode) throws OperationFailedException {
 		logger.info("ENTRY....");
+		List<StockDetailDTO> dtos = new ArrayList<StockDetailDTO>();
 		// create a session
 		Session session = null;
 		// create PersistenceManagerImpl
 		IPersistenceManager impl = new PersistenceManagerImpl();
-		
+
 		try {
 			session = impl.openSessionAndBeginTransaction();
-			IProductMasterDAO productMasterDAO=new ProductMasterDAOImpl(session);
-			productMasterDAO.saveProductMaster(productMasterDTO);
+			IStockDetailDAO stockDetailDAO = new StockDetailDAOImpl(session);
+			dtos = stockDetailDAO.getAllStockDetail(branchcode);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
 			throw new OperationFailedException();
 
-		}finally {
+		} finally {
 			try {
 				// close session
 				impl.closeAndCommitSession();
@@ -44,78 +92,7 @@ public class ViewStockServiceImpl implements IViewStockService {
 			}
 		}
 		logger.info("Exit.........");
-	
 
-		return productMasterDTO;
-	}*/
-/*
-@Override
-public ProductDetailDTO saveProductDetail(ProductDetailDTO productDetailDTO) throws OperationFailedException {
-	logger.info("ENTRY....");
-	// create a session
-	Session session = null;
-	// create PersistenceManagerImpl
-	IPersistenceManager impl = new PersistenceManagerImpl();
-	
-	try {
-		session = impl.openSessionAndBeginTransaction();
-		IProductDetailDAO productDetailDAO=new ProductDetailDAOImpl(session);
-		if(productDetailDTO.getPurchaseDate()==null)
-			productDetailDTO.setPurchaseDate(new Date());
-		productDetailDAO.saveProductDetail(productDetailDTO);
-	} catch (Exception e) {
-		e.printStackTrace();
-		logger.error(e);
-		throw new OperationFailedException();
-
-	}finally {
-		try {
-			// close session
-			impl.closeAndCommitSession();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new OperationFailedException();
-		}
+		return dtos;
 	}
-	logger.info("Exit.........");
-
-
-	return productDetailDTO;
-
-}
-*/
-@Override
-public List<StockDetailDTO> getAllStockDetail(int branchcode) throws OperationFailedException {
-	logger.info("ENTRY....");
-	List<StockDetailDTO> dtos=new ArrayList<StockDetailDTO>();
-	// create a session
-	Session session = null;
-	// create PersistenceManagerImpl
-	IPersistenceManager impl = new PersistenceManagerImpl();
-	
-	try {
-		session = impl.openSessionAndBeginTransaction();
-		IStockDetailDAO stockDetailDAO=new StockDetailDAOImpl(session);
-		dtos=stockDetailDAO.getAllStockDetail(branchcode);
-	} catch (Exception e) {
-		e.printStackTrace();
-		logger.error(e);
-		throw new OperationFailedException();
-
-	}finally {
-		try {
-			// close session
-			impl.closeAndCommitSession();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new OperationFailedException();
-		}
-	}
-	logger.info("Exit.........");
-
-
-	return dtos;
-}
 }

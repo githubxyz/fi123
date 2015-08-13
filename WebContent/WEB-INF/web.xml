@@ -32,7 +32,6 @@
   <servlet>
     <servlet-name>stock</servlet-name>
     <servlet-class>com.ims.ui.SaveStock</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>stock</servlet-name>
@@ -41,7 +40,6 @@
     <servlet>
     <servlet-name>productMaster</servlet-name>
     <servlet-class>com.ims.ui.SaveProduct</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>productMaster</servlet-name>
@@ -50,7 +48,6 @@
   <servlet>
     <servlet-name>stockview</servlet-name>
     <servlet-class>com.ims.ui.ViewStock</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>stockview</servlet-name>

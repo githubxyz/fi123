@@ -32,7 +32,31 @@ public class ViewStock extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	StockDetailDTO sd=new StockDetailDTO();
+		boolean error=false;
+		try {
+			BeanUtils.populate(sd, request.getParameterMap());
+			IViewStockService viewStockService=new ViewStockServiceImpl();
+			if(sd!=null)
+				viewStockService.getAllStockDetail(1);
+			List<StockDetailDTO> list=viewStockService.getAllStockDetail(1);
+			request.setAttribute("viewStockList", list);
+			
+		} catch (Exception e) {
+			error=true;
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(error){
+			response.getWriter().append("error to save: "+sd).append(request.getContextPath());
+		}else{
+		
+		
+		RequestDispatcher rd=request.getRequestDispatcher("/pages/viewStockDetails.jsp");
+		rd.forward(request, response);
+		}
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
