@@ -47,4 +47,13 @@
     <servlet-name>productMaster</servlet-name>
     <url-pattern>/saveProduct</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>stockview</servlet-name>
+    <servlet-class>com.ims.ui.ViewStock</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>stockview</servlet-name>
+    <url-pattern>/ViewStock</url-pattern>
+  </servlet-mapping>
 </web-app>
