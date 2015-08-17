@@ -10,92 +10,86 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <g:javascript src='../js/jquery/jquery-1.7.1.min.js'/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
-    <g:javascript src='../js/jquery/jquery-ui-1.8.17.custom.min.js'/>
-    <g:javascript src='../js/jquery/jquery.dataTables.js'/>
-    <g:javascript src='../js/jquery/ColReorder.js'/>
-    <g:javascript src='../js/jquery/ColReorderWithResize.js'/>
-    <g:javascript src='../js/jquery/TableTools.js'/>
 
-    <link media="all" rel="stylesheet" href="/WebContent/css/jquery-ui-1.8.9.custom/jquery-ui-1.8.9.custom.css"
+    <script type="text/javascript" src='../js/jquery/jquery-1.7.1.min.js'/>
+    <script type="text/javascript" src='../js/jquery/jquery-ui-1.8.17.custom.min.js'/>
+    <script type="text/javascript" src='../js/jquery/jquery.dataTables.js'/>
+    <script type="text/javascript" src='../js/jquery/ColReorder.js'/>
+    <script type="text/javascript" src='../js/jquery/ColReorderWithResize.js'/>
+    <script type="text/javascript" src='../js/jquery/TableTools.js'/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link media="all" rel="stylesheet" href="../css/jquery-ui-1.8.9.custom/jquery-ui-1.8.9.custom.css"
           type="text/css"/>
-    <link media="all" rel="stylesheet" href="/css/ColReorder.css')}" type="text/css"/>
+    <link media="all" rel="stylesheet" href="../css/ColReorder.css" type="text/css"/>
 
-    <link media="all" rel="stylesheet" href="/css/demo_table_jui.css" type="text/css"/>
-    <link media="all" rel="stylesheet" href="/css/TableTools.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="../css/demo_table_jui.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="../css/TableTools.css" type="text/css"/>
 
     <script type="text/javascript">
 
-
-        $(function () {
-             alert('jj');
-            var asInitVals = new Array();
-
-
-            var oTable = $('#example').dataTable({
-                "bJQueryUI": true,
-                bRetrieve: true,
-                "sPaginationType": "full_numbers",
-                "oLanguage": {
-                    "sSearch": "Search all columns:"
-                },
-                "sDom": 'R<"H"lfr>t<"F"ip>',
-                // "sDom": '<"H"Tfr>t<"F"ip>',
-                // "sDom": 'Rlfrtip',
-                "bStateSave": true,
-                // "bDestroy":true,
-
-                "oColReorder": {
-                    "aiOrder": [0, 1, 2, 3]
-                },
-                sScrollY: "",
-                "bPaginate": true
+            $(document).ready(function () {
+                alert('jj');
+                var asInitVals = new Array();
 
 
+                var oTable = $('#example').dataTable({
+                    "bJQueryUI": true,
+                    bRetrieve: true,
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sSearch": "Search all columns:"
+                    },
+                    "sDom": 'R<"H"lfr>t<"F"ip>',
+                    // "sDom": '<"H"Tfr>t<"F"ip>',
+                    // "sDom": 'Rlfrtip',
+                    "bStateSave": true,
+                    // "bDestroy":true,
+
+                    "oColReorder": {
+                        "aiOrder": [0, 1, 2, 3]
+                    },
+                    sScrollY: "",
+                    "bPaginate": true
+
+
+                });
+
+                $("#example tfoot input").keyup(function () {
+
+                    oTable.fnFilter(this.value, $("#example tfoot input").index(this));
+                });
+
+                $("#example tfoot input").each(function (i) {
+                    var id = $(this).attr('id').split("-")[1];
+                    asInitVals[id] = this.value;
+                });
+
+                $("#example tfoot input").focus(function () {
+                    if (this.className == "search_init") {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+
+                $("#example tfoot input").blur(function (i) {
+                    var id = $(this).attr('id').split("-")[1];
+                    if (this.value == "") {
+                        this.className = "search_init";
+                        alert('jj');
+                        // this.value = asInitVals[$("#example tfoot input").index(this)];
+                        this.value = asInitVals[id];
+                    }
+                });
             });
-
-            $("#example tfoot input").keyup(function () {
-
-                oTable.fnFilter(this.value, $("#example tfoot input").index(this));
-            });
-
-            $("#example tfoot input").each(function (i) {
-                var id = $(this).attr('id').split("-")[1];
-                asInitVals[id] = this.value;
-            });
-
-            $("#example tfoot input").focus(function () {
-                if (this.className == "search_init") {
-                    this.className = "";
-                    this.value = "";
-                }
-            });
-
-            $("#example tfoot input").blur(function (i) {
-                var id = $(this).attr('id').split("-")[1];
-                if (this.value == "") {
-                    this.className = "search_init";
-                    alert('jj');
-                    // this.value = asInitVals[$("#example tfoot input").index(this)];
-                    this.value = asInitVals[id];
-                }
-            });
-        });
-
-        $(document).ready(function () {
-            $('#example').dataTable();
-            alert('jj');
-        });
-
     </script>
 
     <title>IMS</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
-<div id="header">
+<%--<div id="header">
     <h1>
         <a href="#"><%=Messages.getString("company_name")%>
         </a>
@@ -107,7 +101,7 @@
         <li><a href="#">help</a></li>
         <li><a href="#">contact</a></li>
     </ul>
-</div>
+</div>--%>
 
 <div id="bar">
     <div class="wrap">
