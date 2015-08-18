@@ -83,7 +83,7 @@
     background: -ms-linear-gradient(top,  #007FFF 0%,#022344 100%);/* IE10+ */
     background: linear-gradient(top, #007FFF 0%,#022344 100%);/* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007FFF', endColorstr='#022344',GradientType=0 ); /* IE6-9 */
-    font-weight: normal; color: #ffffff;
+    font-weight: normal; color: #555555;
 }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #ffffff; text-decoration: none; }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #448dae; background: #79c9ec url(images/ui-bg_glass_75_79c9ec_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #026890; }

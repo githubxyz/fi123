@@ -10,8 +10,8 @@
         <meta name="author" content="Codrops" />
         <link rel="shortcut icon" href="favicon.ico" />
         
-        <link rel="stylesheet" type="text/css" href="../../fi123/css/style.css" />
-        <link rel="stylesheet" href="../../fi123/css/include-style.css" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="../../ims/css/style.css" />
+        <link rel="stylesheet" href="../../ims/css/include-style.css" type="text/css"/>
         <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 		<!-- style>
 			body {

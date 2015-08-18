@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Servlet implementation class SaveProduct
  */
-//@WebServlet("/pages/ViewStock")
+//@WebServlet("/ViewStock")
 public class ViewStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
