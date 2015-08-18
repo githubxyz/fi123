@@ -13,12 +13,12 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
 
-    <script type="text/javascript" src='../js/jquery/jquery-1.7.1.min.js'/>
-    <script type="text/javascript" src='../js/jquery/jquery-ui-1.8.17.custom.min.js'/>
-    <script type="text/javascript" src='../js/jquery/jquery.dataTables.js'/>
-    <script type="text/javascript" src='../js/jquery/ColReorder.js'/>
-    <script type="text/javascript" src='../js/jquery/ColReorderWithResize.js'/>
-    <script type="text/javascript" src='../js/jquery/TableTools.js'/>
+    <script type="text/javascript" src="../js/jquery/jquery-1.7.1.min.js"/>
+    <script type="text/javascript" src="../js/jquery/jquery-ui-1.8.17.custom.min.js"/>
+    <script type="text/javascript" src="../js/jquery/jquery.dataTables.js"/>
+    <script type="text/javascript" src="../js/jquery/ColReorder.js"/>
+    <script type="text/javascript" src="../js/jquery/ColReorderWithResize.js"/>
+    <script type="text/javascript" src="../js/jquery/TableTools.js"/>
     <link href="../css/main.css" rel="stylesheet" type="text/css"/>
     <link media="all" rel="stylesheet" href="../css/jquery-ui-1.8.9.custom/jquery-ui-1.8.9.custom.css"
           type="text/css"/>
@@ -26,11 +26,10 @@
 
     <link media="all" rel="stylesheet" href="../css/demo_table_jui.css" type="text/css"/>
     <link media="all" rel="stylesheet" href="../css/TableTools.css" type="text/css"/>
-
     <script type="text/javascript">
 
             $(document).ready(function () {
-                alert('jj');
+                alert("jj");
                 var asInitVals = new Array();
 
 
@@ -62,7 +61,7 @@
                 });
 
                 $("#example tfoot input").each(function (i) {
-                    var id = $(this).attr('id').split("-")[1];
+                    var id = $(this).attr("id").split("-")[1];
                     asInitVals[id] = this.value;
                 });
 
@@ -74,10 +73,10 @@
                 });
 
                 $("#example tfoot input").blur(function (i) {
-                    var id = $(this).attr('id').split("-")[1];
+                    var id = $(this).attr("id").split("-")[1];
                     if (this.value == "") {
                         this.className = "search_init";
-                        alert('jj');
+                        alert("jj");
                         // this.value = asInitVals[$("#example tfoot input").index(this)];
                         this.value = asInitVals[id];
                     }
@@ -114,35 +113,35 @@
         <thead>
         <tr>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Sl No
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Product Name
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Product Code
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Unit Of Mesure
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Weight
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Quantity
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Branch Id
             </th>
             <th align="center"
-                style="background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;">
+                style="background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 K & P
             </th>
         </tr>
@@ -184,21 +183,21 @@
         <tfoot>
 
         <tr>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col1" name="col1" value="Search Name" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col2" name="col2" value="Search Phone Number" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col3" name="col3" value="Search Phone Number" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col4" name="col4" value="Search Name" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col5" name="col5" value="Search Phone Number" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col6" name="col6" value="Search Phone Number" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col7" name="col7" value="Search Name" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url(../images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+            <th style=" background: #e6e6e6 url('../images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col9" name="col9" value="Search Phone Number" class="search_init"/></th>
 
         </tr>
