@@ -13,18 +13,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
 
-    <script type="text/javascript" src="../js/jquery/jquery-1.7.1.min.js"/>
-    <script type="text/javascript" src="../js/jquery/jquery-ui-1.8.17.custom.min.js"/>
-    <script type="text/javascript" src="../js/jquery/jquery.dataTables.js"/>
-    <script type="text/javascript" src="../js/jquery/ColReorder.js"/>
-    <script type="text/javascript" src="../js/jquery/ColReorderWithResize.js"/>
-    <script type="text/javascript" src="../js/jquery/TableTools.js"/>
-    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
-    <link media="all" rel="stylesheet" href="../css/jquery-ui-1.8.9.custom/jquery-ui-1.8.9.custom.css"
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/jquery/ColReorder.js"></script>
+    <script type="text/javascript" src="js/jquery/ColReorderWithResize.js"></script>
+    <script type="text/javascript" src="js/jquery/TableTools.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link media="all" rel="stylesheet" href="css/jquery-ui-1.8.9.custom/jquery-ui-1.8.9.custom.css"
           type="text/css"/>
-    <link media="all" rel="stylesheet" href="../css/ColReorder.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="css/ColReorder.css" type="text/css"/>
 
-    <link media="all" rel="stylesheet" href="../css/demo_table_jui.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="css/demo_table_jui.css" type="text/css"/>
     <link media="all" rel="stylesheet" href="../css/TableTools.css" type="text/css"/>
     <script type="text/javascript">
 
