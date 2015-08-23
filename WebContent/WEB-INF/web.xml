@@ -48,4 +48,12 @@
     <servlet-name>stockview</servlet-name>
     <url-pattern>/ViewStock</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>purchaseview</servlet-name>
+    <servlet-class>com.ims.ui.ViewPurchase</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>purchaseview</servlet-name>
+    <url-pattern>/ViewPurchase</url-pattern>
+  </servlet-mapping>
 </web-app>
