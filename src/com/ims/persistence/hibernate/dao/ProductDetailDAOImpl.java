@@ -53,7 +53,7 @@ public class ProductDetailDAOImpl implements IProductDetailDAO {
 		logger.info("find stock for branchId ="+branchId);
 		try {
 			Criteria criteria=session.createCriteria(ProductDetailDTO.class);
-			criteria.add(Restrictions.eq("branchId", branchId));
+			criteria.add(Restrictions.eq("branch", branchId));
 			productDetailDTOs=(List<ProductDetailDTO>)criteria.list();
 			logger.info(productDetailDTOs);
 		} catch (Exception e) {
