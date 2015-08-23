@@ -7,5 +7,5 @@ import com.ims.dto.ProductMasterDTO;
 import com.ims.exception.OperationFailedException;
 
 public interface IProductDetailService {
-	public List<ProductDetailDTO> listOfPurchase()throws OperationFailedException;
+	public List<ProductDetailDTO> listOfPurchase(int branchcode)throws OperationFailedException;
 }
