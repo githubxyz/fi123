@@ -126,7 +126,7 @@
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Unit Of Mesure
+                Unit Of Measure
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
@@ -138,7 +138,27 @@
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                Type
+            </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                Purchase Date
+            </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                Vat
+            </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Branch Id
+            </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                User Name
+            </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                Sales Quantity
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
@@ -156,10 +176,20 @@
         <tr style="border:1px solid #ccc!important;">
             <td align="center"><%=sd.getId() %>
             </td>
-            <td align="center"><%=sd.getWeight() %>
+            <td align="center"><%=sd.getProductMaster().getProductName() %>
             </td>
-            <td align="center"><%=sd.getQuantity() %>
-            </td>
+            <td align="center"><%=sd.getProductMaster().getProductCode() %></td>
+            <td align="center"><%=sd.getProductMaster().getUnitOfMesure() %></td>
+            <td align="center"><%=sd.getWeight() %></td>
+            <td align="center"><%=sd.getQuantity()%></td>
+            <td align="center"><%=sd.getType() %></td>
+            <td align="center"><%="01-10-01" %></td>
+            <td align="center"><%=sd.getVat()%></td>
+            <td align="center"><%=sd.getBranch()%></td>
+           <td align="center"><%=sd.getUser().getId() %></td>
+            <td align="center"><%=sd.getSaleQuantity()%></td>
+            <td align="center"><%=sd.getkAndP()%></td>
+            
             
         </tr>
         <%
@@ -174,22 +204,31 @@
 
         <tr>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col1" name="col1" value="Search ID" class="search_init"/></th>
+                <input type="text" id="col1" name="col1" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col2" name="col2" value="Search Product Name" class="search_init"/></th>
+                <input type="text" id="col2" name="col2" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col3" name="col3" value="Search Product Code" class="search_init"/></th>
+                <input type="text" id="col3" name="col3" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col4" name="col4" value="Search Unit Of Measure" class="search_init"/></th>
+                <input type="text" id="col4" name="col4" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col5" name="col5" value="Search Weight" class="search_init"/></th>
+                <input type="text" id="col5" name="col5" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col6" name="col6" value="Search Quantity" class="search_init"/></th>
+                <input type="text" id="col6" name="col6" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col7" name="col7" value="Search Branch ID" class="search_init"/></th>
+                <input type="text" id="col7" name="col7" value="Search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col9" name="col9" value="Search K and P" class="search_init"/></th>
-
+                <input type="text" id="col9" name="col9" value="Search" class="search_init"/></th>
+            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col4" name="col4" value="Search" class="search_init"/></th>
+            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col5" name="col5" value="Search" class="search_init"/></th>
+            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col6" name="col6" value="Search" class="search_init"/></th>
+            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col7" name="col7" value="Search" class="search_init"/></th>
+            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col9" name="col9" value="Search" class="search_init"/></th>
         </tr>
         </tfoot>
         <%--</table>--%>

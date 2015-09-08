@@ -167,7 +167,7 @@
             <td align="center"><%=sd.getBranchId() %>
             </td>
             <%--<td><%=sd.getProductMaster().getId() %></td>--%>
-            <td align="center"><%=sd.getKndP() %>
+            <td align="center"><%=(sd.getKndP()==null?"":sd.getKndP()) %>
             </td>
         </tr>
         <%
@@ -214,7 +214,7 @@
 	  <script type="text/javascript">
 
            
-                alert("jj");
+                //alert("jj");
                 var asInitVals = new Array();
 
 
