@@ -232,7 +232,7 @@
                     // "bDestroy":true,
 
                     "oColReorder": {
-                        "aiOrder": [0, 1, 2, 3]
+                        "aiOrder": [0, 1, 2, 3,4,5,6,7]
                     },
                     sScrollY: "",
                     "bPaginate": true
