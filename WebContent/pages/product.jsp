@@ -154,7 +154,7 @@
                     // "bDestroy":true,
 
                     "oColReorder": {
-                        "aiOrder": [0, 1, 2, 3]
+                        "aiOrder": [0, 1, 2]
                     },
                     sScrollY: "",
                     "bPaginate": true
@@ -183,7 +183,7 @@
                     var id = $(this).attr("id").split("-")[1];
                     if (this.value == "") {
                         this.className = "search_init";
-                        /*alert("jj");*/
+                        /* alert("jj"); */
                         // this.value = asInitVals[$("#example tfoot input").index(this)];
                         this.value = asInitVals[id];
                     }
