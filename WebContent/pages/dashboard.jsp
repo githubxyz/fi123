@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../../ims/css/include-style.css" type="text/css" media="all">
 
-<title>Insonera.com</title>
+<title>Friends Interior</title>
 </head>
 
 <body>
