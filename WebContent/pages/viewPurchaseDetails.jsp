@@ -188,7 +188,7 @@
             <td align="center"><%=sd.getBranch()%></td>
            <td align="center"><%=sd.getUser().getId() %></td>
             <td align="center"><%=sd.getSaleQuantity()%></td>
-            <td align="center"><%=sd.getkAndP()%></td>
+            <td align="center"><%=sd.getkAndP()==null?"":sd.getkAndP()%></td>
             
             
         </tr>
