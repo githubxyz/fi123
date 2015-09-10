@@ -182,21 +182,21 @@
 
         <tr>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col1" name="col1" value="Search ID" class="search_init"/></th>
+                <input type="text" id="col1" name="col1" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col2" name="col2" value="Search Product Name" class="search_init"/></th>
+                <input type="text" id="col2" name="col2" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col3" name="col3" value="Search Product Code" class="search_init"/></th>
+                <input type="text" id="col3" name="col3" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col4" name="col4" value="Search Unit Of Measure" class="search_init"/></th>
+                <input type="text" id="col4" name="col4" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col5" name="col5" value="Search Weight" class="search_init"/></th>
+                <input type="text" id="col5" name="col5" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col6" name="col6" value="Search Quantity" class="search_init"/></th>
+                <input type="text" id="col6" name="col6" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col7" name="col7" value="Search Branch ID" class="search_init"/></th>
+                <input type="text" id="col7" name="col7" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col9" name="col9" value="Search K and P" class="search_init"/></th>
+                <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
 
         </tr>
         </tfoot>

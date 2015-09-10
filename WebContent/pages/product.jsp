@@ -105,11 +105,11 @@
 
         <tr>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col1" name="col1" value="Search ID" class="search_init"/></th>
+                <input type="text" id="col1" name="col1" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col2" name="col2" value="Search Product Name" class="search_init"/></th>
+                <input type="text" id="col2" name="col2" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col3" name="col3" value="Search Product Code" class="search_init"/></th>
+                <input type="text" id="col3" name="col3" value="Type to search" class="search_init"/></th>
             </tr>
         </tfoot>
         <%--</table>--%>
