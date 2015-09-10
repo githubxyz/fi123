@@ -33,9 +33,20 @@ public class SaveProduct extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+    	RequestDispatcher rd=request.getRequestDispatcher("/pages/product.jsp");
+		try {
+			IProductService productService=new ProductServiceImpl();
+			List<ProductMasterDTO> list=productService.listProduct();
+			request.setAttribute("productList", list);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		rd.forward(request, response);
+    }
+	 
 	
 
 	/**

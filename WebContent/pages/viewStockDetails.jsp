@@ -24,9 +24,9 @@
 
     <link media="all" rel="stylesheet" href="css/demo_table_jui.css" type="text/css"/>
     <link media="all" rel="stylesheet" href="../css/TableTools.css" type="text/css"/>
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
 
-<!--             $(document).ready(function () {
+           $(document).ready(function () {
                 alert("jj");
                 var asInitVals = new Array();
 
@@ -80,7 +80,7 @@
                     }
                 });
             });
-    </script> -->
+    </script>  -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css" media="all">
 
@@ -205,7 +205,7 @@
     </table>
 
         </div>
-
+<div id="content_bottom"></div>
             
             <div id="footer">
 			<%@ include file="include/footer.jsp"%>

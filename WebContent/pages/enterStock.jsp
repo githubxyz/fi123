@@ -61,7 +61,7 @@
 	</form>
 
         </div>
-
+<div id="content_bottom"></div>
             
             <div id="footer">
 			<%@ include file="include/footer.jsp"%>
