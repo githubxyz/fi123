@@ -23,7 +23,7 @@
     <link media="all" rel="stylesheet" href="css/ColReorder.css" type="text/css"/>
 
     <link media="all" rel="stylesheet" href="css/demo_table_jui.css" type="text/css"/>
-    <link media="all" rel="stylesheet" href="../css/TableTools.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="css/TableTools.css" type="text/css"/>
 <!--     <script type="text/javascript">
 
            $(document).ready(function () {
@@ -84,7 +84,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css" media="all">
 
-<title>Insonera.com</title>
+<title>Friends Interior</title>
 </head>
 
 <body>
