@@ -56,7 +56,7 @@
 
 			<div id="content_main">
 				<form action="saveProduct" method="post" style="paddin-: 20px;">
-					<div class="rcorners" style="margin: 20px;">
+					<div class="rcorners" style="margin: 20px;height: 120px;">
 						<div class="inpu-div">
 							<span class="label"> Product Name :</span><input type="text"
 								name="productName" value="" class="input-text">
@@ -72,7 +72,7 @@
 								<option value="2">Quantity</option>
 							</select>
 						</div>
-						<input type="submit" name="submit" value="submit"> <br></br>
+						<div class="inpu-div" style="width: 80%;float: left;text-align: center"><input type="submit" name="submit" value="submit" class="btn-style"></div>
 						<br></br>
 						<br></br>
 					</div>

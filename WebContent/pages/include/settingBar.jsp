@@ -1,8 +1,8 @@
 <%@page import="com.ims.dto.UserDTO"%>
 <%@page import="com.ims.utility.ISessionAttribute"%>
-<table width=100%>
+<table width=100% style="background-color: #306cab">
 			<tr>
-			<td width=85%> <font color="White">
+			<td width=85%> <font color="#f59a1b" size="4">
 			<% UserDTO dto = null;
 			dto = (UserDTO)(session.getAttribute(ISessionAttribute.LOGGEDINUSER));
 			%>
