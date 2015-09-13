@@ -55,8 +55,9 @@
 
 
 			<div id="content_main">
+			<div class="rcorners" style="margin: 20px;height: 120px;">
 				<form action="saveProduct" method="post" style="paddin-: 20px;">
-					<div class="rcorners" style="margin: 20px;height: 120px;">
+					
 						<div class="inpu-div">
 							<span class="label"> Product Name :</span><input type="text"
 								name="productName" value="" class="input-text">
@@ -75,9 +76,9 @@
 						<div class="inpu-div" style="width: 80%;float: left;text-align: center"><input type="submit" name="submit" value="submit" class="btn-style"></div>
 						<br></br>
 						<br></br>
-					</div>
+					
 				</form>
-
+				</div>
 				<!-- master page view -->
 				<div style="margin-bottom:10px;">
 					<table id="example" cellpadding="0" cellspacing="0" border="1"

@@ -1,6 +1,7 @@
 package com.ims.ui;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,10 +15,12 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.ims.dto.ProductDetailDTO;
 import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.UserDTO;
+import com.ims.exception.OperationFailedException;
 import com.ims.persistence.hibernate.dao.IProductDetailDAO;
 import com.ims.persistence.hibernate.dao.ProductDetailDAOImpl;
 import com.ims.service.productService.IProductService;
 import com.ims.service.productService.ProductServiceImpl;
+import com.ims.utility.IRequestAttribute;
 
 /**
  * Servlet implementation class saveStock
@@ -38,7 +41,14 @@ public class SaveStock extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		IProductService productService=new ProductServiceImpl();
+		try {
+			List<ProductMasterDTO> prMasterDTOs=productService.listProduct();
+			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
+		} catch (OperationFailedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		RequestDispatcher rd=request.getRequestDispatcher("/pages/enterStock.jsp");
 		rd.forward(request, response);
 	}
@@ -62,6 +72,8 @@ public class SaveStock extends HttpServlet {
 			productDetailDTO.setUser(user);
 			IProductService productService=new ProductServiceImpl();
 			productService.saveProductDetail(productDetailDTO);
+			List<ProductMasterDTO> prMasterDTOs=productService.listProduct();
+			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
 			
 		}catch(Exception e){
 			error=true;
