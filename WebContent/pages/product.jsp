@@ -55,32 +55,40 @@
 
 
 			<div id="content_main">
-			<div class="rcorners" style="margin: 20px;height: 120px;">
-				<form action="saveProduct" method="post" style="paddin-: 20px;">
-					
-						<div class="inpu-div">
-							<span class="label"> Product Name :</span><input type="text"
-								name="productName" value="" class="input-text">
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Product Code :</span> <input type="text"
-								name="productCode" value="" class="input-text">
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Unit of Mesure : </span> <select
-								name="unitOfMesure" class="input-text">
-								<option value="1">Weight</option>
-								<option value="2">Quantity</option>
-							</select>
-						</div>
-						<div class="inpu-div" style="width: 80%;float: left;text-align: center"><input type="submit" name="submit" value="submit" class="btn-style"></div>
-						<br></br>
-						<br></br>
-					
-				</form>
+				<div class="rcorners" style="margin-bottom: 20px; height: 220px;">
+					<div class="input-form">
+						<form action="saveProduct" method="post" style="paddin-: 20px;"
+							id="saveProductForm">
+
+							<div class="inpu-div">
+								<span class="label"> Product Name :</span><input type="text"
+									name="productName" value="" class="input-text">
+							</div>
+							<div class="inpu-div">
+								<span class="label"> Product Code :</span> <input type="text"
+									name="productCode" value="" class="input-text">
+							</div>
+							<div class="inpu-div">
+								<span class="label"> Unit of Mesure : </span> <select
+									name="unitOfMesure" class="input-text">
+									<option value="1">Weight</option>
+									<option value="2">Quantity</option>
+								</select>
+							</div>
+							<div class="inpu-div"
+								style="width: 80%; float: left; text-align: center">
+								<input type="button" name="submit" value="submit"
+									class="btn-style" onclick="saveProduct()">
+							</div>
+							<br></br> <br></br>
+
+						</form>
+					</div>
+					<div class="error-div" id="saveMasterError"></div>
+
 				</div>
 				<!-- master page view -->
-				<div style="margin-bottom:10px;">
+				<div style="margin-bottom: 10px;">
 					<table id="example" cellpadding="0" cellspacing="0" border="1"
 						class="display dataTable">
 						<thead>
@@ -211,6 +219,26 @@
 				this.value = asInitVals[id];
 			}
 		});
+		function saveProduct() {
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'saveProduct',
+				data : $('#saveProductForm').serialize(),
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					alert("error from  -> "
+							+ thrownError);
+				},
+				success : function(data) {
+					if(saveSucc.getResponseHeader('error') == '1'){
+						$("#saveMasterError").html(data);
+					}else{
+						alert("saved")
+					}
+					
+				}
+			});
+		}
 	</script>
 </body>
 </html>

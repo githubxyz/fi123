@@ -36,6 +36,8 @@ public class ProductMasterDTO implements Serializable {
 	}
 	@Column(name = "product_code" ,unique=true)
 	public String getProductCode() {
+		if(productCode!=null)
+			productCode=productCode.trim();
 		return productCode;
 	}
 	public void setProductCode(String productCode) {
@@ -43,6 +45,8 @@ public class ProductMasterDTO implements Serializable {
 	}
 	@Column(name = "product_name",unique=true)
 	public String getProductName() {
+		if(productName!=null)
+			productName=productName.trim();
 		return productName;
 	}
 	public void setProductName(String productName) {

@@ -2,6 +2,7 @@ package com.ims.ui;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.ims.dto.ProductMasterDTO;
+import com.ims.exception.ValidationException;
 import com.ims.service.productService.IProductService;
 import com.ims.service.productService.ProductServiceImpl;
 import com.mchange.v2.beans.BeansUtils;
@@ -55,6 +57,7 @@ public class SaveProduct extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ProductMasterDTO pm=new ProductMasterDTO();
+		Collection<String> errors=null;
 		boolean error=false;
 		try {
 			BeanUtils.populate(pm, request.getParameterMap());
@@ -68,15 +71,23 @@ public class SaveProduct extends HttpServlet {
 			error=true;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+			if(e instanceof ValidationException){
+				ValidationException v=(ValidationException) e;
+				errors=v.getErrorCodes();
+			}
+		}
+		RequestDispatcher rd=null;
 		if(error){
-			response.getWriter().append("error to save: "+pm).append(request.getContextPath());
+			response.setHeader("error", "1");
+			request.setAttribute("errors", errors);
+			 rd=request.getRequestDispatcher("/pages/error.jsp");
 		}else{
 		
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/pages/product.jsp");
-		rd.forward(request, response);
+		 rd=request.getRequestDispatcher("/pages/product.jsp");
+		
 		}
+		rd.forward(request, response);
 	}
 
 }

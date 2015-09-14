@@ -208,7 +208,7 @@ padding-bottom:5px;
 #content_main
 {
  border-radius: 5px;
- border: 2px solid #000040;
+ /* //border: 2px solid #000040; */
 /* background-color: white; */
 width:100%;
 padding-left:15px;
@@ -300,19 +300,21 @@ p {text-align: left;}
 }
 
 .label{
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: bold;
 	width: 40%;
 	padding-right: 6px;
+	color: #2699ca;
 }
 .input-text{
 	width: 55%;
 }
 .rcorners {
     border-radius: 5px;
-    border: 2px solid #666666;
+    border: 1px solid #f4f4f2;
+    background-color:#f4f4f2;
     padding: 5px;
-    width: 90%;
+    width: 100%;
 }
 
 .btn-style{
@@ -334,4 +336,13 @@ p {text-align: left;}
 	background : linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
 	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
 
+}
+
+.input-form{
+	width: 70%;
+	float: left;
+}
+.error-div{
+	width: 30%;
+	float: left;
 }
