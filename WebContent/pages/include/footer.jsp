@@ -1,1 +1,1 @@
-<div align=center><p><font color="white">Copyright&copy;  <a href="http://www.insonera.com">insonera.com </a>  &middot; All Rights Reserved</font></p></div>
+<div align=center><p><font color="white">Copyright&copy;  <a href="http://www.insonera.com"> </a>  &middot; All Rights Reserved</font></p></div>

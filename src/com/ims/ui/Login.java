@@ -36,7 +36,8 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("./pages/dashboard.jsp");
+        requestDispatcher1.forward(request, response);
 	}
 
 	/**
@@ -69,9 +70,6 @@ public class Login extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	//request.getSession().setAttribute(ISessionAttribute.LOGGEDINUSER, uDTO);
 	}
-
 }

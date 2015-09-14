@@ -19,7 +19,6 @@
     <li><a href="#">contact</a></li>
   </ul>
 </div>
-
 <div id="bar">
   <div class="wrap"> <span class="step"><a>1</a> sharing</span> <span class="step"><a>2</a> data management</span> <span class="step"><a>3</a> collaboration</span> </div>
 </div>
@@ -42,6 +41,5 @@
   <div align=center><p>Copyright&copy;  insonera.com    &middot; All Rights Reserved</p></div>
   <p><!-- Copyright&copy; insonera.com   <a href="http://www.insonera.com">Web Application</a> &middot; All Rights Reserved --></p>
 </div>
-
 </body>
 </html>

@@ -20,16 +20,13 @@
 		</style-->
     </head>
     <body>
-    
         <div id="container" class="container" >	
         <div id="header">
         	<%@ include file="./pages/include/header.jsp"%>
-        </div>  
-        				
+        </div>  			
 			<section class="main">
 				<form class="form-2" method="post" action="login">
 					<h1><span class="log-in">Log in</span> or <span class="sign-up">sign up</span></h1>
-					
 					<p class="float">
 						<label for="login"><i class="icon-user"></i>Username</label>
 						<input type="text" name="login1" placeholder="Username">
@@ -42,14 +39,12 @@
 						<a href="#" class="log-twitter">Sign up</a>    
 						<input type="submit" name="submit" value="Log in">
 					</p>
-				</form>​​
-			</section>
-			<br><br><br><br><br><br><br><br>		
+					</form></section>
+			<br><br><br><br><br><br><br><br><br><br>		
 			<div id="footer">
 			<%@ include file="./pages/include/footer.jsp"%>
 			</div>	
         </div>
-       
 		<!-- jQuery if needed -->
         <script type="text/javascript">
 			$(function(){

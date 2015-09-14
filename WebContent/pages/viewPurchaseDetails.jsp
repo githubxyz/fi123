@@ -183,7 +183,7 @@
             <td align="center"><%=sd.getWeight() %></td>
             <td align="center"><%=sd.getQuantity()%></td>
             <td align="center"><%=sd.getType() %></td>
-            <td align="center"><%="01-10-01" %></td>
+            <td align="center"><%=sd.getPurchaseDate() %></td>
             <td align="center"><%=sd.getVat()%></td>
             <td align="center"><%=sd.getBranch()%></td>
            <td align="center"><%=sd.getUser().getId() %></td>

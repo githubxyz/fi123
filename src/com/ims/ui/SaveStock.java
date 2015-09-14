@@ -1,6 +1,7 @@
 package com.ims.ui;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -70,6 +71,7 @@ public class SaveStock extends HttpServlet {
 			UserDTO user=new UserDTO();
 			user.setId(1);
 			productDetailDTO.setUser(user);
+			productDetailDTO.setPurchaseDate(new Date());
 			IProductService productService=new ProductServiceImpl();
 			productService.saveProductDetail(productDetailDTO);
 			List<ProductMasterDTO> prMasterDTOs=productService.listProduct();

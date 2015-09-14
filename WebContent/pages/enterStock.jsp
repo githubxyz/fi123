@@ -81,7 +81,7 @@
 					<div class="inpu-div">
 							<span class="label">
 
-						Item Code :</span><input type="text" name="kAndP">
+						K&P :</span><input type="text" name="kAndP">
 					</div>
 				<div class="inpu-div" style="width: 80%;float: left;text-align: center">
 						<input type="submit" name="save">
