@@ -6,6 +6,6 @@
 		String error=(String)it.next();
 	
 	%>
-	<li><%=error %></li>
+	<li style="color:red"><%=error %></li>
 	<%} %>
 </ul>

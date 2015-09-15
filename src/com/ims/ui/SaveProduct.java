@@ -84,7 +84,7 @@ public class SaveProduct extends HttpServlet {
 		}else{
 		
 		
-		 rd=request.getRequestDispatcher("/pages/product.jsp");
+		 rd=request.getRequestDispatcher("/pages/productList.jsp");
 		
 		}
 		rd.forward(request, response);
