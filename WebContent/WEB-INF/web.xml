@@ -33,6 +33,14 @@
     <url-pattern>/saveStock</url-pattern>
   </servlet-mapping>
     <servlet>
+    <servlet-name>stockAlart</servlet-name>
+    <servlet-class>com.ims.ui.SaveStockAlart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>stockAlart</servlet-name>
+    <url-pattern>/SaveStockAlart</url-pattern>
+  </servlet-mapping>
+    <servlet>
     <servlet-name>productMaster</servlet-name>
     <servlet-class>com.ims.ui.SaveProduct</servlet-class>
   </servlet>
