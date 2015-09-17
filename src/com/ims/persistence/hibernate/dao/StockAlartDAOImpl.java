@@ -1,0 +1,68 @@
+package com.ims.persistence.hibernate.dao;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.ims.dto.ProductMasterDTO;
+import com.ims.dto.StockAlertDTO;
+import com.ims.exception.IPersistenceErrorCode;
+import com.ims.persistence.hibernate.PersistenceException;
+
+public class StockAlartDAOImpl implements IStockAlartDAO {
+
+	private Logger logger = Logger.getLogger("com.biz");
+
+	private Session session;
+
+	public StockAlartDAOImpl(Session session) {
+
+		this.session = session;
+	}
+	public StockAlertDTO saveStockAlart(StockAlertDTO stockAlertDTO) throws PersistenceException {
+		// TODO Auto-generated method stub
+		logger.info("Entry");
+		logger.info("StockAlertDTO ="+stockAlertDTO);
+		try {
+			session.saveOrUpdate(stockAlertDTO);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+			throw new PersistenceException(e,
+					IPersistenceErrorCode.DATABASE_PROBLEM);
+		}
+		
+		logger.info("Exit");
+		return stockAlertDTO;
+	}
+
+	@Override
+	public List<StockAlertDTO> listStockAlart() throws PersistenceException {
+		// TODO Auto-generated method stub
+				logger.info("Entry");
+				List<StockAlertDTO> list=null;
+				try {
+					
+					Criteria q=session.createCriteria(StockAlertDTO.class);
+					list=q.list();
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.error(e);
+					throw new PersistenceException(e,
+							IPersistenceErrorCode.DATABASE_PROBLEM);
+				}
+				
+				logger.info("Exit");
+			
+		return list;
+	}
+	@Override
+	public StockAlertDTO saveStoclAlart(StockAlertDTO stockAlertDTO) throws PersistenceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

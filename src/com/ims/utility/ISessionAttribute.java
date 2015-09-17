@@ -5,4 +5,5 @@ public interface ISessionAttribute {
   String STOCK_LIST="stockList";
   String PURCHASE_LIST="purchaseList";
   String PRODUCTMASTER_LIST="productList";
+  String STOCLALART_LIST="stockAlartList";
 }
