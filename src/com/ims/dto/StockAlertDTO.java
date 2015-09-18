@@ -61,7 +61,7 @@ public class StockAlertDTO implements Serializable {
 		this.type = type;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "product_master_id", nullable = true)
 	public ProductMasterDTO getProductMaster() {
 		return productMaster;
