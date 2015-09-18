@@ -26,7 +26,7 @@ public class StockAlartServicesImpl implements IStockAlartService {
 /**
  * Save product master
  */
-	public StockAlertDTO saveStockAlart(StockAlertDTO stockAlertDTO) throws OperationFailedException {
+	public StockAlertDTO saveStockAlert(StockAlertDTO stockAlertDTO) throws OperationFailedException {
 		// TODO Auto-generated method stub
 		logger.info("ENTRY....");
 		// create a session
@@ -36,7 +36,9 @@ public class StockAlartServicesImpl implements IStockAlartService {
 		
 		try {
 			session = impl.openSessionAndBeginTransaction();
-			IStockAlartDAO stockAlartDAO=new StockAlartDAOImpl(session);
+			StockAlartDAOImpl stockAlartDAO=new StockAlartDAOImpl(session);
+			stockAlartDAO.saveAlert(stockAlertDTO);
+			logger.info("saving="+stockAlertDTO);
 			stockAlartDAO.saveStoclAlart(stockAlertDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,9 +49,10 @@ public class StockAlartServicesImpl implements IStockAlartService {
 			try {
 				// close session
 				impl.closeAndCommitSession();
-
+				logger.info("commit");	
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.info("ff");
 				throw new OperationFailedException();
 			}
 		}
@@ -59,7 +62,7 @@ public class StockAlartServicesImpl implements IStockAlartService {
 		return stockAlertDTO;
 	}
 
-public List<StockAlertDTO> liStockAlertDTOs() throws OperationFailedException {
+public List<StockAlertDTO> listStockAlart() throws OperationFailedException {
 	logger.info("ENTRY....");
 	List<StockAlertDTO> dtos=new ArrayList<StockAlertDTO>();
 	// create a session
@@ -94,16 +97,6 @@ public List<StockAlertDTO> liStockAlertDTOs() throws OperationFailedException {
 
 }
 
-@Override
-public StockAlertDTO saveStockAlert(StockAlertDTO stockAlertDTO) throws OperationFailedException {
-	// TODO Auto-generated method stub
-	return null;
-}
 
-@Override
-public List<StockAlertDTO> listStockAlart() throws OperationFailedException {
-	// TODO Auto-generated method stub
-	return null;
-}
 
 }
