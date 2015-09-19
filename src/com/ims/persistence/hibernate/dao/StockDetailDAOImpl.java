@@ -3,6 +3,8 @@ package com.ims.persistence.hibernate.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -55,6 +57,24 @@ public class StockDetailDAOImpl implements IStockDetailDAO {
 			criteria.add(Restrictions.eq("branchId", branchId));
 			criteria.add(Restrictions.eq("productMaster", productMasterDTO));
 			stockDetailDTOs=(List<StockDetailDTO>)criteria.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+			throw new PersistenceException(e,
+					IPersistenceErrorCode.DATABASE_PROBLEM);
+		}
+		
+		logger.info("Exit");
+		return stockDetailDTOs;
+	}
+	@Override
+	public List<StockDetailDTO> getStockForAlertCheck() throws PersistenceException {
+		logger.info("Entry");
+		List<StockDetailDTO> stockDetailDTOs=new ArrayList<StockDetailDTO>();
+		try {
+			String sql="from StockDetailDTO where productMaster.id in (select productMaster.id from StockAlertDTO)";
+			org.hibernate.Query q=session.createQuery(sql);
+			stockDetailDTOs=q.list();
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);

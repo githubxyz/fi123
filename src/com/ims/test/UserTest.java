@@ -1,5 +1,7 @@
 package com.ims.test;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.junit.Before;
@@ -7,6 +9,7 @@ import org.junit.Test;
 
 import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.StockAlertDTO;
+import com.ims.dto.StockDetailDTO;
 import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.persistence.hibernate.IPersistenceManager;
@@ -38,21 +41,13 @@ public class UserTest  {
 		//logger.info("entry...");
 		//UserDTO user=(UserDTO)ses.load(UserDTO.class, 1);
 		//System.out.println(user);
-		IStockAlartService alert=new StockAlartServicesImpl();
-		StockAlertDTO stockAlertDTO=new StockAlertDTO();
-		 ProductMasterDTO pm = new ProductMasterDTO();
-		 pm.setId(22);
-		stockAlertDTO.setProductMaster(pm);
-		stockAlertDTO.setMaxVal(44.00);
-		stockAlertDTO.setMinVal(2.0);
-		stockAlertDTO.setType(1);
+		IStockAlartService alartService=new StockAlartServicesImpl();
 		try {
-			alert.saveStockAlert(stockAlertDTO);
-			//System.out.println("stockAlertDTO="+stockAlertDTO);
-		} catch (OperationFailedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			 List<StockDetailDTO> list=alartService.getLowStockProduct();
+			 logger.info(list);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-    }
+	}
 
 }

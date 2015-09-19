@@ -54,6 +54,9 @@ public class StockAlertDTO implements Serializable {
 
 	@Column(name = "type")
 	public Integer getType() {
+		if(type==null){
+			type=1;
+		}
 		return type;
 	}
 

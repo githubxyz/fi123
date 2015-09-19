@@ -15,10 +15,12 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.StockAlertDTO;
+import com.ims.exception.OperationFailedException;
 import com.ims.service.productService.IProductService;
 import com.ims.service.productService.ProductServiceImpl;
 import com.ims.service.stockAlartService.IStockAlartService;
 import com.ims.service.stockAlartService.StockAlartServicesImpl;
+import com.ims.utility.IRequestAttribute;
 import com.mchange.v2.beans.BeansUtils;
 
 /**
@@ -39,10 +41,12 @@ public class SaveStockAlart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
     	RequestDispatcher rd=request.getRequestDispatcher("/pages/SaveStockAlart.jsp");
 		try {
+			IProductService productService=new ProductServiceImpl();
+				List<ProductMasterDTO> prMasterDTOs=productService.listProduct();
+				request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
 			IStockAlartService stockAlartService=new StockAlartServicesImpl();
 			List<StockAlertDTO> list=stockAlartService.listStockAlart();
 			request.setAttribute("stockAlartList", list);
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,6 +65,11 @@ public class SaveStockAlart extends HttpServlet {
 		boolean error=false;
 		try {
 			BeanUtils.populate(sad, request.getParameterMap());
+			String masterIdString=request.getParameter("prodId");
+			int masterid=Integer.parseInt(masterIdString);
+			ProductMasterDTO pm = new ProductMasterDTO();
+			pm.setId(masterid);
+			sad.setProductMaster(pm);
 			IStockAlartService stockAlartService=new StockAlartServicesImpl();
 			if(sad!=null)
 				stockAlartService.saveStockAlert(sad);
@@ -77,8 +86,7 @@ public class SaveStockAlart extends HttpServlet {
 		}else{
 		
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/pages/SaveStockAlart.jsp");
-		rd.forward(request, response);
+		doGet(request, response);
 		}
 	}
 

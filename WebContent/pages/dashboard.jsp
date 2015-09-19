@@ -1,4 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.Iterator"%>
+<%@page import="com.ims.dto.StockDetailDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.ims.utility.IRequestAttribute"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -104,57 +108,41 @@ table.gradienttable td p{
         <div id="dialog" title="Alert dialog">
   <p>Alert window..</p>
   <table border="1" class="gradienttable" width="100%">
+ 
   <tr>
   <td>
   Item Name
   </td>
   <td>
-  Current quantity
+  Current Weight
   </td>
   <td>
-  Min quantity
+  Current Quantity
   </td>
   <td>
-  Max Quantity
+  Status
   </td>
-  <td>
-  Alert
-  </td>
+  
   </tr>
+   <% List<StockDetailDTO> list=(List<StockDetailDTO>)request.getAttribute(IRequestAttribute.LOWALART_LIST);
+   if(list!=null && list.size()>0){
+  for (Iterator it = list.iterator(); it.hasNext(); ) {
+                    StockDetailDTO sd = (StockDetailDTO) it.next();%>
   <tr>
   <td>
-  FE
+  <%=sd.getProductName() %>
   </td>
   <td>
-  34
+  <%=sd.getWeight() %>
   </td>
   <td>
-  40
-  </td>
-  <td>
-  100
+  <%=sd.getQuantity() %>
   </td>
   <td>
  <img src="./images/Downarrow.PNG" height="35px" alt="under usage"></img>
   </td>
   </tr>
-   <tr>
-  <td>
-  FE
-  </td>
-  <td>
-  34
-  </td>
-  <td>
-  40
-  </td>
-  <td>
-  100
-  </td>
-  <td>
- <img src="./images/Downarrow.PNG" height="35px" alt="under usage"></img>
-  </td>
-  </tr>
+  <%}} %>
   </table>
 </div>
  

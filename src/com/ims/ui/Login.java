@@ -1,6 +1,7 @@
 package com.ims.ui;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.RequestWrapper;
 
+import org.apache.catalina.connector.Request;
+
+import com.ims.dto.StockDetailDTO;
 import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
+import com.ims.service.stockAlartService.IStockAlartService;
+import com.ims.service.stockAlartService.StockAlartServicesImpl;
 import com.ims.service.userService.IUserService;
 import com.ims.service.userService.UserServiceImpl;
+import com.ims.utility.IRequestAttribute;
 import com.ims.utility.ISessionAttribute;
 
 /**
@@ -36,6 +44,13 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		IStockAlartService alartService=new StockAlartServicesImpl();
+		try {
+			 List<StockDetailDTO> list=alartService.getLowStockProduct();
+			 request.setAttribute(IRequestAttribute.LOWALART_LIST, list);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("./pages/dashboard.jsp");
         requestDispatcher1.forward(request, response);
 	}
@@ -63,8 +78,7 @@ public class Login extends HttpServlet {
 			else
 			{				
 				s.setAttribute(ISessionAttribute.LOGGEDINUSER, result);
-				RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("./pages/dashboard.jsp");
-                requestDispatcher1.forward(request, response);
+				doGet(request, response);
 			}
 		} catch (OperationFailedException e) {
 			// TODO Auto-generated catch block

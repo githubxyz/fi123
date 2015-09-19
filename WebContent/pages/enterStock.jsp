@@ -32,62 +32,60 @@
 
 		<div id="content">
 			<div id="content_main" style="height: 400px;">
-				<form class="form-2" action="saveStock" method="post">
-					<%
-						List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request
-								.getAttribute(IRequestAttribute.PRODUCT_LIST);
-					%>
-					<div class="inpu-div">
-							<span class="label">
-						Item :</span><select name="prodId" class="input-text">
+				<div style="margin-bottom: 20px; height: 220px;" class="rcorners">
+					<form class="form-2" action="saveStock" method="post">
+						<%
+							List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request
+									.getAttribute(IRequestAttribute.PRODUCT_LIST);
+						%>
+						<div class="inpu-div">
+							<span class="label"> Item :</span><select name="prodId"
+								class="input-text">
 
-							<option value="0">Select</option>
-							<%
-								for (Iterator it = productdtos.iterator(); it.hasNext();) {
-									ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
-							%>
-							<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
-							<%
-								}
-							%>
-						</select>
-					</div>
-					<div class="inpu-div">
-							<span class="label">
-						Type :</span><select name="type">
-							<option value="0">Select</option>
-							<option value="1">Light</option>
-							<option value="2">Medium</option>
-							<option value="3">Heavy</option>
-						</select>
-					</div>
-					<div class="inpu-div">
-							<span class="label">
-						Weight :</span> <input type="text" name="weight">
-					</div>
-					<div class="inpu-div">
-							<span class="label">
-						Quantity :</span> <input type="text" name="quantity">
-					</div>
-					<div class="inpu-div">
-							<span class="label">
-						Cost of the item :</span><input type="text" name="amount">
-					</div>
-					<div class="inpu-div">
-							<span class="label">
-
-						Total Vat :</span><input type="text" name="vat">
-					</div>
-					<div class="inpu-div">
-							<span class="label">
-
-						K&P :</span><input type="text" name="kAndP">
-					</div>
-				<div class="inpu-div" style="width: 80%;float: left;text-align: center">
-						<input type="submit" name="save">
-					</div>
-				</form>
-
+								<option value="0">Select</option>
+								<%
+									for (Iterator it = productdtos.iterator(); it.hasNext();) {
+										ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
+								%>
+								<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
+								<%
+									}
+								%>
+							</select>
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Type :</span><select name="type">
+								<option value="0">Select</option>
+								<option value="1">Light</option>
+								<option value="2">Medium</option>
+								<option value="3">Heavy</option>
+							</select>
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Weight :</span> <input type="text"
+								name="weight">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Quantity :</span> <input type="text"
+								name="quantity">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Cost of the item :</span><input type="text"
+								name="amount">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Total Vat :</span><input type="text"
+								name="vat">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> K&P :</span><input type="text" name="kAndP">
+						</div>
+						<div class="inpu-div"
+							style="width: 80%; float: left; text-align: center">
+							<input type="submit"  class="btn-style" name="save" value="Submit">
+						</div>
+					</form>
+				</div>
 			</div>
 			<div id="content_bottom"></div>
 
