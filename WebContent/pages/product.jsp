@@ -59,7 +59,7 @@
 				<div class="rcorners" style="margin-bottom: 20px; height: 220px;">
 					<div class="input-form" >
 					<div style="align:center">
-					<font size="6px" color="#67a0f5"><b>Master Entry</b></font>
+					<font size="6px" color="#67a0f5"><b><%=Messages.getString("company_master_entry") %></b></font>
 					</div>
 						<form action="saveProduct" method="post" style="paddin-: 20px;"
 							id="saveProductForm">
@@ -96,7 +96,7 @@
 								<input type="button" name="submit" value="submit"
 									class="btn-style" onclick="saveProduct()">
 							</div>
-							<br></br> <br></br>
+							<br></br> 
 
 						</form>
 					</div>

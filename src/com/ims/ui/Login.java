@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("./pages/dashboard.jsp");
+		RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("pages/dashboard.jsp");
         requestDispatcher1.forward(request, response);
 	}
 
