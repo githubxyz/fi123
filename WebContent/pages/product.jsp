@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.ims.utility.Messages"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ims.dto.ProductMasterDTO"%>
@@ -56,23 +57,38 @@
 
 			<div id="content_main">
 				<div class="rcorners" style="margin-bottom: 20px; height: 220px;">
-					<div class="input-form">
+					<div class="input-form" >
+					<div style="align:center">
+					<font size="6px" color="#67a0f5"><b>Master Entry</b></font>
+					</div>
 						<form action="saveProduct" method="post" style="paddin-: 20px;"
 							id="saveProductForm">
 
-							<div class="inpu-div">
-								<span class="label"> Product Name :</span><input type="text"
+							<div class="inpu-div" style="width:50%">
+								<span class="label" > <%=Messages.getString("product_name") %> :</span><input type="text"
 									name="productName" value="" class="input-text">
 							</div>
-							<div class="inpu-div">
-								<span class="label"> Product Code :</span> <input type="text"
+							<div class="inpu-div" style="width:50%">
+							
+								<span class="label"> <%=Messages.getString("product_code") %> :</span> <input type="text"
 									name="productCode" value="" class="input-text">
 							</div>
-							<div class="inpu-div">
-								<span class="label"> Unit of Mesure : </span> <select
+							<div class="inpu-div" style="width:50%">
+							
+								<span class="label"> <%=Messages.getString("mesure_unit") %> : </span> <select
 									name="unitOfMesure" class="input-text">
 									<option value="1">Weight</option>
 									<option value="2">Quantity</option>
+									<option value="3">Both</option>
+								</select>
+							</div>
+							<div class="inpu-div" style="width:50%">
+							
+								<span class="label"> <%=Messages.getString("specific_unit") %> : </span> <select
+									name="unitOfMesure" class="input-text">
+									<option value="1">KG</option>
+									<option value="2">Number</option>
+									<option value="3">Packet</option>
 								</select>
 							</div>
 							<div class="inpu-div"

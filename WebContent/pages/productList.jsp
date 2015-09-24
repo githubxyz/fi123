@@ -1,19 +1,26 @@
 <%@page import="java.util.Iterator"%>
+<%@page import="com.ims.utility.Messages"%>
 <%@page import="com.ims.utility.ISessionAttribute"%>
 <%@page import="com.ims.dto.ProductMasterDTO"%>
 <%@page import="java.util.List"%>
 <table id="example" cellpadding="0" cellspacing="0" border="1"
 						class="display dataTable">
+						
 						<thead>
-							<tr>
-								<th align="center" style="background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;color: #555555;">
-									Product Name</th>
+							<tr style="width:40px">
+								<th align="center" style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+									<%=Messages.getString("product_name") %>
+									</th>
+									
+									
 								<th align="center"
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-									Product Code</th>
+									<%=Messages.getString("product_code") %></th>
+									
+									
 								<th align="center"
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-									Unit Of Measure</th>
+									<%=Messages.getString("mesure_unit") %></th>
 
 							</tr>
 						</thead>
