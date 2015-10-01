@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
 
 import com.ims.dto.ProductMasterDTO;
 import com.ims.exception.ValidationException;
@@ -26,6 +27,7 @@ import com.mchange.v2.beans.BeansUtils;
 //@WebServlet("/saveProduct")
 public class SaveProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger("com.biz");
        
     /**
      * @see HttpServlet#HttpServlet()

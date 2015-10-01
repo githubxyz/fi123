@@ -142,5 +142,38 @@ public List<ProductMasterDTO> listProduct() throws OperationFailedException {
 
 
 }
+@Override
+public ProductMasterDTO loadProductMaster(int id) throws OperationFailedException {
+	logger.info("ENTRY....");
+	ProductMasterDTO dtos=null;
+	// create a session
+	Session session = null;
+	// create PersistenceManagerImpl
+	IPersistenceManager impl = new PersistenceManagerImpl();
+	
+	try {
+		session = impl.openSessionAndBeginTransaction();
+		IProductMasterDAO productMasterDAO=new ProductMasterDAOImpl(session);
+		dtos=productMasterDAO.getProductMaster(id);
+	} catch (Exception e) {
+		e.printStackTrace();
+		logger.error(e);
+		throw new OperationFailedException();
+
+	}finally {
+		try {
+			// close session
+			impl.closeAndCommitSession();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new OperationFailedException();
+		}
+	}
+	logger.info("Exit.........");
+
+
+	return dtos;
+}
 
 }

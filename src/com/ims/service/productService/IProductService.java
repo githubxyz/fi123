@@ -11,5 +11,6 @@ public interface IProductService {
 	public ProductMasterDTO	 saveProduct(ProductMasterDTO productMasterDTO) throws OperationFailedException,ValidationException	;
 	public ProductDetailDTO  saveProductDetail(ProductDetailDTO productDetailDTO)throws OperationFailedException ;
 	public List<ProductMasterDTO> listProduct()throws OperationFailedException;
+	public ProductMasterDTO loadProductMaster(int id)throws OperationFailedException;
 		
 }

@@ -8,7 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
-
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript"
+		src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
 	<title>Insonera.com</title>
 </head>
 
@@ -33,14 +35,14 @@
 		<div id="content">
 			<div id="content_main" style="height: 400px;">
 				<div style="margin-bottom: 20px; height: 220px;" class="rcorners">
-					<form class="form-2" action="saveStock" method="post">
+					<form class="form-2" action="saveStock" method="post" id="saveStockForm">
 						<%
 							List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request
 									.getAttribute(IRequestAttribute.PRODUCT_LIST);
 						%>
 						<div class="inpu-div">
 							<span class="label"> Item :</span><select name="prodId"
-								class="input-text">
+								class="input-text" id="prodId" onchange="changeProduct()">
 
 								<option value="0">Select</option>
 								<%
@@ -54,12 +56,13 @@
 							</select>
 						</div>
 						<div class="inpu-div">
-							<span class="label"> Type :</span><select name="type">
-								<option value="0">Select</option>
-								<option value="1">Light</option>
-								<option value="2">Medium</option>
-								<option value="3">Heavy</option>
-							</select>
+							<span class="label"> Type :</span> <span id="itemTypeSpan"><select
+								name="type">
+									<option value="0">Select</option>
+									<option value="1">Light</option>
+									<option value="2">Medium</option>
+									<option value="3">Heavy</option>
+							</select> </span>
 						</div>
 						<div class="inpu-div">
 							<span class="label"> Weight :</span> <input type="text"
@@ -82,19 +85,37 @@
 						</div>
 						<div class="inpu-div"
 							style="width: 80%; float: left; text-align: center">
-							<input type="submit"  class="btn-style" name="save" value="Submit">
+							<input type="submit" class="btn-style" name="save" value="Submit">
 						</div>
 					</form>
 				</div>
 			</div>
 			<div id="content_bottom"></div>
-
 			<div id="footer">
 				<%@ include file="include/footer.jsp"%>
 			</div>
 		</div>
 
 	</div>
+	<script type="text/javascript">
+		//alert("jj");
+		function changeProduct() {
+			id=$("#prodId").val();
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'saveStock',
+				data :"selectType=1&productId="+id,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					alert("error from  -> " + thrownError);
+				},
+				success : function(data) {
+					//alert(data);
+					$("#itemTypeSpan").html(data);
 
+				}
+			});
+		}
+	</script>
 </body>
 </html>

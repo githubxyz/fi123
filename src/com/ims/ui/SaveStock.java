@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
 
 import com.ims.dto.ProductDetailDTO;
 import com.ims.dto.ProductMasterDTO;
@@ -28,66 +29,94 @@ import com.ims.utility.IRequestAttribute;
  */
 public class SaveStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SaveStock() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static Logger logger = Logger.getLogger("com.biz");
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		IProductService productService=new ProductServiceImpl();
+	public SaveStock() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void PopulateType(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		logger.info("Populate data");
+		String prodIdStr = (String) request.getParameter("productId");
+		int productId = 0;
 		try {
-			List<ProductMasterDTO> prMasterDTOs=productService.listProduct();
+			productId = Integer.parseInt(prodIdStr);
+			IProductService productService = new ProductServiceImpl();
+			ProductMasterDTO productMasterDTO = productService.loadProductMaster(productId);
+			logger.info("data get="+productMasterDTO);
+			request.setAttribute(IRequestAttribute.PRODUCT_MASTER, productMasterDTO);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/template/productType.jsp");
+		rd.forward(request, response);
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		IProductService productService = new ProductServiceImpl();
+		try {
+			List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
 			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
 		} catch (OperationFailedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("/pages/enterStock.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/enterStock.jsp");
 		rd.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductDetailDTO productDetailDTO=new ProductDetailDTO();
-		boolean error=false;
-		try{
-			int productId=Integer.parseInt(request.getParameter("prodId"));
-			ProductMasterDTO pm=new ProductMasterDTO();
-			pm.setId(productId);
-			BeanUtils.populate(productDetailDTO, request.getParameterMap());
-			productDetailDTO.setProductMaster(pm);
-			//Todo set the branchId from session parameter
-			productDetailDTO.setBranch(1);
-			UserDTO user=new UserDTO();
-			user.setId(1);
-			productDetailDTO.setUser(user);
-			productDetailDTO.setPurchaseDate(new Date());
-			IProductService productService=new ProductServiceImpl();
-			productService.saveProductDetail(productDetailDTO);
-			List<ProductMasterDTO> prMasterDTOs=productService.listProduct();
-			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
-			
-		}catch(Exception e){
-			error=true;
-			e.printStackTrace();
-		}
-		if(error){
-			response.getWriter().append("error to save: "+productDetailDTO).append(request.getContextPath());
-		}else{
-		
-		
-		RequestDispatcher rd=request.getRequestDispatcher("/pages/enterStock.jsp");
-		rd.forward(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ProductDetailDTO productDetailDTO = new ProductDetailDTO();
+		logger.info("in........" + request.getParameter("selectType"));
+		if (request.getParameter("selectType") != null && request.getParameter("selectType").toString().length() > 0) {
+			PopulateType(request, response);
+		} else {
+			boolean error = false;
+			try {
+				int productId = Integer.parseInt(request.getParameter("prodId"));
+				ProductMasterDTO pm = new ProductMasterDTO();
+				pm.setId(productId);
+				BeanUtils.populate(productDetailDTO, request.getParameterMap());
+				productDetailDTO.setProductMaster(pm);
+				// Todo set the branchId from session parameter
+				productDetailDTO.setBranch(1);
+				UserDTO user = new UserDTO();
+				user.setId(1);
+				productDetailDTO.setUser(user);
+				productDetailDTO.setPurchaseDate(new Date());
+				IProductService productService = new ProductServiceImpl();
+				productService.saveProductDetail(productDetailDTO);
+				List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
+				request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
+
+			} catch (Exception e) {
+				error = true;
+				e.printStackTrace();
+			}
+			if (error) {
+				response.getWriter().append("error to save: " + productDetailDTO).append(request.getContextPath());
+			} else {
+
+				RequestDispatcher rd = request.getRequestDispatcher("/pages/enterStock.jsp");
+				rd.forward(request, response);
+			}
 		}
 
 	}

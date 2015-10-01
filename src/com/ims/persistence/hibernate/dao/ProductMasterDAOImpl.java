@@ -42,7 +42,15 @@ public class ProductMasterDAOImpl implements IProductMasterDAO {
 	@Override
 	public ProductMasterDTO getProductMaster(int id) throws PersistenceException {
 		// TODO Auto-generated method stub
-		return null;
+		ProductMasterDTO pm=null;
+		try {
+			pm=(ProductMasterDTO) session.load(ProductMasterDTO.class, id);
+			logger.info(pm);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return pm;
 	}
 
 	@Override
