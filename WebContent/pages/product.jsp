@@ -31,6 +31,7 @@
 
 	<title>Insonera.com</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
 </head>
 
 <body>
@@ -56,7 +57,7 @@
 
 
 			<div id="content_main">
-				<div class="rcorners" style="margin-bottom: 20px; height: 220px;">
+				<div class="rcorners" style="margin-bottom: 20px; height: 220px; border-color:blue">
 					<div class="input-form" >
 					<div style="align:center">
 					<font size="6px" color="#67a0f5"><b><%=Messages.getString("company_master_entry") %></b></font>
@@ -72,11 +73,12 @@
 							
 								<span class="label"> <%=Messages.getString("product_code") %> :</span> <input type="text"
 									name="productCode" value="" class="input-text">
-							</div>
+							</div>							
 							<div class="inpu-div" style="width:50%">
 							
-								<span class="label"> <%=Messages.getString("mesure_unit") %> : </span> <select
-									name="unitOfMesure" class="input-text">
+								<span class="label"> <%=Messages.getString("mesure_unit") %> : </span> 
+								<select name="unitOfMesure" class="input-text" onchange="fillSelect(this.value,this.form['unitType'])">
+									<option value=" ">Select unit type..</option>
 									<option value="1">Weight</option>
 									<option value="2">Quantity</option>
 									<option value="3">Both</option>
@@ -84,12 +86,12 @@
 							</div>
 							<div class="inpu-div" style="width:50%">
 							
-								<span class="label"> <%=Messages.getString("specific_unit") %> : </span> <select
-									name="unitOfMesure" class="input-text">
-									<option value="1">KG</option>
-									<option value="2">Number</option>
-									<option value="3">Packet</option>
+								<span class="label"> <%=Messages.getString("specific_unit") %> : </span> 
+								<select name="unitType" class="input-text">
+									<option value=" ">Select unit..</option>
+									
 								</select>
+								
 							</div>
 							<div class="inpu-div"
 								style="width: 80%; float: left; text-align: center">
@@ -117,6 +119,27 @@
 		</div>
 
 	</div>
+	<script type="text/javascript">
+   
+            var unitType = [];
+            unitType["1"] = ["Kilogram"];
+            unitType["2"] = ["Number","Quantity"];
+            unitType["3"] = ["Kilogram","Number","Quantity"];
+
+   
+                function fillSelect(nValue,nList){
+                nList.options.length = 1;
+                var curr = unitType[nValue];
+                for (each in curr)
+                {
+                    var nOption = document.createElement('option');
+                    nOption.appendChild(document.createTextNode(curr[each]));
+                    nOption.setAttribute("value",curr[each]);           
+                    nList.appendChild(nOption);
+                }
+            }
+ 
+        </script>
 	<script type="text/javascript">
 		//alert("jj");
 				function saveProduct() {

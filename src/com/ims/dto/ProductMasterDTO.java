@@ -19,7 +19,7 @@ public class ProductMasterDTO implements Serializable {
 	String productCode;
 	String productName;
 	int unitOfMesure;
-	
+	String unitType;
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_master_seq_gen")
@@ -59,10 +59,17 @@ public class ProductMasterDTO implements Serializable {
 	public void setUnitOfMesure(int unitOfMesure) {
 		this.unitOfMesure = unitOfMesure;
 	}
+	@Column(name = "unit_type")
+	public String getunitType() {
+		return unitType;
+	}
+	public void setunitType(String unitType) {
+		this.unitType = unitType;
+	}
 	@Override
 	public String toString() {
 		return "ProductMasterDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
-				+ ", unitOfMesure=" + unitOfMesure + "]";
+				+ ", unitOfMesure=" + unitOfMesure + ", unitType=" + unitType + "]";
 	}
 	
 	
