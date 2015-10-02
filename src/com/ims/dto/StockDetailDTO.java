@@ -21,7 +21,7 @@ public class StockDetailDTO implements Serializable {
 	private int branchId;
 	private ProductMasterDTO productMaster;
 	private String kndP;
-	
+	private int type;
 	@Id
 	@Column(name = "id")
 	public int getId() {
@@ -88,11 +88,18 @@ public class StockDetailDTO implements Serializable {
 	public void setKndP(String kndP) {
 		this.kndP = kndP;
 	}
+	@Column(name="type")
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
 		return "StockDetailDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
 				+ ", quantity=" + quantity + ", weight=" + weight + ", unitOfMesure=" + unitOfMesure + ", branchId="
-				+ branchId + ", productMaster=" + productMaster + ", kndP=" + kndP + "]";
+				+ branchId + ", productMaster=" + productMaster + ", kndP=" + kndP + ", type=" + type+"]";
 	}
 	
 	

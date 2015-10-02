@@ -142,6 +142,10 @@
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 K & P
             </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                Item Type
+            </th>
         </tr>
         </thead>
 
@@ -168,6 +172,8 @@
             </td>
             <%--<td><%=sd.getProductMaster().getId() %></td>--%>
             <td align="center"><%=(sd.getKndP()==null?"":sd.getKndP()) %>
+            </td>
+            <td align="center"><%=sd.getType() %>
             </td>
         </tr>
         <%
@@ -196,6 +202,8 @@
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col7" name="col7" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col8" name="col8" value="Type to search" class="search_init"/></th>
+			<th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
 
         </tr>
@@ -232,7 +240,7 @@
                     // "bDestroy":true,
 
                     "oColReorder": {
-                        "aiOrder": [0, 1, 2, 3,4,5,6,7]
+                        "aiOrder": [0, 1, 2, 3,4,5,6,7,8]
                     },
                     sScrollY: "",
                     "bPaginate": true
