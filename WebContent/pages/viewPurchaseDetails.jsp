@@ -179,10 +179,11 @@
             <td align="center"><%=sd.getProductMaster().getProductName() %>
             </td>
             <td align="center"><%=sd.getProductMaster().getProductCode() %></td>
-            <td align="center"><%=sd.getProductMaster().getUnitOfMesure() %></td>
+            
+            <td align="center"><%=sd.getProductMaster().getUnitOfMesure()==1? "Weight" : "Quantity" %></td>
             <td align="center"><%=sd.getWeight() %></td>
             <td align="center"><%=sd.getQuantity()%></td>
-            <td align="center"><%=sd.getType() %></td>
+            <td align="center"><%=sd.getType()==0? "":(sd.getType()==1?"Light":(sd.getType()==2?"Medium":"Heavy")) %></td>
             <td align="center"><%=sd.getPurchaseDate() %></td>
             <td align="center"><%=sd.getVat()%></td>
             <td align="center"><%=sd.getBranch()%></td>
