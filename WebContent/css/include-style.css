@@ -156,7 +156,8 @@ text-align:left;
 
 #leftmenu_main ul li a, #leftmenu_main ul li a:visited
 {
-	display:block;
+	background-color: #c4ebfa;
+display:block;
 list-style: none;
 padding: 0px;
 width:192px;
@@ -164,13 +165,14 @@ padding-left:12px;
 padding-top:4px;
 height:30px;
 text-align:left;
-background-image:url(../../ims/images/leftmenu_link.png);
-background-repeat:repeat-x;
-margin-top:5px;
+/* background-image:url(../../ims/images/leftmenu_link.png);
+background-repeat:repeat-x; */
+/* margin-top:5px; */
 color:#FFFFFF;
-text-decoration:none;
+/* text-decoration:none; */
 font-size:12px;
 font-weight:bold;
+color: #0000A0;
 }
 
 #leftmenu_main ul li a:hover
@@ -343,6 +345,6 @@ p {text-align: left;}
 	float: left;
 }
 .error-div{
-	width: 30%;
+	width: 100%;
 	float: left;
 }

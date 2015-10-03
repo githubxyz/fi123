@@ -40,11 +40,11 @@
 			<%@ include file="./include/header.jsp"%>
 		</div>
 
-		<div id="menu">
+		<div class="rcorners" style="background-color:#f4f4f2; border-color:#cccccc;" id="menu">
 			<%@ include file="./include/settingBar.jsp"%>
 		</div>
 
-		<div id="leftmenu">
+		<div id="leftmenu" class="rcorners" style="border-color: rgb(204, 204, 204);">
 			<%@ include file="./include/sidemenu.htm"%>
 
 		</div>
@@ -57,11 +57,12 @@
 
 
 			<div id="content_main">
-				<div class="rcorners" style="margin-bottom: 20px; height: 220px; border-color:blue">
-					<div class="input-form" >
-					<div style="align:center">
-					<font size="6px" color="#67a0f5"><b><%=Messages.getString("company_master_entry") %></b></font>
+				<div class="rcorners" style="margin-bottom: 20px; height: 220px; border-color:#cccccc">
+					<div class="input-form" style="width:100%">
+					<div class="rcorners" style="background: #c4ebfa; border: 1px solid #cccccc; align:center; width:98.7%">
+					<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry") %></b></font>
 					</div>
+					<table><tbody><tr><td width="70%">
 						<form action="saveProduct" method="post" style="paddin-: 20px;"
 							id="saveProductForm">
 
@@ -101,8 +102,13 @@
 							<br></br> 
 
 						</form>
+						</td><td>
+   <div class="error-div" id="saveMasterError">
+
+</div></td>
+					</tr></tbody></table>
 					</div>
-					<div class="error-div" id="saveMasterError"></div>
+					
 
 				</div>
 				<!-- master page view -->
