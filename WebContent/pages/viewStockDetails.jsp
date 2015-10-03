@@ -162,7 +162,7 @@
             </td>
             <td align="center"><%=sd.getProductCode() %>
             </td>
-            <td align="center"><%=sd.getUnitOfMesure() %>
+            <td align="center"><%=sd.getUnitOfMesure()==1? "Weight" : "Quantity" %>
             </td>
             <td align="center"><%=sd.getWeight() %>
             </td>
@@ -173,7 +173,7 @@
             <%--<td><%=sd.getProductMaster().getId() %></td>--%>
             <td align="center"><%=(sd.getKndP()==null?"":sd.getKndP()) %>
             </td>
-            <td align="center"><%=sd.getType() %>
+            <td align="center"><%=sd.getType()==0? "":(sd.getType()==1?"Light":(sd.getType()==2?"Medium":"Heavy")) %>
             </td>
         </tr>
         <%
