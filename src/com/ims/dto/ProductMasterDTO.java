@@ -72,7 +72,7 @@ public class ProductMasterDTO implements Serializable {
 	}
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "group_id")
-	
+	 
 	public ProductGroupMapDTO getPrGroupMapDTO() {
 		return prGroupMapDTO;
 	}
