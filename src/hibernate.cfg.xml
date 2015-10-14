@@ -41,6 +41,7 @@
 
         <!--DTOs-->
 		<mapping class="com.ims.dto.UserDTO"/>
+		<mapping class="com.ims.dto.PurchasePaymentInfoDTO"/>
 		<mapping class="com.ims.dto.ProductGroupMapDTO"/>
 		<mapping class="com.ims.dto.ProductMasterDTO"/>
 		<mapping class="com.ims.dto.ProductDetailDTO"/>
