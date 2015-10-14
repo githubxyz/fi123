@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "stock_alert")
 public class StockAlertDTO implements Serializable {
 	private int id;
-	private Double minVal;
+	private Double minVal; 
 	private Double maxVal;
 	private Integer type;
 	private ProductMasterDTO productMaster;
