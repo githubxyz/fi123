@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.1.1
 -- Dumped by pg_dump version 9.1.1
--- Started on 2015-10-14 20:34:23
+-- Started on 2015-10-14 20:46:58
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -423,10 +423,8 @@ SELECT pg_catalog.setval('user_type_seqs', 1, false);
 -- Data for Name: branch; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY branch (id, branch_name, branch_code) FROM stdin;
-1	Durgapur	DGP
-2	Bankura	BNK
-\.
+INSERT INTO branch (id, branch_name, branch_code) VALUES (1, 'Durgapur', 'DGP');
+INSERT INTO branch (id, branch_name, branch_code) VALUES (2, 'Bankura', 'BNK');
 
 
 --
@@ -435,8 +433,6 @@ COPY branch (id, branch_name, branch_code) FROM stdin;
 -- Data for Name: product_details; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY product_details (id, weight, quantity, type, product_master_id, purchase_date, amount, vat, branch_id, user_master_id, k_and_p, sale_quantity, is_available, comments, deleted, purchase_payment_info_ref) FROM stdin;
-\.
 
 
 --
@@ -445,8 +441,6 @@ COPY product_details (id, weight, quantity, type, product_master_id, purchase_da
 -- Data for Name: product_group_map; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY product_group_map (id, code) FROM stdin;
-\.
 
 
 --
@@ -455,8 +449,6 @@ COPY product_group_map (id, code) FROM stdin;
 -- Data for Name: product_master; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY product_master (id, product_name, product_code, unit_of_measure, unit_type, group_id) FROM stdin;
-\.
 
 
 --
@@ -465,8 +457,6 @@ COPY product_master (id, product_name, product_code, unit_of_measure, unit_type,
 -- Data for Name: purchase_payment_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY purchase_payment_info (id, company_name, bill_no, payment, balance, advance) FROM stdin;
-\.
 
 
 --
@@ -475,8 +465,6 @@ COPY purchase_payment_info (id, company_name, bill_no, payment, balance, advance
 -- Data for Name: stock_alert; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY stock_alert (id, product_master_id, type, min_val, max_val) FROM stdin;
-\.
 
 
 --
@@ -485,8 +473,6 @@ COPY stock_alert (id, product_master_id, type, min_val, max_val) FROM stdin;
 -- Data for Name: stock_deatils; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY stock_deatils (id, product_code, product_name, quantity, weight, unit_of_measure, product_master_id, branch_id, k_and_p, type) FROM stdin;
-\.
 
 
 --
@@ -495,9 +481,7 @@ COPY stock_deatils (id, product_code, product_name, quantity, weight, unit_of_me
 -- Data for Name: user_master; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY user_master (id, user_name, password, first_name, middle_name, last_name, mobile, email_id, address, user_type_id) FROM stdin;
-1	admin	admin	Surat	\N	Sashmal	\N	\N	\N	1
-\.
+INSERT INTO user_master (id, user_name, password, first_name, middle_name, last_name, mobile, email_id, address, user_type_id) VALUES (1, 'admin', 'admin', 'Surat', NULL, 'Sashmal', NULL, NULL, NULL, 1);
 
 
 --
@@ -506,12 +490,10 @@ COPY user_master (id, user_name, password, first_name, middle_name, last_name, m
 -- Data for Name: user_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY user_type (id, user_type, description) FROM stdin;
-1	SUPERUSER	User having admin role
-2	PURCHASE	User having purchase entry role
-3	SALES	User having sales role
-4	VIEWONLY	User having view only role
-\.
+INSERT INTO user_type (id, user_type, description) VALUES (1, 'SUPERUSER', 'User having admin role');
+INSERT INTO user_type (id, user_type, description) VALUES (2, 'PURCHASE', 'User having purchase entry role');
+INSERT INTO user_type (id, user_type, description) VALUES (3, 'SALES', 'User having sales role');
+INSERT INTO user_type (id, user_type, description) VALUES (4, 'VIEWONLY', 'User having view only role');
 
 
 --
@@ -795,7 +777,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2015-10-14 20:34:24
+-- Completed on 2015-10-14 20:46:58
 
 --
 -- PostgreSQL database dump complete
