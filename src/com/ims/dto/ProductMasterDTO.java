@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,6 +22,7 @@ public class ProductMasterDTO implements Serializable {
 	String productCode;
 	String productName;
 	int unitOfMesure;
+	ProductGroupMapDTO prGroupMapDTO;
 	String unitType;
 	@Id
 	@Column(name = "id")
@@ -66,6 +70,16 @@ public class ProductMasterDTO implements Serializable {
 	public void setunitType(String unitType) {
 		this.unitType = unitType;
 	}
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "group_id")
+	
+	public ProductGroupMapDTO getPrGroupMapDTO() {
+		return prGroupMapDTO;
+	}
+	public void setPrGroupMapDTO(ProductGroupMapDTO prGroupMapDTO) {
+		this.prGroupMapDTO = prGroupMapDTO;
+	}
+	
 	@Override
 	public String toString() {
 		return "ProductMasterDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
