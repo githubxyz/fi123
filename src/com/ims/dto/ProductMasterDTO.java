@@ -69,7 +69,7 @@ public class ProductMasterDTO implements Serializable {
 	}
 	public void setunitType(String unitType) {
 		this.unitType = unitType;
-	}
+	} 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "group_id")
 	 
