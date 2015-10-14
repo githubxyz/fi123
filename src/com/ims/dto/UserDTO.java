@@ -31,7 +31,7 @@ public class UserDTO implements Serializable {
 		name="user_master_seq_gen",
 		sequenceName="user_master_seqs",
 		allocationSize=1
-	)
+	)    
 	public int getId() {
 		return id;
 	}
