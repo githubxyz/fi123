@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 import com.ims.dto.ProductDetailDTO;
+import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.exception.ValidationException;
@@ -16,8 +17,10 @@ import com.ims.persistence.hibernate.IPersistenceManager;
 import com.ims.persistence.hibernate.PersistenceException;
 import com.ims.persistence.hibernate.PersistenceManagerImpl;
 import com.ims.persistence.hibernate.dao.IProductDetailDAO;
+import com.ims.persistence.hibernate.dao.IProductGroupMapDAO;
 import com.ims.persistence.hibernate.dao.IProductMasterDAO;
 import com.ims.persistence.hibernate.dao.ProductDetailDAOImpl;
+import com.ims.persistence.hibernate.dao.ProductGroupMapDAOImpl;
 import com.ims.persistence.hibernate.dao.ProductMasterDAOImpl;
 
 public class ProductServiceImpl implements IProductService {
@@ -174,6 +177,37 @@ public ProductMasterDTO loadProductMaster(int id) throws OperationFailedExceptio
 
 
 	return dtos;
+}
+@Override
+public ProductGroupMapDTO getProductGroupByCode(String code) throws OperationFailedException {
+	// TODO Auto-generated method stub
+	logger.info("ENTRY....");
+	ProductGroupMapDTO dto=null;
+	// create a session
+	Session session = null;
+	// create PersistenceManagerImpl
+	IPersistenceManager impl = new PersistenceManagerImpl();
+	
+	try {
+		session = impl.openSessionAndBeginTransaction();
+		IProductGroupMapDAO dao=new ProductGroupMapDAOImpl(session);
+		dto=dao.getProductGroupByCode(code);
+	} catch (Exception e) {
+		// TODO: handle exception
+	}finally {
+		try {
+			// close session
+			impl.closeAndCommitSession();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+			throw new OperationFailedException();
+
+		}
+
+	}
+	return dto;
 }
 
 }

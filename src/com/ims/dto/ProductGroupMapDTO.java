@@ -16,12 +16,12 @@ public class ProductGroupMapDTO implements Serializable {
 	String code;
 	@Id
 	@Column(name = "id")
-	/*@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_master_seq_gen")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_group_map_seqs_gen")
 	@SequenceGenerator(
-		name="product_master_seq_gen",
-		sequenceName="product_master_seqs",
+		name="product_group_map_seqs_gen",
+		sequenceName="product_group_map_seqs",
 		allocationSize=1
-	)*/
+	)
 	public int getId() {
 		return id;
 	}
@@ -30,6 +30,8 @@ public class ProductGroupMapDTO implements Serializable {
 	}
 	@Column(name="code")
 	public String getCode() {
+		if(code!=null)
+			code=code.toUpperCase().trim();
 		return code;
 	}
 	public void setCode(String code) {
