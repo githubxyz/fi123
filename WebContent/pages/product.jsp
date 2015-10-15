@@ -4,7 +4,12 @@
 <%@page import="java.util.List"%>
 <%@page import="com.ims.dto.ProductMasterDTO"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head> 
+<style>
+#product:active {
+	color: #f78900;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
@@ -28,10 +33,11 @@
 	<link media="all" rel="stylesheet" href="css/TableTools.css"
 		type="text/css" />
 
-
-	<title>Insonera.com</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+	<!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+	<script src="./js/jquery-2.0.3.min.js"></script>
+	<link rel="stylesheet" href="./css/styles.css">
+		
+		<script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -40,11 +46,11 @@
 			<%@ include file="./include/header.jsp"%>
 		</div>
 
-		<div class="rcorners" style="background-color:#f4f4f2; border-color:#cccccc;" id="menu">
+		<div id="menu">
 			<%@ include file="./include/settingBar.jsp"%>
 		</div>
 
-		<div id="leftmenu" class="rcorners" style="border-color: rgb(204, 204, 204);">
+		<div id="leftmenu" style="border-color: rgb(204, 204, 204);">
 			<%@ include file="./include/sidemenu.htm"%>
 
 		</div>
@@ -57,58 +63,72 @@
 
 
 			<div id="content_main">
-				<div class="rcorners" style="margin-bottom: 20px; height: 220px; border-color:#cccccc">
-					<div class="input-form" style="width:100%">
-					<div class="rcorners" style="background: #c4ebfa; border: 1px solid #cccccc; align:center; width:98.7%">
-					<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry") %></b></font>
+				<div class="rcorners"
+					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
+					<div class="input-form" style="width: 100%">
+						<div class="heading">
+							<font size="4px" color="#67a0f5"> <b><%=Messages.getString("company_master_entry")%></b>
+							</font>
+						</div>
+						<table>
+							<tbody>
+								<tr>
+									<td width="70%">
+										<form action="saveProduct" method="post"
+											style="paddin-: 20px;" id="saveProductForm">
+
+											<div class="inpu-div" style="width: 50%">
+												<span class="label"> <%=Messages.getString("product_name")%>
+													:
+												</span><input type="text" name="productName" value=""
+													class="input-text">
+											</div>
+											<div class="inpu-div" style="width: 50%">
+
+												<span class="label"> <%=Messages.getString("product_code")%>
+													:
+												</span> <input type="text" name="productCode" value=""
+													class="input-text">
+											</div>
+											<div class="inpu-div" style="width: 50%">
+
+												<span class="label"> <%=Messages.getString("mesure_unit")%>
+													:
+												</span> <select name="unitOfMesure" class="input-text"
+													onchange="fillSelect(this.value,this.form['unitType'])">
+													<option value=" ">Select unit type..</option>
+													<option value="1">Weight</option>
+													<option value="2">Quantity</option>
+													<option value="3">Both</option>
+												</select>
+											</div>
+											<div class="inpu-div" style="width: 50%">
+
+												<span class="label"> <%=Messages.getString("specific_unit")%>
+													:
+												</span> <select name="unitType" class="input-text">
+													<option value=" ">Select unit..</option>
+
+												</select>
+
+											</div>
+											<div class="inpu-div"
+												style="width: 80%; float: left; text-align: center">
+												<input type="button" name="submit" value="Submit"
+													class="btn-style" onclick="saveProduct()">
+											</div>
+											<br></br>
+
+										</form>
+									</td>
+									<td>
+										<div class="error-div" id="saveMasterError"></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					<table><tbody><tr><td width="70%">
-						<form action="saveProduct" method="post" style="paddin-: 20px;"
-							id="saveProductForm">
 
-							<div class="inpu-div" style="width:50%">
-								<span class="label" > <%=Messages.getString("product_name") %> :</span><input type="text"
-									name="productName" value="" class="input-text">
-							</div>
-							<div class="inpu-div" style="width:50%">
-							
-								<span class="label"> <%=Messages.getString("product_code") %> :</span> <input type="text"
-									name="productCode" value="" class="input-text">
-							</div>							
-							<div class="inpu-div" style="width:50%">
-							
-								<span class="label"> <%=Messages.getString("mesure_unit") %> : </span> 
-								<select name="unitOfMesure" class="input-text" onchange="fillSelect(this.value,this.form['unitType'])">
-									<option value=" ">Select unit type..</option>
-									<option value="1">Weight</option>
-									<option value="2">Quantity</option>
-									<option value="3">Both</option>
-								</select>
-							</div>
-							<div class="inpu-div" style="width:50%">
-							
-								<span class="label"> <%=Messages.getString("specific_unit") %> : </span> 
-								<select name="unitType" class="input-text">
-									<option value=" ">Select unit..</option>
-									
-								</select>
-								
-							</div>
-							<div class="inpu-div"
-								style="width: 80%; float: left; text-align: center">
-								<input type="button" name="submit" value="submit"
-									class="btn-style" onclick="saveProduct()">
-							</div>
-							<br></br> 
-
-						</form>
-						</td><td>
-   <div class="error-div" id="saveMasterError">
-
-</div></td>
-					</tr></tbody></table>
-					</div>
-					
 
 				</div>
 				<!-- master page view -->
@@ -126,46 +146,41 @@
 
 	</div>
 	<script type="text/javascript">
-   
-            var unitType = [];
-            unitType["1"] = ["Kilogram"];
-            unitType["2"] = ["Number","Quantity"];
-            unitType["3"] = ["Kilogram","Number","Quantity"];
+		var unitType = [];
+		unitType["1"] = [ "Kilogram" ];
+		unitType["2"] = [ "Number", "Quantity" ];
+		unitType["3"] = [ "Kilogram", "Number", "Quantity" ];
 
-   
-                function fillSelect(nValue,nList){
-                nList.options.length = 1;
-                var curr = unitType[nValue];
-                for (each in curr)
-                {
-                    var nOption = document.createElement('option');
-                    nOption.appendChild(document.createTextNode(curr[each]));
-                    nOption.setAttribute("value",curr[each]);           
-                    nList.appendChild(nOption);
-                }
-            }
- 
-        </script>
+		function fillSelect(nValue, nList) {
+			nList.options.length = 1;
+			var curr = unitType[nValue];
+			for (each in curr) {
+				var nOption = document.createElement('option');
+				nOption.appendChild(document.createTextNode(curr[each]));
+				nOption.setAttribute("value", curr[each]);
+				nList.appendChild(nOption);
+			}
+		}
+	</script>
 	<script type="text/javascript">
 		//alert("jj");
-				function saveProduct() {
+		function saveProduct() {
 			var saveSucc = $.ajax({
 				type : 'post',
 				url : 'saveProduct',
 				data : $('#saveProductForm').serialize(),
 				error : function(xhr, ajaxOptions, thrownError) {
 					//  $('#spinner_buis').hide();
-					alert("error from  -> "
-							+ thrownError);
+					alert("error from  -> " + thrownError);
 				},
 				success : function(data) {
-					if(saveSucc.getResponseHeader('error') == '1'){
+					if (saveSucc.getResponseHeader('error') == '1') {
 						$("#saveMasterError").html(data);
-					}else{
+					} else {
 						$("#productListDiv").html(data);
 						$("#saveMasterError").html("");
 					}
-					
+
 				}
 			});
 		}

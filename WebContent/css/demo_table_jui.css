@@ -117,6 +117,7 @@ table.display thead th div.DataTables_sort_wrapper span {
 .dataTables_wrapper {
 	position: relative;
 	clear: both;
+	font-family: Raleway,sans-serif;
 }
 
 .dataTables_processing {

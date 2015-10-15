@@ -11,6 +11,10 @@
 	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript"
 		src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+		<!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="./js/jquery-2.0.3.min.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+   <script src="./js/script.js"></script>
 	<title>Insonera.com</title>
 </head>
 
@@ -33,8 +37,11 @@
 
 
 		<div id="content">
-			<div id="content_main" style="height: 400px;">
+			<div id="content_main" >
 				<div style="margin-bottom: 20px; height: 220px;" class="rcorners">
+				<div class="heading">
+					<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_purchase_entry") %></b></font>
+					</div>
 					<form class="form-2" action="saveStock" method="post" id="saveStockForm">
 						<%
 							List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request

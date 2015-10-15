@@ -26,6 +26,10 @@
 
     <link media="all" rel="stylesheet" href="css/demo_table_jui.css" type="text/css"/>
     <link media="all" rel="stylesheet" href="css/TableTools.css" type="text/css"/>
+    <!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="./js/jquery-2.0.3.min.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+   <script src="./js/script.js"></script>
     <script type="text/javascript">
 
             $(document).ready(function () {
@@ -107,8 +111,12 @@
          
 		<div id="content">
                 
-        <div id="content_top"></div>
+       
         <div id="content_main">
+        <div class="heading">
+					<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_purchase_view") %></b></font>
+					<br>
+					</div><br>
     <table id="example" cellpadding="0" cellspacing="0" border="1" class="display dataTable">
         <thead>
         <tr>

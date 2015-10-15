@@ -28,7 +28,10 @@
 		type="text/css" />
 	<link media="all" rel="stylesheet" href="css/TableTools.css"
 		type="text/css" />
-
+<!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="./js/jquery-2.0.3.min.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+   <script src="./js/script.js"></script>
 
 	<title>FriendsInterior</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -57,9 +60,11 @@
 		<div id="content">
 
 
-			<div id="content_top"></div>
 			<div id="content_main">
 			<div style="margin-bottom: 20px; height: 220px;" class="rcorners">
+			<div class="heading">
+					<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_item_configuration") %></b></font>
+					</div>
 				<form action="SaveStockAlart" method="post">
 					<% 						List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request.getAttribute(IRequestAttribute.PRODUCT_LIST);%>
 					<div class="inpu-div">
@@ -97,7 +102,7 @@
 							<span class="label">
 						Min Value :</span><input type="text" name="minVal" value=""></div>
 
-							<div class="inpu-div"><input type="submit" class="btn-style" name="submit" value="submit"> <br></br>
+							<div class="inpu-div"><input type="submit" class="btn-style" name="submit" value="Submit"> <br></br>
 							</div>
 				</form>
 </div>

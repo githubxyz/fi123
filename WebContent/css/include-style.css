@@ -41,6 +41,7 @@ background-image: linear-gradient(to bottom, #8CC3FA 0%, #FDFCFF 100%); */
 {
 height:85px;
 width:100%;	
+font-family: Raleway,sans-serif;
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c4ebfa+0,63daf7+50,caeefa+100 */
 background: #c4ebfa; /* Old browsers */
 background: -moz-linear-gradient(top,  #c4ebfa 0%, #63daf7 50%, #caeefa 100%); /* FF3.6+ */
@@ -97,9 +98,14 @@ display:block;
 float:left;
 clear:both;
 width:100%;
-height:54px;
-float:left;
-clear:both;
+height:23px;
+background-color:#f4f4f2; 
+ border-radius: 5px;
+    border: 1px solid #f4f4f2;
+    padding: 5px;
+    width: 99%;
+    border-color: #cccccc;
+    font-family: Raleway,sans-serif;
 }
 
 #leftmenu
@@ -189,7 +195,7 @@ color:#87BCF8;
 {
 display:block;
 float:left;
-width:75%;
+width:67%;
 height:auto;
 padding-left:10px;
 padding-top:15px;
@@ -215,6 +221,45 @@ padding-bottom:5px;
 width:100%;
 padding-left:15px;
 padding-right:15px;
+border-radius: 5px;
+    border: 1px solid #f4f4f2;
+    padding: 5px;
+    width: 121.5%;
+    background-color:#f4f4f2; 
+    border-color: #cccccc;
+    margin-left: 23px;
+    font-family: Raleway,sans-serif;
+}
+
+#dashboard_content_main
+{
+ border-radius: 5px;
+ /* //border: 2px solid #000040; */
+/* background-color: white; */
+width:95%;
+padding-left:15px;
+padding-right:15px;
+border-radius: 5px;
+    border: 1px solid #f4f4f2;
+    padding: 5px;
+    
+    background-color:#f4f4f2; 
+    border-color: #cccccc;
+    margin-left: 23px;
+    font-family: Raleway,sans-serif;
+}
+#dashboard_side_section
+{
+ background-color: #f4f4f2;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+	font-family: Raleway,sans-serif;
+    margin-left: 1119px;
+    margin-top: 50px;
+    padding: 5px;
+	text-align: center;
+    width: 214px;
+    
 }
 
 #content_bottom
@@ -307,6 +352,7 @@ p {text-align: left;}
 	width: 40%;
 	padding-right: 6px;
 	color: #2699ca;
+	font-family: Raleway,sans-serif;
 }
 .input-text{
 	width: 55%;
@@ -316,7 +362,16 @@ p {text-align: left;}
     border: 1px solid #f4f4f2;
     background-color:#f4f4f2;
     padding: 5px;
-    width: 100%;
+    width: 99%;
+    margin-bottom: 20px; height: 220px; border-color:#cccccc;
+}
+.heading {
+	background: #c4ebfa; 
+	border: 2px solid #cccccc; 
+	align:center; 
+	width:99.6%; 
+	border-radius: 5px;
+	font-family: Raleway,sans-serif;
 }
 
 .btn-style{
@@ -329,6 +384,7 @@ p {text-align: left;}
 	font-size : 20px;
 	color : #696869;
 	padding : 1px 17px;
+	font-family: Raleway,sans-serif;
 	background : #ffffff;
 	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(49%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6));
 	background : -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);

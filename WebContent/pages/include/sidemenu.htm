@@ -1,63 +1,59 @@
-<div id="leftmenu_main">    
-                
-                <!-- <h3>Menu</h3> -->
-                        
-                <ul>
-                    <li><a href="login"><b><%=Messages.getString("company_dashboard") %></b></a></li>
-                    <!-- <li><a href="#"><b><%=Messages.getString("company_user_Profile") %></b></a></li> -->
-                    <li><a href="#"><%=Messages.getString("company_product") %></a>
-					<ul>
-						<li>
-							<a href="SaveStockAlart"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_item_configuration") %></font></img></a>
-						</li>
-						<li>
-							<a href="saveProduct"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_master_entry") %></font></img></a>
-						</li>
-						<li>
-							<a href="saveStock"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_purchase_entry") %></font></img></a>
-						</li>
-						<!-- <li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_purchase_edit") %></font></img></a>
+<div id="cssmenu">
+
+	<!-- <h3>Menu</h3> -->
+
+	<ul>
+		<li id="selectpage"><a href="login"><b><%=Messages.getString("company_dashboard")
+					%></b></a></li>
+		<!-- <li><a href="#"><b><%=Messages.getString("company_user_Profile") %></b></a></li> -->
+		<li class='active has-sub'><a href='#'><%=Messages.getString("company_product")
+				%></a>
+			<ul>
+				<li><a href="SaveStockAlart"><%=Messages.getString("company_item_configuration")
+						%></a></li>
+				<li id="product"><a href="saveProduct"><%=Messages.getString("company_master_entry")
+						%></a></li>
+				<li id="selectpage"><a href="saveStock"><%=Messages.getString("company_purchase_entry")
+						%></a></li>
+				<!-- <li>
+							<a href="#"><%=Messages.getString("company_purchase_edit") %></a>
 						</li> -->
-						
-					</ul>
-					</li>
-                    <!-- <li><b><a href="#"><%=Messages.getString("company_sales") %></b></a>
+			</ul></li>
+
+		<!-- li class='active has-sub'><a href="#"><%=Messages.getString("company_sales") %></a>
 					<ul>
 						<li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_customer_entry") %></font></img></a>
+							<a href="#"><%=Messages.getString("company_customer_entry") %></a>
 						</li>
 						<li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_product_sales") %></font></img></a>
+							<a href="#"><%=Messages.getString("company_product_sales") %></a>
 						</li>
 						<li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_edit_sales") %></font></img></a>
+							<a href="#"><%=Messages.getString("company_edit_sales") %></a>
 						</li>
 						<li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_pending_payment") %></font></img></a>
+							<a href="#"><%=Messages.getString("company_pending_payment") %></a>
 						</li>
 						
 					</ul>
-					</li> -->
-                    <li><b><a href="#"><%=Messages.getString("company_report") %></b></a>
-					<ul>
-						<li>
-							<a href="ViewStock"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_stock_view") %></font></img></a>
+					</li-->
+		<li class='active has-sub'><a href="#"><%=Messages.getString("company_report")
+				%></a>
+			<ul>
+				<li><a href="ViewStock"><%=Messages.getString("company_stock_view") %></a>
+				</li>
+				<li><a href="ViewPurchase"><%=Messages.getString("company_purchase_view")
+						%></a></li>
+				<!-- <li>
+							<a href="#"><%=Messages.getString("company_sales_view") %></a>
 						</li>
 						<li>
-							<a href="ViewPurchase"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_purchase_view") %></font></img></a>
-						</li>
-						<!-- <li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_sales_view") %></font></img></a>
+							<a href="#"><%=Messages.getString("company_profitnloss") %></a>
 						</li>
 						<li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_profitnloss") %></font></img></a>
-						</li>
-						<li>
-							<a href="#"><img src="images/arrow.png" height="10px"><font color="#0000FF"><%=Messages.getString("company_sales_user") %></font></img></a>
+							<a href="#"><%=Messages.getString("company_sales_user") %></a>
 						</li> -->
-						
-					</ul>
-					</li>                    
-                </ul>
+
+			</ul></li>
+	</ul>
 </div>
