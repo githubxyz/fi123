@@ -81,12 +81,14 @@ public class ProductMasterDTO implements Serializable {
 	public void setPrGroupMapDTO(ProductGroupMapDTO prGroupMapDTO) {
 		this.prGroupMapDTO = prGroupMapDTO;
 	}
-	
 	@Override
 	public String toString() {
 		return "ProductMasterDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
-				+ ", unitOfMesure=" + unitOfMesure + ", unitType=" + unitType + "]";
+				+ ", unitOfMesure=" + unitOfMesure + ", prGroupMapDTO=" + prGroupMapDTO + ", unitType=" + unitType
+				+ "]";
 	}
+	
+	
 	
 	
 }

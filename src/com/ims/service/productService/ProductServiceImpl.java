@@ -48,6 +48,11 @@ public class ProductServiceImpl implements IProductService {
 				throw new ValidationException(errorCodes);
 			}
 			session = impl.openSessionAndBeginTransaction();
+			IProductGroupMapDAO dao=new ProductGroupMapDAOImpl(session);
+			ProductGroupMapDTO productGroupMapDTO=dao.getProductGroupByCode(productMasterDTO.getPrGroupMapDTO().getCode());
+			if(productGroupMapDTO!=null&&productGroupMapDTO.getId()!=0){
+				productMasterDTO.setPrGroupMapDTO(productGroupMapDTO);
+			}
 			IProductMasterDAO productMasterDAO=new ProductMasterDAOImpl(session);
 			productMasterDAO.saveProductMaster(productMasterDTO);
 		} catch (Exception e) {

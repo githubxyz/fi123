@@ -4,7 +4,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.ims.dto.ProductMasterDTO"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head> 
+<head>
 <style>
 #product:active {
 	color: #f78900;
@@ -36,7 +36,7 @@
 	<!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
 	<script src="./js/jquery-2.0.3.min.js"></script>
 	<link rel="stylesheet" href="./css/styles.css">
-		
+
 		<script src="./js/script.js"></script>
 </head>
 
@@ -67,7 +67,7 @@
 					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
 					<div class="input-form" style="width: 100%">
 						<div class="heading">
-							<font size="4px" color="#67a0f5"> <b><%=Messages.getString("company_master_entry")%></b>
+							<font size="4px" color="#67a0Messages.getString("company_edit_sales")ster_entry")%></b>
 							</font>
 						</div>
 						<table>
@@ -76,41 +76,48 @@
 									<td width="70%">
 										<form action="saveProduct" method="post"
 											style="paddin-: 20px;" id="saveProductForm">
+											<div id="editDiv">
+												<div class="inpu-div" style="width: 50%">
+													<span class="label"> <%=Messages.getString("product_group_code")%>
+														:
+													</span><input type="text" name="productGroupCode" value=""
+														class="input-text">
+												</div>
+												<div class="inpu-div" style="width: 50%">
+													<span class="label"> <%=Messages.getString("product_name")%>
+														:
+													</span><input type="text" name="productName" value=""
+														class="input-text">
+												</div>
+												<div class="inpu-div" style="width: 50%">
 
-											<div class="inpu-div" style="width: 50%">
-												<span class="label"> <%=Messages.getString("product_name")%>
-													:
-												</span><input type="text" name="productName" value=""
-													class="input-text">
-											</div>
-											<div class="inpu-div" style="width: 50%">
+													<span class="label"> <%=Messages.getString("product_code")%>
+														:
+													</span> <input type="text" name="productCode" value=""
+														class="input-text">
+												</div>
+												<div class="inpu-div" style="width: 50%">
 
-												<span class="label"> <%=Messages.getString("product_code")%>
-													:
-												</span> <input type="text" name="productCode" value=""
-													class="input-text">
-											</div>
-											<div class="inpu-div" style="width: 50%">
+													<span class="label"> <%=Messages.getString("mesure_unit")%>
+														:
+													</span> <select name="unitOfMesure" class="input-text"
+														onchange="fillSelect(this.value,this.form['unitType'])">
+														<option value=" ">Select unit type..</option>
+														<option value="1">Weight</option>
+														<option value="2">Quantity</option>
+														<option value="3">Both</option>
+													</select>
+												</div>
+												<div class="inpu-div" style="width: 50%">
 
-												<span class="label"> <%=Messages.getString("mesure_unit")%>
-													:
-												</span> <select name="unitOfMesure" class="input-text"
-													onchange="fillSelect(this.value,this.form['unitType'])">
-													<option value=" ">Select unit type..</option>
-													<option value="1">Weight</option>
-													<option value="2">Quantity</option>
-													<option value="3">Both</option>
-												</select>
-											</div>
-											<div class="inpu-div" style="width: 50%">
+													<span class="label"> <%=Messages.getString("specific_unit")%>
+														:
+													</span> <select name="unitType" class="input-text">
+														<option value=" ">Select unit..</option>
 
-												<span class="label"> <%=Messages.getString("specific_unit")%>
-													:
-												</span> <select name="unitType" class="input-text">
-													<option value=" ">Select unit..</option>
+													</select>
 
-												</select>
-
+												</div>
 											</div>
 											<div class="inpu-div"
 												style="width: 80%; float: left; text-align: center">
@@ -181,6 +188,21 @@
 						$("#saveMasterError").html("");
 					}
 
+				}
+			});
+		}
+		function editProduct(id) {
+			var saveSucc = $.ajax({
+				type : 'get',
+				url : 'saveProduct',
+				data : 'editProduct=yes&id='+id,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					alert("error from  -> " + thrownError);
+				},
+				success : function(data) {
+						$("#editDiv").html(data);
+					
 				}
 			});
 		}

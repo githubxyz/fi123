@@ -35,8 +35,8 @@
 										ProductMasterDTO sd = (ProductMasterDTO) it.next();
 							%>
 							<tr style="border: 1px solid #ccc !important;">
-								<td align="center"><%=sd.getProductName()%></td>
-								<td align="center"><%=sd.getProductCode()%></td>
+								<td align="center" onclick="editProduct(<%=sd.getId() %>)"><%=sd.getProductName()%></td>
+								<td align="center"><%=sd.getProductCode() %></td>
 								<td align="center"><%=sd.getUnitOfMesure() == 1 ? "Weight" : "Quantity"%></td>
 							</tr>
 							<%
