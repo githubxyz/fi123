@@ -51,13 +51,7 @@
 			<%@ include file="./include/sidemenu.htm"%>
 
 		</div>
-
-
-
-
 		<div id="content">
-
-
 			<div id="content_main">
 				<div style="margin-bottom: 20px; height: 220px;" class="rcorners">
 					<div class="heading">
@@ -128,8 +122,6 @@
 				<div style="margin-bottom: 10px;" id="saveStockAlartListDiv">
 					<jsp:include page="SaveStockAlartList.jsp" />
 				</div>
-
-
 			</div>
 			<div id="content_bottom"></div>
 
