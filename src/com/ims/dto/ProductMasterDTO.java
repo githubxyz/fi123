@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.type.TrueFalseType;
 
 @Entity
@@ -72,19 +74,21 @@ public class ProductMasterDTO implements Serializable {
 	} 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "group_id")
-	 
+	@Cascade({CascadeType.SAVE_UPDATE}) 
 	public ProductGroupMapDTO getPrGroupMapDTO() {
 		return prGroupMapDTO;
 	}
 	public void setPrGroupMapDTO(ProductGroupMapDTO prGroupMapDTO) {
 		this.prGroupMapDTO = prGroupMapDTO;
 	}
-	
 	@Override
 	public String toString() {
 		return "ProductMasterDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
-				+ ", unitOfMesure=" + unitOfMesure + ", unitType=" + unitType + "]";
+				+ ", unitOfMesure=" + unitOfMesure + ", prGroupMapDTO=" + prGroupMapDTO + ", unitType=" + unitType
+				+ "]";
 	}
+	
+	
 	
 	
 }

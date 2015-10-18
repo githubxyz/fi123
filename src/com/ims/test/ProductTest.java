@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.junit.Test;
 
 import com.ims.dto.ProductDetailDTO;
+import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
@@ -14,6 +15,7 @@ import com.ims.persistence.hibernate.IPersistenceManager;
 import com.ims.persistence.hibernate.PersistenceException;
 import com.ims.persistence.hibernate.PersistenceManagerImpl;
 import com.ims.persistence.hibernate.dao.IProductMasterDAO;
+import com.ims.persistence.hibernate.dao.ProductGroupMapDAOImpl;
 import com.ims.persistence.hibernate.dao.ProductMasterDAOImpl;
 import com.ims.service.productService.IProductService;
 import com.ims.service.productService.ProductServiceImpl;
@@ -23,7 +25,7 @@ public class ProductTest {
 	private static Logger logger = Logger.getLogger("com.biz");
 	public Session ses = null;
 
-	/*@Test*/
+	//@Test
 	public void testProduct() {
 		logger.info("entry...");
 		IPersistenceManager per = new PersistenceManagerImpl();
@@ -31,6 +33,9 @@ public class ProductTest {
 		productMaster.setProductCode("5465");
 		productMaster.setProductName("potol");
 		productMaster.setUnitOfMesure(1);
+		ProductGroupMapDTO name = new ProductGroupMapDTO();
+		name.setCode("AL");
+		productMaster.setPrGroupMapDTO(name);
 
 		try {
 			ses = per.openSessionAndBeginTransaction();
@@ -51,7 +56,7 @@ public class ProductTest {
 		}
 
 	}
-	@Test
+	//@Test
 	public void testPurchaseEntry() {
 		IProductService productService=new ProductServiceImpl();
 		ProductDetailDTO productDetailDTO=new ProductDetailDTO();
@@ -79,5 +84,19 @@ public class ProductTest {
 		
 		
 	}
+	@Test
+	public void testProductCode() {
+		ProductServiceImpl productGroupMapDAOImpl=new ProductServiceImpl(); 
+		try {
+			ProductGroupMapDTO pro=productGroupMapDAOImpl.getProductGroupByCode("AL");
+			System.out.println(pro);
+		} catch (OperationFailedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
 
 }
