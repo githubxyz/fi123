@@ -23,6 +23,7 @@ import com.ims.persistence.hibernate.dao.ProductDetailDAOImpl;
 import com.ims.service.productService.IProductService;
 import com.ims.service.productService.ProductServiceImpl;
 import com.ims.utility.IRequestAttribute;
+import com.ims.utility.ISessionAttribute;
 
 /**
  * Servlet implementation class saveStock
