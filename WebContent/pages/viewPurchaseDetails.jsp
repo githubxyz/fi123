@@ -1,3 +1,4 @@
+<%@page import="java.text.DateFormat"%>
 <%@page import="javax.xml.crypto.KeySelector.Purpose"%>
 <%@page import="com.ims.dto.ProductDetailDTO"%>
 <g:set var="gv1"/>
@@ -6,6 +7,7 @@
 <%@page import="com.ims.utility.Messages" %>
 <%@page import="java.util.Iterator" %>
 <%@page import="java.util.List" %>
+<%@page import="java.text.DateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <g:set var="gv1"/>
@@ -90,7 +92,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css" media="all">
 
-<title>Insonera.com</title>
+<title>FriendsInterior</title>
 </head>
 
 <body>
@@ -154,7 +156,7 @@
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Vat
+                Vat Amount
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
@@ -164,10 +166,10 @@
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 User Name
             </th>
-            <th align="center"
+           <!--  <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Sales Quantity
-            </th>
+            </th> -->
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 K & P
@@ -192,14 +194,14 @@
             <td align="center"><%=sd.getWeight() %></td>
             <td align="center"><%=sd.getQuantity()%></td>
             <td align="center"><%=sd.getType()==0? "":(sd.getType()==1?"Light":(sd.getType()==2?"Medium":"Heavy")) %></td>
-            <td align="center"><%=sd.getPurchaseDate() %></td>
+            
+           <%DateFormat shortDF = DateFormat.getDateInstance();%>
+            <td align="center"><%= shortDF.format(sd.getPurchaseDate()) %></td>
             <td align="center"><%=sd.getVat()%></td>
             <td align="center"><%=sd.getBranch()%></td>
-           <td align="center"><%=sd.getUser().getId() %></td>
-            <td align="center"><%=sd.getSaleQuantity()%></td>
+           <td align="center"><%=sd.getUser().getFirstName().concat(" ").concat(sd.getUser().getLastName()) %></td>
+            <%-- <td align="center"><%=sd.getSaleQuantity()%></td> --%>
             <td align="center"><%=sd.getkAndP()==null?"":sd.getkAndP()%></td>
-            
-            
         </tr>
         <%
                 }
@@ -224,9 +226,9 @@
                 <input type="text" id="col5" name="col5" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col6" name="col6" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+      <!--       <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col7" name="col7" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+       -->      <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col4" name="col4" value="Type to search" class="search_init"/></th>
@@ -274,7 +276,7 @@
                     // "bDestroy":true,
 
                     "oColReorder": {
-                        "aiOrder": [0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13]
+                        "aiOrder": [0, 1, 2, 3,4,5,6,7,8,9,10,11,12]
                     },
                     sScrollY: "",
                     "bPaginate": true
