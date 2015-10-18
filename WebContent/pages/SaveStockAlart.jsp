@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
-
 	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript"
 		src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
@@ -49,7 +48,6 @@
 
 		<div id="leftmenu">
 			<%@ include file="./include/sidemenu.htm"%>
-
 		</div>
 		<div id="content">
 			<div id="content_main">
@@ -83,18 +81,6 @@
 											</select>
 										</div>
 
-										<!-- Product Master ID :<select name="productMaster">
-					<option value="1">1</option>
-					<option value="2">2</option>
-				</select> -->
-										<!-- <div class="inpu-div">
-							<span class="label">
-					 Type :</span><select name="type">
-					 
-						<option value="1">High</option>
-						<option value="2">Medium</option>
-						<option value="2">Low</option>
-						</select></div> -->
 										<div class="inpu-div">
 											<span class="label"> Max Value : </span><input type="text"
 												name="maxVal" value="">
@@ -104,10 +90,18 @@
 												name="minVal" value="">
 										</div>
 
-										<div class="inpu-div">
+										<!-- <div class="inpu-div">
 											<input type="submit" class="btn-style" name="submit"
 												value="Submit"> <br></br>
-										</div>
+										</div> -->
+										
+										<div class="inpu-div"
+												style="width: 80%; float: left; text-align: center">
+												<input type="button" name="submit" value="Submit"
+													class="btn-style" onclick="SaveStockAlart()">
+											</div>
+										
+										
 									</form>
 								</td>
 								<td>
@@ -118,7 +112,6 @@
 					</table>
 				</div>
 				<!-- master page view -->
-
 				<div style="margin-bottom: 10px;" id="saveStockAlartListDiv">
 					<jsp:include page="SaveStockAlartList.jsp" />
 				</div>
@@ -146,7 +139,7 @@
 					if (saveSucc.getResponseHeader('error') == '1') {
 						$("#SaveStockAlartError").html(data);
 					} else {
-						//$("#SaveStockAlartListDiv").html(data);
+						$("#saveStockAlartListDiv").html(data);
 						$("#SaveStockAlartError").html("");
 					}
 
