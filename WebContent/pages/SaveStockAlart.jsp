@@ -68,8 +68,8 @@
 				<form action="SaveStockAlart" method="post">
 					<% 						List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request.getAttribute(IRequestAttribute.PRODUCT_LIST);%>
 					<div class="inpu-div">
-							<span class="label">
-						Item :</span><select name="prodId" class="input-text">
+              <table width="100%"><tbody><tr><td width="15%">
+                <span class="label"> <%=Messages.getString("company_product") %> :</span></td><td width="15%"><select name="prodId" class="input-text">
 
 							<option value="0">Select</option>
 							<%
@@ -80,30 +80,18 @@
 							<%
 								}
 							%>
-						</select>
-					</div>
-
-					<!-- Product Master ID :<select name="productMaster">
-					<option value="1">1</option>
-					<option value="2">2</option>
-				</select> -->
-					<!-- <div class="inpu-div">
-							<span class="label">
-					 Type :</span><select name="type">
-					 
-						<option value="1">High</option>
-						<option value="2">Medium</option>
-						<option value="2">Low</option>
-						</select></div> -->
-					<div class="inpu-div">
-							<span class="label">	
-					 Max Value : </span><input type="text" name="maxVal" value=""></div>
-					<div class="inpu-div">
-							<span class="label">
-						Min Value :</span><input type="text" name="minVal" value=""></div>
-
-							<div class="inpu-div"><input type="submit" class="btn-style" name="submit" value="Submit"> <br></br>
-							</div>
+						</select></td><td width="15%">
+						
+                <span class="label"> <%=Messages.getString("company_product_max_value") %> :</span> </td><td width="15%"><span id="itemTypeSpan"><input type="text" name="maxVal" value=""></span></td><th width="80px" rowspan="4" colspan="2"><div
+														class="error-div" id="saveMasterError"></div> </th></tr><tr><td>
+						
+                <span class="label"> <%=Messages.getString("company_product_min_value") %> :</span></td><td> <input type="text" name="minVal" value=""></td></tr></tbody></table>
+						</div>
+<div class="inpu-div" style="width: 80%; float: left; text-align: center">
+									<input type="button" name="submit" value="Submit"
+										class="btn-style" onclick="saveProduct()">
+								</div>
+							
 				</form>
 </div>
 				<!-- master page view -->
