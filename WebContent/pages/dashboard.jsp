@@ -185,10 +185,10 @@ table.gradienttable td p {
 				<table border="1" class="gradienttable" width="100%">
 
 					<tr>
-						<td><%=Messages.getString("product_name")%></td>
-						<td><%=Messages.getString("product_current_weight")%></td>
-						<td><%=Messages.getString("product_current_quantity")%></td>
-						<td><%=Messages.getString("product_status")%></td>
+						<td>Item Name</td>
+						<td>Current Weight</td>
+						<td>Current Quantity</td>
+						<td>Status</td>
 
 					</tr>
 					<%
@@ -220,8 +220,8 @@ table.gradienttable td p {
 			<table border="1" class="gradienttable" >
 
 				<tr>
-					<td width="100%"><%=Messages.getString("product_name")%></td>
-					<td><%=Messages.getString("product_status")%></td>
+					<td width="100%">Item Name</td>
+					<td>Status</td>
 
 				</tr>
 				<%

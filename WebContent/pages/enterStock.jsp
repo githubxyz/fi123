@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@page import="java.util.Iterator"%>
 <%@page import="com.ims.dto.ProductMasterDTO"%>
@@ -49,8 +48,8 @@
 									.getAttribute(IRequestAttribute.PRODUCT_LIST);
 						%>
 						<div class="inpu-div">
-              <table width="100%"><tbody><tr><td width="15%">
-                <span class="label"> <%=Messages.getString("company_product") %> :</span></td><td width="15%"><select name="prodId" class="input-text" id="prodId" onchange="changeProduct()">
+							<span class="label"> Item :</span><select name="prodId"
+								class="input-text" id="prodId" onchange="changeProduct()">
 
 								<option value="0">Select</option>
 								<%
@@ -61,25 +60,35 @@
 								<%
 									}
 								%>
-								
-                </select></td><td width="15%">
-						
-                <span class="label"> <%=Messages.getString("company_product_type") %> :</span> </td><td width="15%"><span id="itemTypeSpan" ><select name="type" class="input-text">
+							</select>
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Type :</span> <span id="itemTypeSpan"><select
+								name="type">
 									<option value="0">Select</option>
 									<option value="1">Light</option>
 									<option value="2">Medium</option>
 									<option value="3">Heavy</option>
-                </select> </span></td><th width="80px" rowspan="4" colspan="2"><div id="saveMasterError" class="error-div"></div></th></tr><tr><td>
-						
-                <span class="label"> <%=Messages.getString("company_product_weight") %> :</span></td><td> <input type="text" name="weight"></td><td>
-						
-							<span class="label"> <%=Messages.getString("company_product_quantity") %> :</span></td><td> <input type="text" name="quantity"></td></tr><tr><td>
-						
-							<span class="label"> <%=Messages.getString("company_cost_per_item") %> :</span></td><td><input type="text" name="amount"></td><td>
-						
-							<span class="label"> <%=Messages.getString("company_vat_amount") %> :</span></td><td><input type="text" name="vat"></td></tr><tr width="15%"><td>
-						
-							<span class="label"> <%=Messages.getString("company_k&p") %> :</span></td><td><input type="text" name="kAndP"></td></tr></tbody></table>
+							</select> </span>
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Weight :</span> <input type="text"
+								name="weight">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Quantity :</span> <input type="text"
+								name="quantity">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Cost of the item :</span><input type="text"
+								name="amount">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> Total Vat :</span><input type="text"
+								name="vat">
+						</div>
+						<div class="inpu-div">
+							<span class="label"> K&P :</span><input type="text" name="kAndP">
 						</div>
 						<div class="inpu-div"
 							style="width: 80%; float: left; text-align: center">
