@@ -67,8 +67,7 @@
 					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
 					<div class="input-form" style="width: 100%">
 						<div class="heading">
-							<font size="4px" color="#67a0Messages.getString("company_edit_sales")ster_entry")%></b>
-							</font>
+							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
 						</div>
 						<table>
 							<tbody>
