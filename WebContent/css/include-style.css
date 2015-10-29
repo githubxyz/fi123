@@ -50,7 +50,7 @@ background: -webkit-linear-gradient(top,  #c4ebfa 0%,#63daf7 50%,#caeefa 100%); 
 background: -o-linear-gradient(top,  #c4ebfa 0%,#63daf7 50%,#caeefa 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top,  #c4ebfa 0%,#63daf7 50%,#caeefa 100%); /* IE10+ */
 /* background: linear-gradient(to bottom,  #c4ebfa 0%,#63daf7 50%,#caeefa 100%); */ /* W3C */
-background: linear-gradient(to bottom,  #c4ebfa 0%,black 50%,brown 100%); 
+background: linear-gradient(to bottom,  #c4ebfa 0%,skyblue 50%,skyblue 100%); 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4ebfa', endColorstr='#caeefa',GradientType=0 ); /* IE6-9 */
 
 }
