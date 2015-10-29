@@ -1,6 +1,7 @@
 package com.ims.service.stockAlartService;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -13,6 +14,7 @@ import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.StockAlertDTO;
 import com.ims.dto.StockDetailDTO;
 import com.ims.exception.OperationFailedException;
+import com.ims.exception.ValidationException;
 import com.ims.persistence.hibernate.IPersistenceManager;
 import com.ims.persistence.hibernate.PersistenceException;
 import com.ims.persistence.hibernate.PersistenceManagerImpl;
@@ -38,8 +40,22 @@ public class StockAlartServicesImpl implements IStockAlartService {
 		Session session = null;
 		// create PersistenceManagerImpl
 		IPersistenceManager impl = new PersistenceManagerImpl();
+		Collection errorCodes=new ArrayList();
 
 		try {
+			/*if(stockAlertDTO.getProductMaster()==null || stockAlertDTO.getProductMaster().equals("")){
+				errorCodes.add("Select the item first");
+			}*/
+			if(stockAlertDTO.getMinVal()==null || stockAlertDTO.getMinVal().equals("") || stockAlertDTO.getMinVal()==0.0){
+				errorCodes.add("Min should not be empty");
+			}
+			if(stockAlertDTO.getMaxVal()==null || stockAlertDTO.getMaxVal().equals("") || stockAlertDTO.getMaxVal()==0.0){
+				errorCodes.add("Max should not be empty");
+			}
+			if(errorCodes.size()>0){
+				logger.info(errorCodes);
+				throw new ValidationException(errorCodes);
+			}
 			session = impl.openSessionAndBeginTransaction();
 			StockAlartDAOImpl stockAlartDAO = new StockAlartDAOImpl(session);
 			stockAlartDAO.saveAlert(stockAlertDTO);
