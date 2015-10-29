@@ -116,12 +116,8 @@ public class SaveProduct extends HttpServlet {
 			request.setAttribute("errors", errors);
 			 rd=request.getRequestDispatcher("/pages/error.jsp");
 		}else{
-		
-		
 		 rd=request.getRequestDispatcher("/pages/productList.jsp");
-		
 		}
 		rd.forward(request, response);
 	}
-
 }

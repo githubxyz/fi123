@@ -109,8 +109,9 @@ public class SaveStockAlart extends HttpServlet {
 		 rd=request.getRequestDispatcher("/pages/error.jsp");
 	}else{
 	 rd=request.getRequestDispatcher("/pages/SaveStockAlartList.jsp");
+	// rd=request.getRequestDispatcher("/pages/SaveStockAlart.jsp");
 	}
-   rd.forward(request, response);		
+    rd.forward(request, response);		
 	//doGet(request, response);
 	}
 }

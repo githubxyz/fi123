@@ -13,8 +13,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
-
-
 	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript"
 		src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
@@ -52,16 +50,9 @@
 
 		<div id="leftmenu" style="border-color: rgb(204, 204, 204);">
 			<%@ include file="./include/sidemenu.htm"%>
-
 		</div>
 
-
-
-
 		<div id="content">
-
-
-
 			<div id="content_main">
 				<div class="rcorners"
 					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
@@ -109,14 +100,11 @@
 													</select>
 												</div>
 												<div class="inpu-div" style="width: 50%">
-
 													<span class="label"> <%=Messages.getString("specific_unit")%>
 														:
 													</span> <select name="unitType" class="input-text">
 														<option value=" ">Select unit..</option>
-
 													</select>
-
 												</div>
 											</div>
 											<div class="inpu-div"
@@ -124,7 +112,7 @@
 												<input type="button" name="submit" value="Submit"
 													class="btn-style" onclick="saveProduct()">
 											</div>
-											<br></br>
+											<br>
 
 										</form>
 									</td>
