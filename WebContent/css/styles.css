@@ -37,7 +37,7 @@
   font-size: 16px;
   text-decoration: none;
   color: #ffffff;
-  background: linear-gradient(to bottom,  #c4ebfa 0%,#63daf7 50%,#caeefa 100%);
+  background: linear-gradient(to bottom,  #c4ebfa 0%,#63daf7 50%,skyblue 100%);
   -webkit-transition: color .2s ease;
   -o-transition: color .2s ease;
   transition: color .2s ease;
