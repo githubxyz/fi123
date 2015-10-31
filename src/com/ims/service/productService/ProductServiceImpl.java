@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import com.ims.dto.ProductDetailDTO;
 import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
+import com.ims.dto.PurchasePaymentInfoDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.exception.ValidationException;
 import com.ims.persistence.hibernate.IPersistenceManager;
@@ -19,9 +20,11 @@ import com.ims.persistence.hibernate.PersistenceManagerImpl;
 import com.ims.persistence.hibernate.dao.IProductDetailDAO;
 import com.ims.persistence.hibernate.dao.IProductGroupMapDAO;
 import com.ims.persistence.hibernate.dao.IProductMasterDAO;
+import com.ims.persistence.hibernate.dao.IPurchasePaymentInfoDAO;
 import com.ims.persistence.hibernate.dao.ProductDetailDAOImpl;
 import com.ims.persistence.hibernate.dao.ProductGroupMapDAOImpl;
 import com.ims.persistence.hibernate.dao.ProductMasterDAOImpl;
+import com.ims.persistence.hibernate.dao.PurchasePaymentInfoDAOImpl;
 
 public class ProductServiceImpl implements IProductService {
 	private static Logger logger = Logger.getLogger("com.biz");
@@ -90,6 +93,11 @@ public ProductDetailDTO saveProductDetail(ProductDetailDTO productDetailDTO) thr
 	
 	try {
 		session = impl.openSessionAndBeginTransaction();
+		IPurchasePaymentInfoDAO purchasePaymentInfoDAO=new PurchasePaymentInfoDAOImpl(session);
+		PurchasePaymentInfoDTO purchasePaymentInfoDTO=purchasePaymentInfoDAO.getPaymentInfo(productDetailDTO.getPurchaseRef().getBillNo());
+		if(purchasePaymentInfoDTO!=null&&purchasePaymentInfoDTO.getId()!=0){
+			productDetailDTO.setPurchaseRef(purchasePaymentInfoDTO);
+		}
 		IProductDetailDAO productDetailDAO=new ProductDetailDAOImpl(session);
 		if(productDetailDTO.getPurchaseDate()==null)
 			productDetailDTO.setPurchaseDate(new Date());
