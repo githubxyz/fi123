@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name = "product_details")
 public class ProductDetailDTO implements Serializable {
@@ -31,7 +34,7 @@ public class ProductDetailDTO implements Serializable {
 	private boolean available;
 	private boolean deleted;
 	private String kAndP;
-
+	private PurchasePaymentInfoDTO purchaseRef;
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_details_seq_gen")
@@ -161,6 +164,18 @@ public class ProductDetailDTO implements Serializable {
 
 	public void setkAndP(String kAndP) {
 		this.kAndP = kAndP;
+	}
+	
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "purchase_payment_info_ref")
+	@Cascade({CascadeType.SAVE_UPDATE}) 
+	public PurchasePaymentInfoDTO getPurchaseRef() {
+		return purchaseRef;
+	}
+
+	public void setPurchaseRef(PurchasePaymentInfoDTO purchaseRef) {
+		this.purchaseRef = purchaseRef;
 	}
 
 	@Override
