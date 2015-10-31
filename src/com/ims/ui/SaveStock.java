@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 
 import com.ims.dto.ProductDetailDTO;
 import com.ims.dto.ProductMasterDTO;
+import com.ims.dto.PurchasePaymentInfoDTO;
 import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.persistence.hibernate.dao.IProductDetailDAO;
@@ -95,6 +96,11 @@ public class SaveStock extends HttpServlet {
 				ProductMasterDTO pm = new ProductMasterDTO();
 				pm.setId(productId);
 				BeanUtils.populate(productDetailDTO, request.getParameterMap());
+				String billno=request.getParameter("billrefid");
+				PurchasePaymentInfoDTO paymentInfoDTO=new PurchasePaymentInfoDTO();
+				paymentInfoDTO.setBillNo(billno);
+				productDetailDTO.setPurchaseRef(paymentInfoDTO);
+				
 				productDetailDTO.setProductMaster(pm);
 				// Todo set the branchId from session parameter
 				productDetailDTO.setBranch(1);
