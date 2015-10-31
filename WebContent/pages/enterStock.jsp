@@ -48,6 +48,10 @@
 									.getAttribute(IRequestAttribute.PRODUCT_LIST);
 						%>
 						<div class="inpu-div">
+							<span class="label"> <%=Messages.getString("purchase_ref_id") %> :</span>
+							<input type="text" name="billrefid" value=""/>
+						</div>		
+						<div class="inpu-div">
 							<span class="label"> Item :</span><select name="prodId"
 								class="input-text" id="prodId" onchange="changeProduct()">
 
