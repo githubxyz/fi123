@@ -1,7 +1,7 @@
 (function($){
 $(document).ready(function(){
 
-$('#cssmenu li.active').addClass('close').children('ul').hide();
+$('#cssmenu li.active').addClass('open').children('ul').show();
 	$('#cssmenu li.has-sub>a').on('click', function(){
 		$(this).removeAttr('href');
 		var element = $(this).parent('li');

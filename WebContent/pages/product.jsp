@@ -38,6 +38,23 @@
 	<link rel="stylesheet" href="./css/styles.css">
 
 		<script src="./js/script.js"></script>
+		<script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+		</script>
+		<script>
+		$(document).ready(function(){
+			$("#masterproduct").on({
+				 mouseenter: function(){
+					$(this).css("background-color","#f78900");
+				},
+			mouseleave: function(){
+				$(this).css("background-color","#f78900");
+			}
+				});
+			/* $("#masterproduct:contains('saveProduct')").css("background-color","#f78900"); */
+			
+		});
+		</script>
 </head>
 
 <body>
