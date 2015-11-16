@@ -43,17 +43,27 @@
 		</script>
 		<script>
 		$(document).ready(function(){
-			$("#masterproduct").on({
+			/* $("#masterproduct").on({
 				 mouseenter: function(){
 					$(this).css("background-color","#f78900");
 				},
 			mouseleave: function(){
 				$(this).css("background-color","#f78900");
 			}
-				});
-			/* $("#masterproduct:contains('saveProduct')").css("background-color","#f78900"); */
+				}); */
+			/* $("#masterproduct:contains('saveProduct')").css("background-color","#f78900"); */ 
+			$("#masterproduct").css("background-color", "#f78900");
+			$('#cssmenu li >ul >li.masterproduct').addClass('close').children('ul').hide();
+			//$('#cssmenu2 li.active').addClass('close').children('ul').hide();
+			//$('#cssmenu3 li.active').addClass('close').children('ul').hide();
 			
+			//$('#companysales,#companyreport').addClass('close').children('ul').hide();
+			//$("dashboard,#companysales,#companyreport").hide();
+			/* $("#companyproduct,#masterproduct").click(function(){
+	        $("dashboard,#companysales,#companyreport").show();
+			}); */
 		});
+		
 		</script>
 </head>
 
