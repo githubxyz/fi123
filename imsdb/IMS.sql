@@ -721,3 +721,89 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
+
+ALTER TABLE branch ADD branch_city character varying(128);
+ALTER TABLE branch ADD branch_pin character varying(128);
+ALTER TABLE branch ADD branch_phone character varying(128);
+ALTER TABLE branch ADD branch_email character varying(128);
+--------------
+CREATE TABLE sales_master
+(
+  id integer NOT NULL,
+  sales_details_id integer,
+  total_vat_amount numeric(14,4),
+  total_amount_without_vat numeric(14,4),
+  total_amount_with_vat numeric(14,4),
+  braanch_id integer not null,
+  user_id integer not null,
+  customer_vat_no character varying(128),
+  bill_date timestamp without time zone default now()
+);
+CREATE TABLE sales_details
+(
+  id integer NOT NULL,
+  product_master_id integer,
+  quantity numeric(14,4),
+  measure numeric(14,4),
+  vat_percentage numeric(14,4),
+  vat_amount numeric(14,4),
+  total_amount_without_vat numeric(14,4),
+  total_amount_with_vat numeric(14,4),
+  braanch_id integer not null
+);
+
+
+ALTER TABLE sales_master ADD CONSTRAINT sales_master_pk PRIMARY KEY(id);  
+ALTER TABLE sales_details ADD CONSTRAINT sales_details_pk PRIMARY KEY(id);  
+ALTER TABLE sales_master ADD CONSTRAINT sales_master_sales_detid_fk FOREIGN KEY (sales_details_id) REFERENCES sales_details (id);
+ALTER TABLE sales_master ADD CONSTRAINT sales_master_sales_braanch_id_fk FOREIGN KEY (braanch_id) REFERENCES branch (id);
+ALTER TABLE sales_master ADD CONSTRAINT sales_master_sales_user_id_fk FOREIGN KEY (user_id) REFERENCES user_master (id);
+
+ALTER TABLE sales_details ADD CONSTRAINT sales_details_pm_id_fk FOREIGN KEY (product_master_id) REFERENCES product_master (id);
+ALTER TABLE sales_details ADD CONSTRAINT sales_details_braanch_id_fk FOREIGN KEY (braanch_id) REFERENCES branch (id);
+------------
+ALTER TABLE branch ADD vat_no character varying(128);
+CREATE TABLE customer
+(
+  id integer NOT NULL,
+  customer_name character varying(128) NOT NULL,
+  address character varying(128),
+  city character varying(128),
+  pin character varying(128),
+  phone character varying(128),
+  email character varying(128),
+  vat_no character varying(128)
+);
+ALTER TABLE customer ADD CONSTRAINT customer_pk PRIMARY KEY(id);
+ALTER TABLE customer ADD CONSTRAINT customer_vat_no_uk UNIQUE(vat_no);
+-------------
+CREATE TABLE customer_payment_info
+(
+  id integer NOT NULL,
+  sales_master_id integer,
+  total_bill_amount numeric(14,4),
+  pay numeric(14,4) NOT NULL DEFAULT 0,
+  due_amount numeric(14,4) NOT NULL DEFAULT 0,
+  payment_date timestamp without time zone
+);
+ALTER TABLE customer_payment_info ADD CONSTRAINT customer_payment_info_pk PRIMARY KEY(id);
+ALTER TABLE customer_payment_info ADD CONSTRAINT customer_payment_info_sales_mastid_fk FOREIGN KEY (sales_master_id) REFERENCES sales_master (id);
+ALTER TABLE sales_master ADD discount_amount numeric(14,4);
+
+ALTER TABLE customer_payment_info ADD mode_of_payment character varying(64);
+ALTER TABLE customer_payment_info ADD cheque_no character varying(64);
+---------------------------------------------
+CREATE TABLE user_branch_map
+(
+  id integer NOT NULL,
+  user_master_id integer not null,
+  branch_id integer not null
+);
+
+
+ALTER TABLE user_branch_map ADD CONSTRAINT user_branch_map_pk PRIMARY KEY(id);
+ALTER TABLE user_branch_map ADD CONSTRAINT user_branch_map_usrid_fk FOREIGN KEY (user_master_id) REFERENCES user_master (id);
+ALTER TABLE user_branch_map ADD CONSTRAINT user_branch_map_branchid_fk FOREIGN KEY (branch_id) REFERENCES branch (id);
+
+ALTER TABLE user_branch_map ADD CONSTRAINT user_branch_map_uk UNIQUE(user_master_id,branch_id);
+
