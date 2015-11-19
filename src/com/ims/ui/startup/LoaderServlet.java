@@ -1,6 +1,7 @@
 package com.ims.ui.startup;
 
 import java.io.IOException;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.ims.utility.Messages;
+import org.quartz.CronScheduleBuilder;
+import org.quartz.JobBuilder;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
+import org.quartz.impl.StdSchedulerFactory;
 
 /**
  * Servlet implementation class LoaderServlet
@@ -33,6 +41,29 @@ public class LoaderServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		logger.info("ENTRY.............");
 		Messages.getInstance("ims");
+		
+		JobDetail job = JobBuilder.newJob(EmailJob.class)
+				.withIdentity("dummyJobName", "group1").build();
+
+			//Quartz 1.6.3
+		    	//CronTrigger trigger = new CronTrigger();
+		    	//trigger.setName("dummyTriggerName");
+		    	//trigger.setCronExpression("0/5 * * * * ?");
+		    	
+		    	Trigger trigger = TriggerBuilder
+				.newTrigger()
+				.withIdentity("dummyTriggerName", "group1")
+				.withSchedule(
+					CronScheduleBuilder.cronSchedule("0/50 * * * * ?"))
+				.build();
+		    	try{
+		    	//schedule it
+		    	Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+		    	scheduler.start();
+		    	scheduler.scheduleJob(job, trigger);
+		    	}catch(Exception e){
+		    		e.printStackTrace();
+		    	}
 
 	}
 
