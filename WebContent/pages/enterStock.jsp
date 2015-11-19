@@ -16,6 +16,16 @@
   <link rel="stylesheet" href="./css/styles.css">
    <script src="./js/script.js"></script>
 	<title>Insonera.com</title>
+	<!-- Highlighted menu -->
+	<script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+		</script>
+	<script>
+		$(document).ready(function(){
+			$("#purchaseentry").css("background-color", "#f78900");
+		});
+		
+		</script>
 </head>
 
 <body>

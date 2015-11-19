@@ -90,6 +90,15 @@
                 });
             });
     </script>  -->
+    <script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+		</script>
+		<script>
+		$(document).ready(function(){
+			$("#salesview").css("background-color", "#f78900");
+		});
+		
+		</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">

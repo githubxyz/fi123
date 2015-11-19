@@ -39,31 +39,32 @@
 
 		<script src="./js/script.js"></script>
 		<script>
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+			src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
 		</script>
 		<script>
-		$(document).ready(function(){
-			/* $("#masterproduct").on({
-				 mouseenter: function(){
-					$(this).css("background-color","#f78900");
-				},
-			mouseleave: function(){
-				$(this).css("background-color","#f78900");
-			}
-				}); */
-			/* $("#masterproduct:contains('saveProduct')").css("background-color","#f78900"); */ 
-			$("#masterproduct").css("background-color", "#f78900");
-			$('#cssmenu li >ul >li.masterproduct').addClass('close').children('ul').hide();
-			//$('#cssmenu2 li.active').addClass('close').children('ul').hide();
-			//$('#cssmenu3 li.active').addClass('close').children('ul').hide();
-			
-			//$('#companysales,#companyreport').addClass('close').children('ul').hide();
-			//$("dashboard,#companysales,#companyreport").hide();
-			/* $("#companyproduct,#masterproduct").click(function(){
-	        $("dashboard,#companysales,#companyreport").show();
-			}); */
-		});
-		
+			$(document).ready(
+					function() {
+						/* $("#masterproduct").on({
+							 mouseenter: function(){
+								$(this).css("background-color","#f78900");
+							},
+						mouseleave: function(){
+							$(this).css("background-color","#f78900");
+						}
+							}); */
+						/* $("#masterproduct:contains('saveProduct')").css("background-color","#f78900"); */
+						$("#masterproduct").css("background-color", "#f78900");
+						$('#cssmenu li >ul >li.masterproduct')
+								.addClass('close').children('ul').hide();
+						//$('#cssmenu2 li.active').addClass('close').children('ul').hide();
+						//$('#cssmenu3 li.active').addClass('close').children('ul').hide();
+
+						//$('#companysales,#companyreport').addClass('close').children('ul').hide();
+						//$("dashboard,#companysales,#companyreport").hide();
+						/* $("#companyproduct,#masterproduct").click(function(){
+						$("dashboard,#companysales,#companyreport").show();
+						}); */
+					});
 		</script>
 </head>
 
@@ -76,19 +77,10 @@
 		<div id="menu">
 			<%@ include file="./include/settingBar.jsp"%>
 		</div>
-
 		<div id="leftmenu" style="border-color: rgb(204, 204, 204);">
 			<%@ include file="./include/sidemenu.htm"%>
-
 		</div>
-
-
-
-
 		<div id="content">
-
-
-
 			<div id="content_main">
 				<div class="rcorners"
 					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
@@ -96,78 +88,84 @@
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
 						</div>
-						<table>
-							<tbody>
-								<tr>
-									<td width="70%">
-										<form action="saveProduct" method="post"
-											style="paddin-: 20px;" id="saveProductForm">
-											<div id="editDiv">
-												<div class="inpu-div" style="width: 50%">
-													<span class="label"> <%=Messages.getString("product_group_code")%>
-														:
-													</span><input type="text" name="productGroupCode" value=""
-														class="input-text">
-												</div>
-												<div class="inpu-div" style="width: 50%">
-													<span class="label"> <%=Messages.getString("product_name")%>
-														:
-													</span><input type="text" name="productName" value=""
-														class="input-text">
-												</div>
-												<div class="inpu-div" style="width: 50%">
+						<form action="saveProduct" method="post" style="paddin-: 20px;"
+							id="saveProductForm">
+							<table>
+								<div id="editDiv">
+									<div class="inpu-div">
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
+															:
+													</span></td>
+													<td width="15%"><input type="text"
+														name="productGroupCode" value="" class="input-text"></td>
+													<td width="15%"><span class="label"> <%=Messages.getString("product_name")%>
+															:
+													</span></td>
+													<td width="15%"><input type="text" name="productName"
+														value="" class="input-text"></td>
 
-													<span class="label"> <%=Messages.getString("product_code")%>
-														:
-													</span> <input type="text" name="productCode" value=""
-														class="input-text">
-												</div>
-												<div class="inpu-div" style="width: 50%">
+													<th width="80px" rowspan="4" colspan="2"><div
+															class="error-div" id="saveMasterError"></div></th>
+												</tr>
+												<tr>
+													<td><span class="label"> <%=Messages.getString("product_code")%>
+															:
+													</span></td>
+													<td><input type="text" name="productCode" value=""
+														class="input-text"></td>
+													<td><span class="label"> <%=Messages.getString("subitemtype_req")%>
+															:
+													</span></td>
+													<td><input type="checkbox" name="subItemType" value=""></td>
+												</tr>
+												<tr>
+													<td><span class="label"> <%=Messages.getString("unit_quantiity")%>
+															:
+													</span></td>
+													<td><select name="unitType" class="input-text">
+															<option value=" ">Select unit for quantity..</option>
+															<option value="1">Number</option>
+															<option value="2">Packet</option>
+													</select></td>
+													<td><span class="label"> <%=Messages.getString("unit_weight")%>
+															:
+													</span></td>
+													<td><select name="unitType" class="input-text">
+															<option value=" ">Select unit for weight..</option>
+															<option value="1">Kilogram</option>
+															<option value="2">Sq Feet</option>
+													</select></td>
+												</tr>
+											</tbody>
+										</table>
 
-													<span class="label"> <%=Messages.getString("mesure_unit")%>
-														:
-													</span> <select name="unitOfMesure" class="input-text"
-														onchange="fillSelect(this.value,this.form['unitType'])">
-														<option value=" ">Select unit type..</option>
-														<option value="1">Weight</option>
-														<option value="2">Quantity</option>
-														<option value="3">Both</option>
-													</select>
-												</div>
-												<div class="inpu-div" style="width: 50%">
+									</div>
+									<br></br><br></br><br></br><br></br>
+									<div class="inpu-div"
+										style="width: 65%; float: left; text-align: center">
+										<input type="button" name="submit" value="Submit"
+											class="btn-style" onclick="saveProduct()">
+									</div>
+								</div>
 
-													<span class="label"> <%=Messages.getString("specific_unit")%>
-														:
-													</span> <select name="unitType" class="input-text">
-														<option value=" ">Select unit..</option>
 
-													</select>
+								<br></br>
 
-												</div>
-											</div>
-											<div class="inpu-div"
-												style="width: 80%; float: left; text-align: center">
-												<input type="button" name="submit" value="Submit"
-													class="btn-style" onclick="saveProduct()">
-											</div>
-											<br></br>
+								</form>
 
-										</form>
-									</td>
-									<td>
-										<div class="error-div" id="saveMasterError"></div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+							</table>
+							<!-- master page view -->
+							<div style="margin-bottom: 10px;" id="productListDiv">
+								<jsp:include page="productList.jsp" />
+							</div>
 					</div>
 
 
 				</div>
-				<!-- master page view -->
-				<div style="margin-bottom: 10px;" id="productListDiv">
-					<jsp:include page="productList.jsp" />
-				</div>
+
 
 			</div>
 			<div id="content_bottom"></div>
@@ -221,14 +219,14 @@
 			var saveSucc = $.ajax({
 				type : 'get',
 				url : 'saveProduct',
-				data : 'editProduct=yes&id='+id,
+				data : 'editProduct=yes&id=' + id,
 				error : function(xhr, ajaxOptions, thrownError) {
 					//  $('#spinner_buis').hide();
 					alert("error from  -> " + thrownError);
 				},
 				success : function(data) {
-						$("#editDiv").html(data);
-					
+					$("#editDiv").html(data);
+
 				}
 			});
 		}

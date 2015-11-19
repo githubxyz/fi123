@@ -32,7 +32,7 @@ public class ProductTest {
 		ProductMasterDTO productMaster = new ProductMasterDTO();
 		productMaster.setProductCode("5465");
 		productMaster.setProductName("potol");
-		productMaster.setUnitOfMesure(1);
+		/*productMaster.setUnitOfMesure(1);*/
 		ProductGroupMapDTO name = new ProductGroupMapDTO();
 		name.setCode("AL");
 		productMaster.setPrGroupMapDTO(name);
