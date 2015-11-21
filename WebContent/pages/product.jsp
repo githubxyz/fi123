@@ -88,7 +88,7 @@
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
 						</div>
-						<form action="saveProduct" method="post" style="paddin-: 20px;"
+						<form action="saveProduct"  method="post" style="paddin-: 20px;"
 							id="saveProductForm">
 							<table>
 								<div id="editDiv">
@@ -119,24 +119,24 @@
 													<td><span class="label"> <%=Messages.getString("subitemtype_req")%>
 															:
 													</span></td>
-													<td><input type="checkbox" name="subItemType" value=""></td>
+													<td><input type="checkbox" name="sub_item_type_req" value="1"></td>
 												</tr>
 												<tr>
 													<td><span class="label"> <%=Messages.getString("unit_quantiity")%>
 															:
 													</span></td>
-													<td><select name="unitType" class="input-text">
+													<td><select name="qty_unit" class="input-text">
 															<option value=" ">Select unit for quantity..</option>
-															<option value="1">Number</option>
-															<option value="2">Packet</option>
+															<option value="Number">Number</option>
+															<option value="Packet">Packet</option>
 													</select></td>
 													<td><span class="label"> <%=Messages.getString("unit_weight")%>
 															:
 													</span></td>
-													<td><select name="unitType" class="input-text">
+													<td><select name="weight_unit" class="input-text">
 															<option value=" ">Select unit for weight..</option>
-															<option value="1">Kilogram</option>
-															<option value="2">Sq Feet</option>
+															<option value="Kilogram">Kilogram</option>
+															<option value="Sq Feet">Sq Feet</option>
 													</select></td>
 												</tr>
 											</tbody>
@@ -176,7 +176,7 @@
 		</div>
 
 	</div>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		var unitType = [];
 		unitType["1"] = [ "Kilogram" ];
 		unitType["2"] = [ "Number", "Quantity" ];
@@ -192,7 +192,7 @@
 				nList.appendChild(nOption);
 			}
 		}
-	</script>
+	</script> -->
 	<script type="text/javascript">
 		//alert("jj");
 		function saveProduct() {
@@ -202,7 +202,13 @@
 				data : $('#saveProductForm').serialize(),
 				error : function(xhr, ajaxOptions, thrownError) {
 					//  $('#spinner_buis').hide();
-					alert("error from  -> " + thrownError);
+					/* alert("error from  -> " + thrownError); */
+					alert("Please provide proper value in all fields");
+					$(':input','#saveProductForm')
+					  .removeAttr('checked')
+					  .removeAttr('selected')
+					  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
+					  .val('');
 				},
 				success : function(data) {
 					if (saveSucc.getResponseHeader('error') == '1') {
@@ -210,6 +216,12 @@
 					} else {
 						$("#productListDiv").html(data);
 						$("#saveMasterError").html("");
+						alert("Item saved successfully");
+						$(':input','#saveProductForm')
+						  .removeAttr('checked')
+						  .removeAttr('selected')
+						  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
+						  .val('');
 					}
 
 				}

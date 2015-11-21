@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -27,6 +28,7 @@ public class ProductMasterDTO implements Serializable {
 	ProductGroupMapDTO prGroupMapDTO;
 	String qty_unit;
 	boolean sub_item_type_req;
+	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_master_seq_gen")
@@ -93,7 +95,11 @@ public class ProductMasterDTO implements Serializable {
 	}
 	
 	
-	
-	
-	
+	/*public boolean getSub_item_type_req() {
+		return sub_item_type_req;
+	}
+	public void setSub_item_type_req(boolean sub_item_type_req) {
+		this.sub_item_type_req = sub_item_type_req;
+	}*/
+		
 }

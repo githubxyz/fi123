@@ -7,7 +7,11 @@
 						class="display dataTable">
 						
 						<thead>
+					
 							<tr style="width:40px">
+								<th align="center"
+									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+									<%=Messages.getString("product_group_code")%></th>
 								<th align="center" style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
 									<%=Messages.getString("product_name") %>
 									</th>
@@ -20,7 +24,10 @@
 									
 								<th align="center"
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-									<%=Messages.getString("mesure_unit") %></th>
+									<%=Messages.getString("unit_quantiity")%></th>
+									<th align="center"
+									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+									<%=Messages.getString("unit_weight")%></th>
 
 							</tr>
 						</thead>
@@ -34,10 +41,12 @@
 									for (Iterator it = masterList.iterator(); it.hasNext();) {
 										ProductMasterDTO sd = (ProductMasterDTO) it.next();
 							%>
-							<tr style="border: 1px solid #ccc !important;">
-								<td align="center" onclick="editProduct(<%=sd.getId() %>)"><%=sd.getProductName()%></td>
+							<tr style="border: 1px solid #ccc !important;" onclick="editProduct(<%=sd.getId() %>)">
+								<td align="center" ><%=sd.getPrGroupMapDTO().getCode()%></td>
+								<td align="center" ><%=sd.getProductName()%></td>
 								<td align="center"><%=sd.getProductCode() %></td>
-								<td align="center"></td> 
+								<td align="center"><%=sd.getQty_unit()==null?"":sd.getQty_unit() %></td> 
+								<td align="center"><%=sd.getWeight_unit()==null?"":sd.getWeight_unit() %></td> 
 							</tr>
 							<%
 								}
@@ -65,6 +74,16 @@
 									<input type="text" id="col3" name="col3" value="Type to search"
 									class="search_init" />
 								</th>
+								<th
+									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+									<input type="text" id="col3" name="col3" value="Type to search"
+									class="search_init" />
+								</th>
+								<th
+									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+									<input type="text" id="col3" name="col3" value="Type to search"
+									class="search_init" />
+								</th>								
 							</tr>
 						</tfoot>
 						<%--</table>--%>
@@ -88,7 +107,7 @@
 			// "bDestroy":true,
 
 			"oColReorder" : {
-				"aiOrder" : [ 0, 1, 2 ]
+				"aiOrder" : [ 0, 1, 2, 3, 4]
 			},
 			sScrollY : "",
 			"bPaginate" : true
