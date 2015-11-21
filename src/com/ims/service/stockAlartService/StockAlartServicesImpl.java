@@ -114,43 +114,38 @@ public class StockAlartServicesImpl implements IStockAlartService {
 		return dtos;
 
 	}
-	public List<StockDetailDTO> getLowStockProduct() throws OperationFailedException {
-		List<StockDetailDTO> stockDetails=new ArrayList<>();
-		List<StockDetailDTO> lowStocks=new ArrayList<>();
-		Session session = null;
-		// create PersistenceManagerImpl
-		IPersistenceManager impl = new PersistenceManagerImpl();
+	 public List<StockDetailDTO> getLowStockProduct() throws OperationFailedException {
+		  List<StockDetailDTO> stockDetails=new ArrayList<>();
+		  List<StockDetailDTO> lowStocks=new ArrayList<>();
+		  Session session = null;
+		  // create PersistenceManagerImpl
+		  IPersistenceManager impl = new PersistenceManagerImpl();
 
-		try {
-			session = impl.openSessionAndBeginTransaction();
-			IStockDetailDAO detailDAO=new StockDetailDAOImpl(session);
-			stockDetails=detailDAO.getStockForAlertCheck();
-			IStockAlartDAO stockAlartDAO=new StockAlartDAOImpl(session);
-			List<StockAlertDTO> stockAlerts=stockAlartDAO.listStockAlart();
-			for(Iterator it=stockAlerts.iterator();it.hasNext();){
-				StockAlertDTO stockAlertDTO=(StockAlertDTO) it.next();
-				for(Iterator stocDetIt=stockDetails.iterator();stocDetIt.hasNext();){
-					StockDetailDTO stockDetailDTO=(StockDetailDTO) stocDetIt.next();
-					if(stockAlertDTO.getProductMaster().getId()==stockDetailDTO.getProductMaster().getId()){
-						if(stockDetailDTO.getUnitOfMesure()==1||stockDetailDTO.getUnitOfMesure()==3){
-							if(stockDetailDTO.getWeight()<stockAlertDTO.getMinVal()){
-								lowStocks.add(stockDetailDTO);
-							}
-						}else {
-							if(stockDetailDTO.getQuantity()<stockAlertDTO.getMinVal()){
-								lowStocks.add(stockDetailDTO);
-							}
-						}
-					}
-				}
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			throw new OperationFailedException();
-		}
-		return lowStocks;
-	}
+		  try {
+		   session = impl.openSessionAndBeginTransaction();
+		   IStockDetailDAO detailDAO=new StockDetailDAOImpl(session);
+		   stockDetails=detailDAO.getStockForAlertCheck();
+		   IStockAlartDAO stockAlartDAO=new StockAlartDAOImpl(session);
+		   List<StockAlertDTO> stockAlerts=stockAlartDAO.listStockAlart();
+		   for(Iterator it=stockAlerts.iterator();it.hasNext();){
+		    StockAlertDTO stockAlertDTO=(StockAlertDTO) it.next();
+		    for(Iterator stocDetIt=stockDetails.iterator();stocDetIt.hasNext();){
+		     StockDetailDTO stockDetailDTO=(StockDetailDTO) stocDetIt.next();
+		     if(stockAlertDTO.getProductMaster().getId()==stockDetailDTO.getProductMaster().getId() && stockAlertDTO.getType()==stockDetailDTO.getType()){     
+		       if(stockDetailDTO.getQuantity()<stockAlertDTO.getMinVal()){
+		        lowStocks.add(stockDetailDTO);
+		       }
+		      
+		     }
+		    }
+		   }
+		   
+		  } catch (Exception e) {
+		   // TODO: handle exception
+		   e.printStackTrace();
+		   throw new OperationFailedException();
+		  }
+		  return lowStocks;
+		 }
 
 }

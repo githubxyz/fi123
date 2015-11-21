@@ -84,13 +84,14 @@
 			<div id="content_main">
 				<div class="rcorners"
 					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
+					
 					<div class="input-form" style="width: 100%">
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
 						</div>
 						<form action="saveProduct"  method="post" style="paddin-: 20px;"
 							id="saveProductForm">
-							<table>
+							
 								<div id="editDiv">
 									<div class="inpu-div">
 										<table width="100%">
@@ -147,24 +148,25 @@
 									<div class="inpu-div"
 										style="width: 65%; float: left; text-align: center">
 										<input type="button" name="submit" value="Submit"
-											class="btn-style" onclick="saveProduct()">
-									</div>
+											class="btn-style" onclick="saveProduct()"> 
+									</div> 
+									
 								</div>
-
 
 								<br></br>
 
 								</form>
 
-							</table>
-							<!-- master page view -->
-							<div style="margin-bottom: 10px;" id="productListDiv">
-								<jsp:include page="productList.jsp" />
-							</div>
+							
+							
 					</div>
 
 
 				</div>
+<!-- master page view -->
+							<div style="margin-bottom: 20px;" id="productListDiv">
+								<jsp:include page="productList.jsp" />
+							</div>
 
 
 			</div>

@@ -42,7 +42,7 @@
 										ProductMasterDTO sd = (ProductMasterDTO) it.next();
 							%>
 							<tr style="border: 1px solid #ccc !important;" onclick="editProduct(<%=sd.getId() %>)">
-								<td align="center" ><%=sd.getPrGroupMapDTO().getCode()%></td>
+								<td align="center" ><%=sd.getPrGroupMapDTO().getCode()%><img align="right" src="images/edit.png" height="20px" alt="edit field"></img></td>
 								<td align="center" ><%=sd.getProductName()%></td>
 								<td align="center"><%=sd.getProductCode() %></td>
 								<td align="center"><%=sd.getQty_unit()==null?"":sd.getQty_unit() %></td> 
