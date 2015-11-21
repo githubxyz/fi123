@@ -57,10 +57,17 @@ public class StockAlartServicesImpl implements IStockAlartService {
 				throw new ValidationException(errorCodes);
 			}
 			session = impl.openSessionAndBeginTransaction();
+			
 			StockAlartDAOImpl stockAlartDAO = new StockAlartDAOImpl(session);
-			stockAlartDAO.saveAlert(stockAlertDTO);
+			//stockAlartDAO.saveStockAlart(stockAlertDTO);
+			StockAlertDTO existingDTO=stockAlartDAO.getStockAlart(stockAlertDTO.getProductMaster().getId(), stockAlertDTO.getType());
+			if(existingDTO!=null && existingDTO.getId()!=0){
+				existingDTO.setMaxVal(stockAlertDTO.getMaxVal());
+				existingDTO.setMinVal(stockAlertDTO.getMinVal());
+				stockAlertDTO=existingDTO;
+			}
 			logger.info("saving=" + stockAlertDTO);
-			stockAlartDAO.saveStoclAlart(stockAlertDTO);
+			stockAlartDAO.saveStockAlart(stockAlertDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);

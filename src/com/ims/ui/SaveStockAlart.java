@@ -31,7 +31,7 @@ import com.mchange.v2.beans.BeansUtils;
 //@WebServlet("/SaveStockAlart")
 public class SaveStockAlart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger logger = Logger.getLogger("abc");   
+	private static Logger logger = Logger.getLogger("com.biz");   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -77,7 +77,8 @@ public class SaveStockAlart extends HttpServlet {
 			if(sad!=null)
 				stockAlartService.saveStockAlert(sad);
 			List<StockAlertDTO> list=stockAlartService.listStockAlart();
-			request.setAttribute("stockAlarttList", list);
+			logger.info("list size="+list);
+			request.setAttribute("stockAlartList", list);
 			
 		} catch (Exception e) {
 		/*	error=true;

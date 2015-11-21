@@ -7,6 +7,6 @@ import com.ims.dto.StockAlertDTO;
 import com.ims.persistence.hibernate.PersistenceException;
 
 public interface IStockAlartDAO {
-public StockAlertDTO saveStoclAlart(StockAlertDTO stockAlertDTO)throws PersistenceException;
+public StockAlertDTO saveStockAlart(StockAlertDTO stockAlertDTO)throws PersistenceException;
 public List<StockAlertDTO> listStockAlart() throws PersistenceException;
 }

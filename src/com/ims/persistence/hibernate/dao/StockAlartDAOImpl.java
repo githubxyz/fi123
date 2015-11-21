@@ -21,7 +21,7 @@ public class StockAlartDAOImpl implements IStockAlartDAO {
 
 		this.session = session;
 	}
-	public StockAlertDTO  saveAlert(StockAlertDTO stockAlertDTO) throws PersistenceException {
+	/*public StockAlertDTO  saveAlert(StockAlertDTO stockAlertDTO) throws PersistenceException {
 		logger.info("Entry");
 		logger.info("xyz ="+stockAlertDTO);
 		try {
@@ -36,7 +36,7 @@ public class StockAlartDAOImpl implements IStockAlartDAO {
 		logger.info("Exit");
 		return stockAlertDTO;
 
-	}
+	}*/
 	public StockAlertDTO saveStockAlart(StockAlertDTO stockAlertDTO) throws PersistenceException {
 		// TODO Auto-generated method stub
 		logger.info("Entry");
@@ -74,10 +74,27 @@ public class StockAlartDAOImpl implements IStockAlartDAO {
 			
 		return list;
 	}
-	@Override
-	public StockAlertDTO saveStoclAlart(StockAlertDTO stockAlertDTO) throws PersistenceException {
+	
+	public StockAlertDTO getStockAlart(int productId,int type) throws PersistenceException {
 		// TODO Auto-generated method stub
-		return null;
+		StockAlertDTO stockAlertDTO=null;
+		logger.info("Entry");
+		logger.info("xyz ="+stockAlertDTO);
+		try {
+			String sql="FROM StockAlertDTO s where s.productMaster.id=:productId and s.type=:type";
+			org.hibernate.Query q=session.createQuery(sql);
+			q.setParameter("productId", productId);
+			q.setParameter("type", type);
+			stockAlertDTO=(StockAlertDTO)q.uniqueResult();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+			throw new PersistenceException(e,
+					IPersistenceErrorCode.DATABASE_PROBLEM);
+		}
+		
+		logger.info("Exit");
+		return stockAlertDTO;
 	}
-
 }

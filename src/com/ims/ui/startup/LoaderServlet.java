@@ -59,7 +59,7 @@ public class LoaderServlet extends HttpServlet {
 		    	try{
 		    	//schedule it
 		    	Scheduler scheduler = new StdSchedulerFactory().getScheduler();
-		    	//scheduler.start();
+		    	scheduler.start();
 		    	scheduler.scheduleJob(job, trigger);
 		    	}catch(Exception e){
 		    		e.printStackTrace();

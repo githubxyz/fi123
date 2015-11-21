@@ -100,6 +100,10 @@ table.gradienttable td p {
 </head>
 
 <body>
+<%
+List<StockDetailDTO> list1 = (List<StockDetailDTO>) request
+							.getAttribute(IRequestAttribute.LOWALART_LIST);%>
+
 	<div id="container">
 		<div id="header">
 			<%@ include file="./include/header.jsp"%>
@@ -186,6 +190,7 @@ table.gradienttable td p {
 
 					<tr>
 						<td><%=Messages.getString("product_name")%></td>
+						<td><%=Messages.getString("company_product_type")%></td>
 						<td><%=Messages.getString("product_current_weight")%></td>
 						<td><%=Messages.getString("product_current_quantity")%></td>
 						<td><%=Messages.getString("product_status")%></td>
@@ -200,6 +205,7 @@ table.gradienttable td p {
 					%>
 					<tr>
 						<td><%=sd.getProductName()%></td>
+						<td><%=sd.getType() %></td>
 						<td><%=sd.getWeight()%></td>
 						<td><%=sd.getQuantity()%></td>
 						<td><img src="./images/Downarrow.PNG" height="35px"
@@ -211,11 +217,13 @@ table.gradienttable td p {
 					%>
 				</table>
 			</div>
-
+			<% if(list1!=null && list1.size()>0) {%>
 			<button id="opener">
 				<img src="images/low_stock.jpg" height="35px" ></img>
 			</button>
+			
 			<br></br>
+			
 			<!-- <img src="images/alert.gif" height="35px"></img> -->
 			<table border="1" class="gradienttable" >
 
@@ -225,8 +233,7 @@ table.gradienttable td p {
 
 				</tr>
 				<%
-					List<StockDetailDTO> list1 = (List<StockDetailDTO>) request
-							.getAttribute(IRequestAttribute.LOWALART_LIST);
+					
 					if (list1 != null && list1.size() > 0) {
 						for (Iterator it1 = list1.iterator(); it1.hasNext();) {
 							StockDetailDTO sd1 = (StockDetailDTO) it1.next();
@@ -241,6 +248,7 @@ table.gradienttable td p {
 					}
 				%>
 			</table>
+			<%} %>
 		</div>
 	</div>
 

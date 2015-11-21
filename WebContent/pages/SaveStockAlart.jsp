@@ -78,7 +78,7 @@
 <tbody>
 	<tr>
 <td width="15%"><span class="label"> <%=Messages.getString("product_name")%> :</span></td>
-<td width="15%"><select name="prodId" class="input-text">
+<td width="15%"><select name="prodId" class="input-text" id="prodId" onchange="changeProduct()">
 
 <option value="0">Select</option>
 <%
@@ -90,7 +90,14 @@
 	}
 %>
 </select></td>
-	
+<td><span class="label"><%=Messages.getString("company_product_type") %> :</span></td>
+	<td><select id="itemTypeSpan"
+	name="type">
+		<option value="0">Select</option>
+		<option value="1">Light</option>
+		<option value="2">Medium</option>
+		<option value="3">Heavy</option>
+</select></td>
 <td width="15%"><span class="label"> <%=Messages.getString("company_product_max_value")%> : </span></td>
 <td width="15%"><input type="text"
 name="maxVal" value=""></td>
@@ -153,16 +160,36 @@ name="minVal" value=""></td>
 					if (saveSucc.getResponseHeader('error') == '1') {
 						$("#SaveStockAlartError").html(data);
 					} else {
+						//alert(data)
 						$("#saveStockAlartListDiv").html(data);
 						$("#SaveStockAlartError").html("");
 					}
 					alert("Item saved successfully");
-					$(':input','#saveStockAlartForm')
+					/* $(':input','#saveStockAlartForm')
 					  .removeAttr('checked')
 					  .removeAttr('selected')
 					  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
-					  .val('');
+					  .val(''); */
 
+				}
+			});
+		}
+		
+		function changeProduct() {
+			id=$("#prodId").val();
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'saveStock',
+				data :"selectType=1&productId="+id,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					/* alert("error from  -> " + thrownError); */
+					
+				},
+				success : function(data) {
+					//alert(data);
+					$("#itemTypeSpan").html(data);
+					
 				}
 			});
 		}
