@@ -54,13 +54,14 @@ public class LoaderServlet extends HttpServlet {
 				.newTrigger()
 				.withIdentity("dummyTriggerName", "group1")
 				.withSchedule(
-					CronScheduleBuilder.cronSchedule("0/50 * * * * ?"))
+					CronScheduleBuilder.cronSchedule(Messages.getString("email_shedule_time")))
 				.build();
 		    	try{
 		    	//schedule it
 		    	Scheduler scheduler = new StdSchedulerFactory().getScheduler();
-		    	scheduler.start();
 		    	scheduler.scheduleJob(job, trigger);
+		    	scheduler.start();
+		    	
 		    	}catch(Exception e){
 		    		e.printStackTrace();
 		    	}
