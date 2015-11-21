@@ -78,7 +78,7 @@
 			<%@ include file="./include/settingBar.jsp"%>
 		</div>
 		<div id="leftmenu" style="border-color: rgb(204, 204, 204);">
-			<%@ include file="./include/sidemenu.htm"%>
+			<%@ include file="./include/sidemenu.jsp"%>
 		</div>
 		<div id="content">
 			<div id="content_main">
@@ -130,13 +130,18 @@
 															<option value=" ">Select unit for quantity..</option>
 															<option value="Number">Number</option>
 															<option value="Packet">Packet</option>
+															<option value="Piece">Piece</option>
+															<option value="Dozon">Dozon</option>
 													</select></td>
 													<td><span class="label"> <%=Messages.getString("unit_weight")%>
 															:
 													</span></td>
 													<td><select name="weight_unit" class="input-text">
 															<option value=" ">Select unit for weight..</option>
+															<option value="Gram">Gram</option>
 															<option value="Kilogram">Kilogram</option>
+															<option value="Ton">Ton</option>
+															<option value="Quintal">Quintal</option>
 															<option value="Sq Feet">Sq Feet</option>
 													</select></td>
 												</tr>

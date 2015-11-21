@@ -9,6 +9,8 @@ import org.quartz.JobExecutionException;
 import com.ims.dto.StockAlertDTO;
 import com.ims.service.stockAlartService.IStockAlartService;
 import com.ims.service.stockAlartService.StockAlartServicesImpl;
+import com.ims.utility.Messages;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -37,8 +39,8 @@ public class EmailJob implements Job{
 					+")"+"</font><br>";
 		}
 		List recipients=new ArrayList<String>();
-		recipients.add("arijitroy.mca@gmail.com");
-		recipients.add("rajesh.maji05@gmail.com");
+		recipients.add(Messages.getString("first_email"));
+		recipients.add(Messages.getString("last_email"));
 		if(alertDTOs!=null && alertDTOs.size()>0)
 		sendMessage(recipients, "Low Stock alert", message);
 		}catch(Exception e){

@@ -23,6 +23,7 @@ public class UserDTO implements Serializable {
 	private String emailId;
 	private String address;
 	private String userName;
+	private int usertype;
 	
 	@Id
 	@Column(name = "id")
@@ -94,6 +95,14 @@ public class UserDTO implements Serializable {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	@Column(name="user_type_id")
+	public int getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(int usertype) {
+		this.usertype = usertype;
 	}
 
 	@Override

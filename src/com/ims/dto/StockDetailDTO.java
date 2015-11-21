@@ -17,7 +17,7 @@ public class StockDetailDTO implements Serializable {
 	private String productName;
 	private Double quantity;
 	private Double weight;
-	private int unitOfMesure;
+	//private int unitOfMesure;
 	private int branchId;
 	private ProductMasterDTO productMaster;
 	private String kndP;
@@ -58,13 +58,6 @@ public class StockDetailDTO implements Serializable {
 	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
-	@Column(name="unit_of_measure")
-	public int getUnitOfMesure() {
-		return unitOfMesure;
-	}
-	public void setUnitOfMesure(int unitOfMesure) {
-		this.unitOfMesure = unitOfMesure;
-	}
 	@Column(name="branch_id")
 	public int getBranchId() {
 		return branchId;
@@ -98,7 +91,7 @@ public class StockDetailDTO implements Serializable {
 	@Override
 	public String toString() {
 		return "StockDetailDTO [id=" + id + ", productCode=" + productCode + ", productName=" + productName
-				+ ", quantity=" + quantity + ", weight=" + weight + ", unitOfMesure=" + unitOfMesure + ", branchId="
+				+ ", quantity=" + quantity + ", weight=" + weight +  ", branchId="
 				+ branchId + ", productMaster=" + productMaster + ", kndP=" + kndP + ", type=" + type+"]";
 	}
 	

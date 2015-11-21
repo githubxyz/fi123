@@ -15,13 +15,16 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
 import com.ims.dto.ProductDetailDTO;
+import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
 import com.ims.dto.PurchasePaymentInfoDTO;
 import com.ims.dto.UserDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.persistence.hibernate.dao.IProductDetailDAO;
 import com.ims.persistence.hibernate.dao.ProductDetailDAOImpl;
+import com.ims.service.productService.IProductDetailService;
 import com.ims.service.productService.IProductService;
+import com.ims.service.productService.ProductDetailServiceImpl;
 import com.ims.service.productService.ProductServiceImpl;
 import com.ims.utility.IRequestAttribute;
 import com.ims.utility.ISessionAttribute;
@@ -68,9 +71,12 @@ public class SaveStock extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		IProductService productService = new ProductServiceImpl();
+		IProductDetailService detailService=new ProductDetailServiceImpl();
 		try {
 			List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
+			List<ProductGroupMapDTO> productGroupMapDTOs = detailService.getProductGroupCodeLists();
 			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
+			request.setAttribute(IRequestAttribute.PRODUCT_GROUP_LIST, productGroupMapDTOs);
 		} catch (OperationFailedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -121,8 +127,7 @@ public class SaveStock extends HttpServlet {
 				response.getWriter().append("error to save: " + productDetailDTO).append(request.getContextPath());
 			} else {
 
-				RequestDispatcher rd = request.getRequestDispatcher("/pages/enterStock.jsp");
-				rd.forward(request, response);
+				doGet(request, response);
 			}
 		}
 

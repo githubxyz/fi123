@@ -110,7 +110,7 @@ table.gradienttable td p {
 		</div>
 
 		<div id="leftmenu">
-			<%@ include file="./include/sidemenu.htm"%>
+			<%@ include file="./include/sidemenu.jsp"%>
 
 		</div>
 

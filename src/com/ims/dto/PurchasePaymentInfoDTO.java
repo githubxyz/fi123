@@ -14,9 +14,9 @@ import javax.persistence.Table;
 public class PurchasePaymentInfoDTO implements Serializable {
 	private int id;
 	private String company_name;
-	private Double payment;
-	private Double balance;
-	private Double advance;
+	private Double payment=0.0;
+	private Double balance=0.0;
+	private Double advance=0.0;
 	private String billNo;
 	
 

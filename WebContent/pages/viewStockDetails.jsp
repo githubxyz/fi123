@@ -95,7 +95,7 @@
 		</script>
 		<script>
 		$(document).ready(function(){
-			$("#salesview").css("background-color", "#f78900");
+			$("#stockview").css("background-color", "#f78900");
 		});
 		
 		</script>
@@ -117,7 +117,7 @@
 		</div>
 
 		<div id="leftmenu">
-			<%@ include file="./include/sidemenu.htm"%>
+			<%@ include file="./include/sidemenu.jsp"%>
 
 		</div>
 
@@ -175,7 +175,7 @@
 							<td align="center"><%=sd.getId()%></td>
 							<td align="center"><%=sd.getProductName()%></td>
 							<td align="center"><%=sd.getProductCode()%></td>
-							<td align="center"><%=sd.getUnitOfMesure()==1? "Weight" : "Quantity"%>
+							<td align="center">
 							</td>
 							<td align="center"><%=sd.getWeight()%></td>
 							<td align="center"><%=sd.getQuantity()%></td>

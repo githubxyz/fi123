@@ -4,14 +4,6 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
-  <!-- <security-constraint>
-    <display-name>Restrict direct access to certain folders</display-name>
-    <web-resource-collection>
-      <web-resource-name>Restricted folders</web-resource-name>
-      <url-pattern>/pages/*</url-pattern>
-    </web-resource-collection>
-    <auth-constraint/>
-  </security-constraint> -->
   <session-config>
     <session-timeout>100</session-timeout>
   </session-config>
@@ -32,7 +24,7 @@
     <servlet-name>stock</servlet-name>
     <url-pattern>/saveStock</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>stockAlart</servlet-name>
     <servlet-class>com.ims.ui.SaveStockAlart</servlet-class>
   </servlet>
@@ -40,7 +32,7 @@
     <servlet-name>stockAlart</servlet-name>
     <url-pattern>/SaveStockAlart</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>productMaster</servlet-name>
     <servlet-class>com.ims.ui.SaveProduct</servlet-class>
   </servlet>
@@ -56,7 +48,7 @@
     <servlet-name>stockview</servlet-name>
     <url-pattern>/ViewStock</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>purchaseview</servlet-name>
     <servlet-class>com.ims.ui.ViewPurchase</servlet-class>
   </servlet>

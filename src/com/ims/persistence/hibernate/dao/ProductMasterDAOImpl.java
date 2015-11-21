@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
 import com.ims.exception.IPersistenceErrorCode;
 import com.ims.persistence.hibernate.PersistenceException;
@@ -78,5 +79,4 @@ public class ProductMasterDAOImpl implements IProductMasterDAO {
 			
 		return list;
 	}
-
 }

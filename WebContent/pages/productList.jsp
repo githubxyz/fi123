@@ -28,6 +28,9 @@
 									<th align="center"
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
 									<%=Messages.getString("unit_weight")%></th>
+									<th align="center"
+									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 5% 5% repeat-x; color: #555555;">
+									<%=Messages.getString("edit_row")%></th>
 
 							</tr>
 						</thead>
@@ -42,11 +45,13 @@
 										ProductMasterDTO sd = (ProductMasterDTO) it.next();
 							%>
 							<tr style="border: 1px solid #ccc !important;" onclick="editProduct(<%=sd.getId() %>)">
-								<td align="center" ><%=sd.getPrGroupMapDTO().getCode()%><img align="right" src="images/edit.png" height="20px" alt="edit field"></img></td>
+								<td align="center" ><%=sd.getPrGroupMapDTO().getCode()%></td>
 								<td align="center" ><%=sd.getProductName()%></td>
 								<td align="center"><%=sd.getProductCode() %></td>
 								<td align="center"><%=sd.getQty_unit()==null?"":sd.getQty_unit() %></td> 
 								<td align="center"><%=sd.getWeight_unit()==null?"":sd.getWeight_unit() %></td> 
+								<td align="center" width="5%" ><img align="right" src="images/edit.png" height="20px" alt="edit field"></img></td>
+								
 							</tr>
 							<%
 								}
@@ -83,7 +88,8 @@
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
 									<input type="text" id="col3" name="col3" value="Type to search"
 									class="search_init" />
-								</th>								
+								</th>	
+														
 							</tr>
 						</tfoot>
 						<%--</table>--%>
@@ -107,7 +113,7 @@
 			// "bDestroy":true,
 
 			"oColReorder" : {
-				"aiOrder" : [ 0, 1, 2, 3, 4]
+				"aiOrder" : [ 0, 1, 2, 3, 4, 5]
 			},
 			sScrollY : "",
 			"bPaginate" : true

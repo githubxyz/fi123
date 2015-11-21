@@ -58,7 +58,7 @@
 			<%@ include file="./include/settingBar.jsp"%>
 		</div>
 		<div id="leftmenu" style="border-color: rgb(204, 204, 204);">
-			<%@ include file="./include/sidemenu.htm"%>
+			<%@ include file="./include/sidemenu.jsp"%>
 		</div>
 		<div id="content">
 			<div id="content_main">

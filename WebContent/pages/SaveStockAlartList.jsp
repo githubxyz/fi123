@@ -1,3 +1,4 @@
+<%@page import="com.ims.utility.Messages"%>
 <%@page import="com.ims.utility.ISessionAttribute"%>
 <%@page import="com.ims.utility.IRequestAttribute"%>
 <%@page import="com.ims.dto.StockAlertDTO"%>
@@ -10,15 +11,15 @@
 						<thead>
 							<tr>
 								<th align="center" style="background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;color: #555555;">
-									Product Name</th>
+									<%=Messages.getString("product_name")%></th>
 								<th align="center" style="background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;color: #555555;">
-									Type</th>
+									<%=Messages.getString("company_product_type")%></th>
 								<th align="center"
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-									Max Value</th>
+									<%=Messages.getString("company_product_max_value")%></th>
 								<th align="center"
 									style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-									Min Value</th>
+									<%=Messages.getString("company_product_min_value")%></th>
 
 							</tr>
 						</thead>

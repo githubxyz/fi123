@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.ims.dto.ProductGroupMapDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.ims.dto.ProductMasterDTO"%>
 <%@page import="java.util.List"%>
@@ -39,7 +40,7 @@
 		</div>
 
 		<div id="leftmenu">
-			<%@ include file="./include/sidemenu.htm"%>
+			<%@ include file="./include/sidemenu.jsp"%>
 
 		</div>
 
@@ -56,56 +57,95 @@
 						<%
 							List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request
 									.getAttribute(IRequestAttribute.PRODUCT_LIST);
+						List<ProductGroupMapDTO> groupMapDTOs  = (List<ProductGroupMapDTO>) request
+								.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
 						%>
 						<div class="inpu-div">
-							<span class="label"> <%=Messages.getString("purchase_ref_id") %> :</span>
-							<input type="text" name="billrefid" value=""/>
-						</div>		
-						<div class="inpu-div">
-							<span class="label"> Item :</span><select name="prodId"
-								class="input-text" id="prodId" onchange="changeProduct()">
+							
+							
+							<table width="100%">
+<tbody>
+	<tr>
+<td width="15%"><span class="label"> <%=Messages.getString("purchase_ref_id") %> :</span></td>
+<td width="15%"><input type="text"
+	name="billrefid" value="" class="input-text"></td>
+	
+<td width="15%"><span class="label"> <%=Messages.getString("product_group_code") %> :</span></td>
+<td width="15%"><select name="groupId"
+	class="input-text" id="groupId" onchange="changeGroup()">
 
-								<option value="0">Select</option>
-								<%
-									for (Iterator it = productdtos.iterator(); it.hasNext();) {
-										ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
-								%>
-								<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
-								<%
-									}
-								%>
-							</select>
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Type :</span> <span id="itemTypeSpan"><select
-								name="type">
-									<option value="0">Select</option>
-									<option value="1">Light</option>
-									<option value="2">Medium</option>
-									<option value="3">Heavy</option>
-							</select> </span>
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Weight :</span> <input type="text"
-								name="weight">
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Quantity :</span> <input type="text"
-								name="quantity">
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Cost of the item :</span><input type="text"
-								name="amount">
-						</div>
-						<div class="inpu-div">
-							<span class="label"> Total Vat :</span><input type="text"
-								name="vat">
-						</div>
-						<div class="inpu-div">
-							<span class="label"> K&P :</span><input type="text" name="kAndP">
+	<option value="0">Select</option>
+	<!-- Value fetching from product_group_map  -->
+	 <%
+		for (Iterator it = groupMapDTOs.iterator(); it.hasNext();) {
+			ProductGroupMapDTO productGroupMapDTO = (ProductGroupMapDTO) it.next();
+	%>
+	<option value="<%=productGroupMapDTO.getId()%>"><%= productGroupMapDTO.getCode() %></option>
+	<%
+		}
+	%> 
+</select></td>
+
+<th width="80px" rowspan="4" colspan="2"><div
+		class="error-div" id="saveMasterError"></div></th>
+	</tr>
+	
+	<tr>
+<td><span class="label"> <%=Messages.getString("product_name") %> :</span></td>
+<td><select name="prodId"
+	class="input-text" id="prodId" onchange="changeProduct()">
+
+	<option value="0">Select</option>
+	<%
+		for (Iterator it = productdtos.iterator(); it.hasNext();) {
+			ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
+	%>
+	<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
+	<%
+		}
+	%>
+</select></td>
+<td><span class="label"><%=Messages.getString("company_product_type") %> :</span></td>
+<td><span id="itemTypeSpan"><select
+	name="type">
+		<option value="0">Select</option>
+		<option value="1">Light</option>
+		<option value="2">Medium</option>
+		<option value="3">Heavy</option>
+</select> </span></td>
+	</tr>
+	
+	<tr>
+<td><span class="label"> <%=Messages.getString("company_product_weight") %> :</span></td>
+<td><input type="text"
+	name="weight"></td>
+<td><span class="label"> <%=Messages.getString("company_product_quantity") %> :</span></td>
+<td><input type="text"
+	name="quantity"></td>
+	</tr>
+	<tr>
+<td><span class="label"> <%=Messages.getString("company_cost_per_item") %> :</span></td>
+<td><input type="text"
+	name="amount"></td>
+<td><span class="label"> <%=Messages.getString("company_vat_amount") %> :</span></td>
+<td><input type="text"
+	name="vat"></td>
+	</tr>
+	<tr>
+	<td>
+	<span class="label"> <%=Messages.getString("company_k&p") %> :</span>
+	</td>
+	<td>
+	<input type="text" name="kAndP">
+	</td>
+	</tr>
+</tbody>
+</table>
+							
+							
 						</div>
 						<div class="inpu-div"
-							style="width: 80%; float: left; text-align: center">
+							style="width: 65%; float: left; text-align: center">
 							<input type="submit" class="btn-style" name="save" value="Submit">
 						</div>
 					</form>
@@ -128,12 +168,13 @@
 				data :"selectType=1&productId="+id,
 				error : function(xhr, ajaxOptions, thrownError) {
 					//  $('#spinner_buis').hide();
-					alert("error from  -> " + thrownError);
+					/* alert("error from  -> " + thrownError); */
+					
 				},
 				success : function(data) {
 					//alert(data);
 					$("#itemTypeSpan").html(data);
-
+					
 				}
 			});
 		}
