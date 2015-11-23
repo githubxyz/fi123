@@ -1,4 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.ims.dto.ProductGroupMapDTO"%>
+<%@page import="com.ims.utility.IRequestAttribute"%>
 <%@page import="com.ims.utility.Messages"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -39,17 +41,20 @@
 
 		<script src="./js/script.js"></script>
 		<script>
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+			src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
 		</script>
 		<script>
-		$(document).ready(function(){
-			$("#productsales").css("background-color", "#f78900");
-		});
-		
+			$(document).ready(function() {
+				$("#productsales").css("background-color", "#f78900");
+			});
 		</script>
 </head>
 
 <body>
+	<%
+		List<ProductGroupMapDTO> productGroupMapDTOs = (List<ProductGroupMapDTO>) request
+				.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
+	%>
 	<div id="container">
 		<div id="header">
 			<%@ include file="./include/header.jsp"%>
@@ -81,9 +86,14 @@
 													class="input-text"
 													onchange="fillSelect(this.value,this.form['unitType'])">
 														<option value=" ">Select Product Group..</option>
-														<option value="1">Weight</option>
-														<option value="2">Quantity</option>
-														<option value="3">Both</option>
+														<%
+															for (Iterator it = productGroupMapDTOs.iterator(); it.hasNext();) {
+																ProductGroupMapDTO productGroupMapDTO = (ProductGroupMapDTO) it.next();
+														%>
+														<option value="<%=productGroupMapDTO.getId()%>"><%=productGroupMapDTO.getCode()%></option>
+														<%
+															}
+														%>
 												</select></td>
 												<td width="15%"><span class="label"> <%=Messages.getString("item_name")%>
 														:
@@ -113,7 +123,7 @@
 												</span></td>
 												<td><input type="text" name="unitPrice" value=""
 													class="input-text"></td>
-												<td><span class="label"> <%=Messages.getString("vat_percentage")%></span> 
+												<td><span class="label"> <%=Messages.getString("vat_percentage")%></span>
 												</td>
 												<td><input type="text" name="unitPrice" value=""
 													class="input-text"></td>
@@ -123,7 +133,7 @@
 								</div>
 								<div class="inpu-div"
 									style="width: 80%; float: left; text-align: center">
-									<input type="button" name="submit" value="Submit"
+									<input type="button" name="Add Item" value="Add Item"
 										class="btn-style" onclick="salesProduct()">
 								</div>
 								</form>
@@ -142,18 +152,18 @@
 												:</span></td>
 										<td><input type="text" name="subTotal" value=""
 											class="input-text"></td>
-										
+
 									</tr>
 									<tr>
 										<td><span class="label"><%=Messages.getString("product_sub_total")%>
 												:</span></td>
 										<td><input type="text" name="subTotal" value=""
 											class="input-text"></td>
-										
+
 									</tr>
-									
+
 									<tr>
-										<td ><span class="label"><%=Messages.getString("discount_over_total")%>:</span></td>
+										<td><span class="label"><%=Messages.getString("discount_over_total")%>:</span></td>
 										<td><input type="text" name="totalCost" value=""
 											class="input-text"></td>
 									</tr>
@@ -179,77 +189,7 @@
 
 								</div>
 								<script type="text/javascript">
-										var unitType = [];
-										unitType["1"] = [ "Kilogram" ];
-										unitType["2"] = [ "Number", "Quantity" ];
-										unitType["3"] = [ "Kilogram", "Number",
-												"Quantity" ];
-
-										function fillSelect(nValue, nList) {
-											nList.options.length = 1;
-											var curr = unitType[nValue];
-											for (each in curr) {
-												var nOption = document
-														.createElement('option');
-												nOption
-														.appendChild(document
-																.createTextNode(curr[each]));
-												nOption.setAttribute("value",
-														curr[each]);
-												nList.appendChild(nOption);
-											}
-										}
-									</script>
-								<script type="text/javascript">
-									//alert("jj");
-									function salesProduct() {
-										var saveSucc = $
-												.ajax({
-													type : 'post',
-													url : 'saveProduct',
-													data : $('#saveProductForm')
-															.serialize(),
-													error : function(xhr,
-															ajaxOptions,
-															thrownError) {
-														//  $('#spinner_buis').hide();
-														alert("error from  -> "
-																+ thrownError);
-													},
-													success : function(data) {
-														if (saveSucc
-																.getResponseHeader('error') == '1') {
-															$(
-																	"#saveMasterError")
-																	.html(data);
-														} else {
-															$("#productListDiv")
-																	.html(data);
-															$(
-																	"#saveMasterError")
-																	.html("");
-														}
-
-													}
-												});
-									}
-									function editProduct(id) {
-										var saveSucc = $.ajax({
-											type : 'get',
-											url : 'saveProduct',
-											data : 'editProduct=yes&id=' + id,
-											error : function(xhr, ajaxOptions,
-													thrownError) {
-												//  $('#spinner_buis').hide();
-												alert("error from  -> "
-														+ thrownError);
-											},
-											success : function(data) {
-												$("#editDiv").html(data);
-
-											}
-										});
-									}
+									
 								</script>
 </body>
 </html>
