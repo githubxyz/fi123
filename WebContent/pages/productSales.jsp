@@ -68,8 +68,7 @@
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_product_sales")%></b></font>
 						</div>
-						<form action="saveProduct" method="post" style="paddin-: 20px;"
-							id="saveProductForm">
+						<form action="" method="post" style="paddin-: 20px;" id="">
 							<table>
 								<div class="inpu-div">
 									<table width="100%">
@@ -86,12 +85,12 @@
 														<option value="2">Quantity</option>
 														<option value="3">Both</option>
 												</select></td>
-												<td width="15%"><span class="label"> <%=Messages.getString("product_code")%>
+												<td width="15%"><span class="label"> <%=Messages.getString("item_name")%>
 														:
 												</span></td>
 												<td width="15%"><span id="itemTypeSpan"><select
 														name="unitType" class="input-text">
-															<option value=" ">Select Product Code..</option>
+															<option value=" ">-Select-</option>
 													</select></span></td>
 
 												<th width="80px" rowspan="4" colspan="2"><div
@@ -112,7 +111,11 @@
 												<td><span class="label"> <%=Messages.getString("company_unit_price")%>
 														:
 												</span></td>
-												<td></span> <input type="text" name="unitPrice" value=""
+												<td><input type="text" name="unitPrice" value=""
+													class="input-text"></td>
+												<td><span class="label"> <%=Messages.getString("vat_percentage")%></span> 
+												</td>
+												<td><input type="text" name="unitPrice" value=""
 													class="input-text"></td>
 											</tr>
 										</tbody>
@@ -129,50 +132,53 @@
 								<div style="margin-bottom: 10px;" id="productListDiv">
 									<jsp:include page="productList.jsp" />
 								</div>
-								<table width=30%>
-								<tr>
-								<td>
-								<span class="label"><%=Messages.getString("product_sub_total")%>
-									:</span>
-								</td>
-								<td>
-								<input type="text" name="subTotal" value="" class="input-text">
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<span class="label"><%=Messages.getString("product_vat_amount")%>
-									:</span>
-								</td>
-								<td>
-								<input type="text" name="vatAmount" value="" class="input-text">
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<span class="label"><%=Messages.getString("product_total_cost")%>
-									:</span>
-								</td>
-								<td>
-								<input type="text" name="totalCost" value="" class="input-text">
-								</td>
-								</tr>
-								<tr>
-								<th colspan="2" rowspan="2">
-								<input type="button" name="submit" value="Submit"
-										class="btn-style" onclick="salesProduct()">
-								</th>
-								</tr>
-								</table>	
-															
-									</div>
-									</div>
-									<div id="content_bottom"></div>
-
+								<table width=80%>
+									<tr>
+										<td><span class="label"><%=Messages.getString("product_vat_amount")%>
+												:</span></td>
+										<td><input type="text" name="vatAmount" value=""
+											class="input-text"></td>
+										<td><span class="label"><%=Messages.getString("customer_vat_no")%>
+												:</span></td>
+										<td><input type="text" name="subTotal" value=""
+											class="input-text"></td>
+										
+									</tr>
+									<tr>
+										<td><span class="label"><%=Messages.getString("product_sub_total")%>
+												:</span></td>
+										<td><input type="text" name="subTotal" value=""
+											class="input-text"></td>
+										
+									</tr>
 									
-									</div>
+									<tr>
+										<td ><span class="label"><%=Messages.getString("discount_over_total")%>:</span></td>
+										<td><input type="text" name="totalCost" value=""
+											class="input-text"></td>
+									</tr>
+									<tr>
+										<td><span class="label"><%=Messages.getString("product_total_cost")%>
+												:</span></td>
+										<td><input type="text" name="totalCost" value=""
+											class="input-text"></td>
+									</tr>
+									<tr>
+										<th colspan="2" rowspan="2"><input type="button"
+											name="submit" value="Submit" class="btn-style"
+											onclick="salesProduct()"></th>
+									</tr>
+								</table>
 
-									</div> <script type="text/javascript">
+								</div>
+								</div>
+								<div id="content_bottom"></div>
+
+
+								</div>
+
+								</div>
+								<script type="text/javascript">
 										var unitType = [];
 										unitType["1"] = [ "Kilogram" ];
 										unitType["2"] = [ "Number", "Quantity" ];
@@ -193,7 +199,8 @@
 												nList.appendChild(nOption);
 											}
 										}
-									</script> <script type="text/javascript">
+									</script>
+								<script type="text/javascript">
 									//alert("jj");
 									function salesProduct() {
 										var saveSucc = $
