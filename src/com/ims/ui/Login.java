@@ -63,6 +63,13 @@ public class Login extends HttpServlet {
 		HttpSession s = request.getSession(true);
         String login1 = request.getParameter("login1");
         String password = request.getParameter("password");
+        String branchIdString=request.getParameter("branchId");
+        int branchId=0;
+        if(branchIdString!=null){
+        	branchIdString=branchIdString.trim();
+        	branchId=Integer.parseInt(branchIdString);
+        }
+        
 		UserDTO uDTO = new UserDTO();
 		uDTO.setUserName(login1);
 		uDTO.setPassword(password);
@@ -78,6 +85,7 @@ public class Login extends HttpServlet {
 			else
 			{				
 				s.setAttribute(ISessionAttribute.LOGGEDINUSER, result);
+				s.setAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID, branchId);
 				doGet(request, response);
 			}
 		} catch (OperationFailedException e) {

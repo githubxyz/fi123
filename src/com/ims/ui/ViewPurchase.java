@@ -16,6 +16,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -43,9 +45,12 @@ public class ViewPurchase extends HttpServlet {
 		try {
 			BeanUtils.populate(pd, request.getParameterMap());
 			IProductDetailService productDetailService=new ProductDetailServiceImpl();
-			if(pd!=null)
-				productDetailService.listOfPurchase(1);
-			List<ProductDetailDTO> list=productDetailService.listOfPurchase(1);
+			HttpSession session = request.getSession(true);
+			int branchId=(int) session.getAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID);
+			if(pd!=null){
+				productDetailService.listOfPurchase(branchId);
+			}
+			List<ProductDetailDTO> list=productDetailService.listOfPurchase(branchId);
 			request.setAttribute(ISessionAttribute.PURCHASE_LIST, list);
 			
 		} catch (Exception e) {
@@ -73,9 +78,11 @@ public class ViewPurchase extends HttpServlet {
 		try {
 			BeanUtils.populate(pd, request.getParameterMap());
 			IProductDetailService productDetailService=new ProductDetailServiceImpl();
+			HttpSession session = request.getSession(true);
+			int branchId=(int) session.getAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID);
 			if(pd!=null)
-				productDetailService.listOfPurchase(1);
-			List<ProductDetailDTO> list=productDetailService.listOfPurchase(1);
+				productDetailService.listOfPurchase(branchId);
+			List<ProductDetailDTO> list=productDetailService.listOfPurchase(branchId);
 			request.setAttribute(ISessionAttribute.PURCHASE_LIST, list);
 			
 		} catch (Exception e) {

@@ -30,6 +30,7 @@
 					<p class="float">
 						<label for="login"><i class="icon-user"></i>Username</label>
 						<input type="text" name="login1" placeholder="Username">
+						<input type="hidden" name="branchId" value="1">
 					</p>
 					<p class="float">
 						<label for="password"><i class="icon-lock"></i>Password</label>

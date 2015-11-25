@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.mail.Session;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
@@ -109,7 +111,9 @@ public class SaveStock extends HttpServlet {
 				
 				productDetailDTO.setProductMaster(pm);
 				// Todo set the branchId from session parameter
-				productDetailDTO.setBranch(1);
+				HttpSession session=request.getSession(true);
+				int branchId=(int) session.getAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID);
+				productDetailDTO.setBranch(branchId);
 				UserDTO user = new UserDTO();
 				user.setId(1);
 				productDetailDTO.setUser(user);
