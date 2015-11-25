@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.ims.utility.Messages"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -17,15 +18,15 @@
 
 	<div id="page-wrap">
 
-		<textarea id="header">INVOICE</textarea>
+		<div id="header"><%=Messages.getString("billing_header")%></div>
 		
 		<div id="identity">
 		
-            <textarea id="address">Chris Coyier
+            <div id="address">Chris Coyier
 123 Appleseed Street
 Appleville, WI 53719
 
-Phone: (555) 555-5555</textarea>
+Phone: (555) 555-5555</div>
 
             <div id="logo">
 
@@ -50,18 +51,18 @@ Phone: (555) 555-5555</textarea>
 		
 		<div id="customer">
 
-            <textarea id="customer-title">Widget Corp.
-c/o Steve Widget</textarea>
+            <div id="customer-title">Widget Corp.
+c/o Steve Widget</div>
 
             <table id="meta">
                 <tr>
                     <td class="meta-head">Invoice #</td>
-                    <td><textarea>000123</textarea></td>
+                    <td><div>000123</div></td>
                 </tr>
                 <tr>
 
                     <td class="meta-head">Date</td>
-                    <td><textarea id="date">December 15, 2009</textarea></td>
+                    <td><div id="date">December 15, 2009</div></td>
                 </tr>
                 <tr>
                     <td class="meta-head">Amount Due</td>
@@ -83,19 +84,19 @@ c/o Steve Widget</textarea>
 		  </tr>
 		  
 		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>Web Updates</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
-		      <td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
-		      <td><textarea class="cost">$650.00</textarea></td>
-		      <td><textarea class="qty">1</textarea></td>
+		      <td class="item-name"><div class="delete-wpr"><div>Web Updates</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		      <td class="description"><div>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</div></td>
+		      <td><div class="cost">$650.00</div></td>
+		      <td><div class="qty">1</div></td>
 		      <td><span class="price">$650.00</span></td>
 		  </tr>
 		  
 		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>SSL Renewals</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		      <td class="item-name"><div class="delete-wpr"><div>SSL Renewals</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 
-		      <td class="description"><textarea>Yearly renewals of SSL certificates on main domain and several subdomains</textarea></td>
-		      <td><textarea class="cost">$75.00</textarea></td>
-		      <td><textarea class="qty">3</textarea></td>
+		      <td class="description"><div>Yearly renewals of SSL certificates on main domain and several subdomains</div></td>
+		      <td><div class="cost">$75.00</div></td>
+		      <td><div class="qty">3</div></td>
 		      <td><span class="price">$225.00</span></td>
 		  </tr>
 		  
@@ -118,7 +119,7 @@ c/o Steve Widget</textarea>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Amount Paid</td>
 
-		      <td class="total-value"><textarea id="paid">$0.00</textarea></td>
+		      <td class="total-value"><div id="paid">$0.00</div></td>
 		  </tr>
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
@@ -130,7 +131,7 @@ c/o Steve Widget</textarea>
 		
 		<div id="terms">
 		  <h5>Terms</h5>
-		  <textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
+		  <div>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</div>
 		</div>
 	
 	</div>
