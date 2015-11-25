@@ -22,11 +22,18 @@
 		
 		<div id="identity">
 		
-            <div id="address">Chris Coyier
-123 Appleseed Street
-Appleville, WI 53719
-
-Phone: (555) 555-5555</div>
+            <div id="address">
+            <%=Messages.getString("company_address1")%><br>
+<%=Messages.getString("company_address2")%><br>
+<%=Messages.getString("company_district")%><br>
+<%=Messages.getString("company_pin")%><br>
+<%=Messages.getString("company_mobile")%>: <%=Messages.getString("company_mobile_no")%>  <br>
+<%=Messages.getString("company_email")%>: <%=Messages.getString("company_email_id")%>  <br>
+<b><%=Messages.getString("company_buyer")%></b><br>
+<%=Messages.getString("company_buyer_name")%><br>
+<%=Messages.getString("company_buyer_address")%><br>
+            
+            </div>
 
             <div id="logo">
 
@@ -51,23 +58,44 @@ Phone: (555) 555-5555</div>
 		
 		<div id="customer">
 
-            <div id="customer-title">Widget Corp.
-c/o Steve Widget</div>
+            <!-- <div id="customer-title">Widget Corp.
+c/o Steve Widget</div> -->
 
             <table id="meta">
                 <tr>
-                    <td class="meta-head">Invoice #</td>
+                    <td class="meta-head"><%=Messages.getString("invoice_no")%></td>
                     <td><div>000123</div></td>
                 </tr>
                 <tr>
-
-                    <td class="meta-head">Date</td>
+                    <td class="meta-head"><%=Messages.getString("invoice_date")%></td>
                     <td><div id="date">December 15, 2009</div></td>
                 </tr>
                 <tr>
-                    <td class="meta-head">Amount Due</td>
-                    <td><div class="due">$875.00</div></td>
+                    <td class="meta-head"><%=Messages.getString("invoice_delivery_note")%></td>
+                    <td><div id="date">Mode/Terms of Payment</div></td>
                 </tr>
+                <tr>
+                    <td class="meta-head"><%=Messages.getString("invoice_supplier_ref")%></td>
+                    <td><div class="due">Other Reference(s)</div></td>
+                </tr>
+                <tr>
+                    <td class="meta-head"><%=Messages.getString("invoice_buyer_orderno")%></td>
+                    <td><div>Dated</div></td>
+                </tr>
+                <tr>
+                    <td class="meta-head"><%=Messages.getString("invoice_despatch_no")%></td>
+                    <td><div id="date">Dated</div></td>
+                </tr>
+                <tr>
+                    <td class="meta-head"><%=Messages.getString("invoice_despatch")%></td>
+                    <td><div class="due">Destination</div></td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head"><%=Messages.getString("invoice_termas")%></td>
+                    <td><div id="date"></div></td>
+                </tr>
+                
 
             </table>
 		
