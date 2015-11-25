@@ -96,7 +96,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css" media="all">
 
-<title>FriendsInterior</title>
+<title>Friends Interior</title>
 </head>
 
 <body>

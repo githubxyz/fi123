@@ -16,7 +16,7 @@
   <script src="./js/jquery-2.0.3.min.js"></script>
   <link rel="stylesheet" href="./css/styles.css">
    <script src="./js/script.js"></script>
-	<title>Insonera.com</title>
+	<title>Friends Interior</title>
 	<!-- Highlighted menu -->
 	<script>
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";

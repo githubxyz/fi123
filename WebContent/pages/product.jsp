@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
-
+<title>Friends Interior</title>
 
 	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript"

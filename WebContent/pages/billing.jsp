@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 	
-	<title>Editable Invoice</title>
+	<title>Friends Interior</title>
 	
 	<link rel='stylesheet' type='text/css' href='css/billingstyle.css' />
 	<link rel='stylesheet' type='text/css' href='css/print.css' media="print" />
