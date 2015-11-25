@@ -54,6 +54,8 @@
 	<%
 		List<ProductGroupMapDTO> productGroupMapDTOs = (List<ProductGroupMapDTO>) request
 				.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
+	List<ProductMasterDTO> prMasterDTOs =(List<ProductMasterDTO>)request.getAttribute(IRequestAttribute.PRODUCT_LIST);
+	
 	%>
 	<div id="container">
 		<div id="header">
@@ -101,6 +103,14 @@
 												<td width="15%"><span id="itemTypeSpan"><select
 														name="unitType" class="input-text">
 															<option value=" ">-Select-</option>
+															<%
+															for (Iterator it = prMasterDTOs.iterator(); it.hasNext();) {
+																ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
+														%>
+														<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
+														<%
+															}
+														%>
 													</select></span></td>
 
 												<th width="80px" rowspan="4" colspan="2"><div

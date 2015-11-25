@@ -16,7 +16,9 @@ import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
 import com.ims.exception.OperationFailedException;
 import com.ims.service.productService.IProductDetailService;
+import com.ims.service.productService.IProductService;
 import com.ims.service.productService.ProductDetailServiceImpl;
+import com.ims.service.productService.ProductServiceImpl;
 import com.ims.utility.IRequestAttribute;
 
 /**
@@ -45,6 +47,9 @@ public class SalesProduct extends HttpServlet {
 			List<ProductGroupMapDTO> productGroupMapDTOs = detailService.getProductGroupCodeLists();
 			request.setAttribute(IRequestAttribute.PRODUCT_GROUP_LIST, productGroupMapDTOs);
 			logger.info("PRODUCT_GROUP_LIST="+productGroupMapDTOs);
+			IProductService productService = new ProductServiceImpl();
+			List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
+			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
 		} catch (OperationFailedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
