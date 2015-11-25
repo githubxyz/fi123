@@ -29,6 +29,7 @@ public class SaleMasterDTO implements Serializable {
 	private double discount;
 	private Date billDate;
 	private String customerVatNo;
+	private String billNo;
 	
 	@Id
 	@Column(name = "id")
@@ -103,6 +104,13 @@ public class SaleMasterDTO implements Serializable {
 	}
 	public void setCustomerVatNo(String customerVatNo) {
 		this.customerVatNo = customerVatNo;
+	}
+	@Column(name="bill_no")
+	public String getBillNo() {
+		return billNo;
+	}
+	public void setBillNo(String billNo) {
+		this.billNo = billNo;
 	}
 	@Override
 	public String toString() {
