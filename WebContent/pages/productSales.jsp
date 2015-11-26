@@ -15,9 +15,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
-<title>Friends Interior</title>
-
-	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<title>Friends Interior</title> <script type="text/javascript"
+		src="js/jquery/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript"
 		src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.dataTables.js"></script>
@@ -54,8 +53,8 @@
 	<%
 		List<ProductGroupMapDTO> productGroupMapDTOs = (List<ProductGroupMapDTO>) request
 				.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
-	List<ProductMasterDTO> prMasterDTOs =(List<ProductMasterDTO>)request.getAttribute(IRequestAttribute.PRODUCT_LIST);
-	
+		List<ProductMasterDTO> prMasterDTOs = (List<ProductMasterDTO>) request
+				.getAttribute(IRequestAttribute.PRODUCT_LIST);
 	%>
 	<div id="container">
 		<div id="header">
@@ -75,16 +74,18 @@
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_product_sales")%></b></font>
 						</div>
-						<form action="" method="post" style="paddin-: 20px;" id="">
-							<table>
+						<form action="" method="post" style="paddin-: 20px;" id="addItemForm">
+							
 								<div class="inpu-div">
 									<table width="100%">
 										<tbody>
 											<tr>
+												<input type="hidden" name="id" value="">
 												<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
 														:
 												</span></td>
-												<td width="15%"><select name="groupCode"
+												<td width="15%">
+												<select name="groupCode"
 													class="input-text">
 														<option value=" ">Select Product Group..</option>
 														<%
@@ -99,17 +100,18 @@
 												<td width="15%"><span class="label"> <%=Messages.getString("item_name")%>
 														:
 												</span></td>
-												<td width="15%"><span id="itemSpan"><select
-														name="productMasterId" class="input-text" id="productMasterId">
-															
+												<td width="15%"><span id="itemSpan"> <select
+														name="productMasterId" class="input-text"
+														id="productMasterId" onchange="changeProduct()">
+
 															<%
-															for (Iterator it = prMasterDTOs.iterator(); it.hasNext();) {
-																ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
-														%>
-														<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
-														<%
-															}
-														%>
+																for (Iterator it = prMasterDTOs.iterator(); it.hasNext();) {
+																	ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
+															%>
+															<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
+															<%
+																}
+															%>
 													</select></span></td>
 
 												<th width="80px" rowspan="4" colspan="2"><div
@@ -121,10 +123,11 @@
 												</span></td>
 												<td><input type="text" name="quantity" value=""
 													class="input-text"></td>
-												<td><span class="label"><%=Messages.getString("company_product_weight")%>
-														:</span></td>
-												<td><input type="text" name="weight" value=""
+												<td><span class="label">Total :
+												</span></td>
+												<td><input type="text" name="mesure" value=""
 													class="input-text"></td>
+												<td><span id="unit">KG</span></td>
 											</tr>
 											<tr>
 												<td><span class="label"> <%=Messages.getString("company_unit_price")%>
@@ -134,7 +137,7 @@
 													class="input-text"></td>
 												<td><span class="label"> <%=Messages.getString("vat_percentage")%></span>
 												</td>
-												<td><input type="text" name="unitPrice" value=""
+												<td><input type="text" name="vatPercentage" value=""
 													class="input-text"></td>
 											</tr>
 										</tbody>
@@ -143,13 +146,16 @@
 								<div class="inpu-div"
 									style="width: 80%; float: left; text-align: center">
 									<input type="button" name="Add Item" value="Add Item"
-										class="btn-style" onclick="salesProduct()">
+										class="btn-style" onclick="addItem()">
 								</div>
 								</form>
 								</div>
 								<!-- master page view -->
 								<div style="margin-bottom: 10px;" id="productListDiv">
-									<jsp:include page="productList.jsp" />
+									<jsp:include page="template/orderedItem.jsp" />
+								</div>
+								
+
 								</div>
 								<table width=80%>
 									<tr>
@@ -188,8 +194,6 @@
 											onclick="salesProduct()"></th>
 									</tr>
 								</table>
-
-								</div>
 								</div>
 								<div id="content_bottom"></div>
 
@@ -198,7 +202,39 @@
 
 								</div>
 								<script type="text/javascript">
-									
+									function changeProduct(){
+										var masterId=$("#productMasterId").val();
+										var saveSucc = $.ajax({
+											type : 'post',
+											url : 'SalesProduct',
+											data : 'requestType=addItem&masterId=' + masterId,
+											error : function(xhr, ajaxOptions, thrownError) {
+												//  $('#spinner_buis').hide();
+												alert("error from  -> " + thrownError);
+											},
+											success : function(data) {
+												$("#editDiv").html(data);
+
+											}
+										});
+									}
+									function addItem(){
+										var masterId=$("#addItemForm").serialize();
+										var saveSucc = $.ajax({
+											type : 'post',
+											url : 'SalesProduct',
+											data : masterId+'&requestType=addItem',
+											error : function(xhr, ajaxOptions, thrownError) {
+												//  $('#spinner_buis').hide();
+												alert("error from  -> " + thrownError);
+											},
+											success : function(data) {
+												$("#productListDiv").html(data);
+
+											}
+										});
+									}
+
 								</script>
 </body>
 </html>

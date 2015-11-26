@@ -7,4 +7,5 @@ public interface ISessionAttribute {
   String PURCHASE_LIST="purchaseList";
   String PRODUCTMASTER_LIST="productList";
   String STOCLALART_LIST="stockAlartList";
+  String SALE_ITEM_LIST="saledItemList";
 }
