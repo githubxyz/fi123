@@ -107,7 +107,7 @@
 </select></td>
 <td><span class="label"><%=Messages.getString("company_product_type") %> :</span></td>
 <td><span id="itemTypeSpan"><select
-	name="type">
+	name="type" class="input-text">
 		<option value="0">Select</option>
 		<option value="1">Light</option>
 		<option value="2">Medium</option>
