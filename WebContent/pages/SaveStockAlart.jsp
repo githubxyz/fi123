@@ -166,11 +166,11 @@ name="minVal" value=""></td>
 						$("#SaveStockAlartError").html("");
 					}
 					alert("Item saved successfully");
-					/* $(':input','#saveStockAlartForm')
+					$(':input','#saveStockAlartForm')
 					  .removeAttr('checked')
 					  .removeAttr('selected')
 					  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
-					  .val(''); */
+					  .val(''); 
 
 				}
 			});
