@@ -30,6 +30,10 @@
 </head>
 
 <body>
+
+<script>
+alert(<%=request.getAttribute("msg")%>);
+</script>
 	<div id="container">
 		<div id="header">
 			<%@ include file="./include/header.jsp"%>
@@ -106,7 +110,7 @@
 	%>
 </select></td>
 <td><span class="label"><%=Messages.getString("company_product_type") %> :</span></td>
-<td><span id="itemTypeSpan"><select
+<td><span id="itemTypeSpan" class="input-text"><select
 	name="type" class="input-text">
 		<option value="0">Select</option>
 		<option value="1">Light</option>

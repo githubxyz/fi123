@@ -122,7 +122,7 @@ public class SaveStock extends HttpServlet {
 				productService.saveProductDetail(productDetailDTO);
 				List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
 				request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
-
+				request.setAttribute("msg", "The value saved successfully");
 			} catch (Exception e) {
 				error = true;
 				e.printStackTrace();
