@@ -26,6 +26,7 @@ public class SaleItemDTO implements Serializable {
 	private int branchId;
 	private double vatPercentage;
 	private int saleMasterId;
+	private double unitPrice=0.0;
 	
 	@Id
 	@Column(name = "id")
@@ -101,6 +102,13 @@ public class SaleItemDTO implements Serializable {
 	}
 	public void setSaleMasterId(int saleMasterId) {
 		this.saleMasterId = saleMasterId;
+	}
+	@Column(name="unit_price")
+	public double getUnitPrice() {
+		return unitPrice;
+	}
+	public void setUnitPrice(double unitPrice) {
+		this.unitPrice = unitPrice;
 	}
 	@Override
 	public String toString() {

@@ -84,9 +84,8 @@
 												<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
 														:
 												</span></td>
-												<td width="15%"><select name="unitOfMesure"
-													class="input-text"
-													onchange="fillSelect(this.value,this.form['unitType'])">
+												<td width="15%"><select name="groupCode"
+													class="input-text">
 														<option value=" ">Select Product Group..</option>
 														<%
 															for (Iterator it = productGroupMapDTOs.iterator(); it.hasNext();) {
@@ -100,9 +99,9 @@
 												<td width="15%"><span class="label"> <%=Messages.getString("item_name")%>
 														:
 												</span></td>
-												<td width="15%"><span id="itemTypeSpan"><select
-														name="unitType" class="input-text">
-															<option value=" ">-Select-</option>
+												<td width="15%"><span id="itemSpan"><select
+														name="productMasterId" class="input-text" id="productMasterId">
+															
 															<%
 															for (Iterator it = prMasterDTOs.iterator(); it.hasNext();) {
 																ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
