@@ -151,50 +151,13 @@
 								</form>
 								</div>
 								<!-- master page view -->
-								<div style="margin-bottom: 10px;" id="productListDiv">
-									<jsp:include page="template/orderedItem.jsp" />
-								</div>
+								
 								
 
 								</div>
-								<table width=80%>
-									<tr>
-										<td><span class="label"><%=Messages.getString("product_vat_amount")%>
-												:</span></td>
-										<td><input type="text" name="vatAmount" value=""
-											class="input-text"></td>
-										<td><span class="label"><%=Messages.getString("customer_vat_no")%>
-												:</span></td>
-										<td><input type="text" name="subTotal" value=""
-											class="input-text"></td>
-
-									</tr>
-									<tr>
-										<td><span class="label"><%=Messages.getString("product_sub_total")%>
-												:</span></td>
-										<td><input type="text" name="subTotal" value=""
-											class="input-text"></td>
-
-									</tr>
-
-									<tr>
-										<td><span class="label"><%=Messages.getString("discount_over_total")%>:</span></td>
-										<td><input type="text" name="totalCost" value=""
-											class="input-text"></td>
-									</tr>
-									<tr>
-										<td><span class="label"><%=Messages.getString("product_total_cost")%>
-												:</span></td>
-										<td><input type="text" name="totalCost" value=""
-											class="input-text"></td>
-									</tr>
-									<tr>
-										<th colspan="2" rowspan="2"><input type="button"
-											name="submit" value="Submit" class="btn-style"
-											onclick="salesProduct()"></th>
-									</tr>
-								</table>
-								</div>
+									<div style="margin-bottom: 10px;" id="productListDiv">
+									<jsp:include page="template/orderedItem.jsp" />
+								</div>							</div>
 								<div id="content_bottom"></div>
 
 
