@@ -47,6 +47,7 @@ table td, table th { border: 1px solid black; padding: 5px; }
 #items td.blank { border: 0; }
 
 #terms { text-align: center; margin: 20px 0 0 0; }
+#terms1 { text-align: left; margin: 20px 0 0 0; }
 #terms h5 { text-transform: uppercase; font: 13px Helvetica, Sans-Serif; letter-spacing: 10px; border-bottom: 1px solid black; padding: 0 0 8px 0; margin: 0 0 8px 0; }
 #terms textarea { width: 100%; text-align: center;}
 

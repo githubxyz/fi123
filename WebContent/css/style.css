@@ -72,8 +72,9 @@
     pointer-events: none;
 }
 
-.form-1 input[type=text],
-.form-1 input[type=password] {
+.form-2 input[type="text"], 
+.form-2 input[type="password"], 
+.form-2 select {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;

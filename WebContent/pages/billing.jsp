@@ -104,22 +104,29 @@ c/o Steve Widget</div> -->
 		<table id="items">
 		
 		  <tr>
-		      <th>Item</th>
-		      <th>Description</th>
-		      <th>Unit Cost</th>
-		      <th>Quantity</th>
-		      <th>Price</th>
+		      <th><%=Messages.getString("invoice_des_goods")%></th>
+		      <th><%=Messages.getString("invoice_quantity")%></th>
+		      <th><%=Messages.getString("invoice_rate")%></th>
+		      <th><%=Messages.getString("invoice_unit")%></th>
+		      <th><%=Messages.getString("invoice_amount")%></th>
 		  </tr>
 		  
 		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><div>Web Updates</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
-		      <td class="description"><div>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</div></td>
-		      <td><div class="cost">$650.00</div></td>
-		      <td><div class="qty">1</div></td>
-		      <td><span class="price">$650.00</span></td>
+		      <td class="item-name"><div class="delete-wpr"><div>Web Updates</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		      <td class="qty"><div>100</div></td>
+		      <td><div class="cost">&#x20B9;650.00</div></td>
+		      <td><div class="description">Pcs.</div></td>
+		      <td><span class="price">&#x20B9;650.00</span></td>
+		  </tr>
+		  <tr class="item-row">
+		      <td class="item-name"><div class="delete-wpr"><div>Item2</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		      <td class="qty"><div>10</div></td>
+		      <td><div class="cost">&#x20B9;14.50</div></td>
+		      <td><div class="description">KG</div></td>
+		      <td><span class="price">&#x20B9;120</span></td>
 		  </tr>
 		  
-		  <tr class="item-row">
+		   <!-- <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><div>SSL Renewals</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 
 		      <td class="description"><div>Yearly renewals of SSL certificates on main domain and several subdomains</div></td>
@@ -130,38 +137,79 @@ c/o Steve Widget</div> -->
 		  
 		  <tr id="hiderow">
 		    <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
+		  </tr> --> 
+		  <tr id="hiderow">
+		    <td colspan="4"><%=Messages.getString("invoice_subtotal")%></td>
+		    <td colspan="1">Sum of item amount</td>
+		  </tr>
+		  <tr class="item-row">
+		      <td class="item-name"><div class="delete-wpr"><div>Output Vat @14.5% Round Off</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		      <td class="qty"><div></div></td>
+		      <td><div class="cost">14.50</div></td>
+		      <td><div class="description">%</div></td>
+		      <td><span class="price">&#x20B9;(650.00+120)*14.50/100</span></td>
+		  </tr>
+		   <tr id="hiderow">
+		    <td colspan="4"><%=Messages.getString("invoice_total")%></td>
+		    <td colspan="1">&#x20B9;15,218</td>
+		  </tr>
+		  <tr id="hiderow">
+		    <td colspan="5"><%=Messages.getString("invoice_amount_txt")%><br>&#x20B9; Fifteen thousand two hundred eighteen only </td>
+		    
 		  </tr>
 		  
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line">Subtotal</td>
-		      <td class="total-value"><div id="subtotal">$875.00</div></td>
-		  </tr>
-		  <tr>
+		      <td colspan="2" class="total-line"><%=Messages.getString("invoice_amount_paid")%></td>
 
-		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line">Total</td>
-		      <td class="total-value"><div id="total">$875.00</div></td>
+		      <td class="total-value"><div id="paid">&#x20B9;0.00</div></td>
 		  </tr>
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line">Amount Paid</td>
-
-		      <td class="total-value"><div id="paid">$0.00</div></td>
-		  </tr>
-		  <tr>
-		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line balance">Balance Due</td>
-		      <td class="total-value balance"><div class="due">$875.00</div></td>
+		      <td colspan="2" class="total-line balance"><%=Messages.getString("invoice_balance_due")%></td>
+		      <td class="total-value balance"><div class="due">&#x20B9;875.00</div></td>
 		  </tr>
 		
 		</table>
 		
-		<div id="terms">
-		  <h5>Terms</h5>
-		  <div>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</div>
+		<div id="terms1">
+		  
+		  	Company's VAT TIN : 19808181045<br>
+			Company's CST No. : 19808181045<br>
+			Buyer's VAT TIN/Sales Tax No. : 19781977077
+		  <table border="0">
+		  <tr>
+		  <td>
+		  Declaration
+		  </td>
+		  <td>
+		  <b>for FRIENDS INTERIOR</b>
+		  </td>
+		  </tr>
+		  <tr>
+		  <td>
+		  We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.
+		  </td>
+		  <td>
+		  </td>
+		  </tr>
+		  <tr>
+		  <td>
+		  </td>
+		  <td>
+		  Authorised Signatory
+		  </td>
+		  </tr>
+		  </table>
+		  </div>
+		  <div id="terms" align="left">
+		  
+		  <div>This is a Computer Geenerated Invoice</div>
+		  <input type="button" name="submit" value="Print" onclick="">
+		  &nbsp;&nbsp;&nbsp;&nbsp;
+		 <a href="./login"> Back to Dashboard </a>
 		</div>
-	
+	<br></br>
 	</div>
 	
 </body>

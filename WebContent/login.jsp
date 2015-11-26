@@ -30,11 +30,20 @@
 					<p class="float">
 						<label for="login"><i class="icon-user"></i>Username</label>
 						<input type="text" name="login1" placeholder="Username">
-						<input type="hidden" name="branchId" value="1">
+						<!-- <input type="hidden" name="branchId" value="1"> -->
 					</p>
 					<p class="float">
 						<label for="password"><i class="icon-lock"></i>Password</label>
 						<input type="password" name="password" placeholder="Password" class="showpassword">
+					</p>
+					<p class="float">
+		<label for="Branch"><i class="icon-check"></i>Select Branch</label>				 					
+						<select name="branchId">
+  							<option value="1">Durgapur</option>
+  							<option value="2">Bankura</option>
+  						</select> 
+						
+    <br><br>
 					</p>
 					<p class="clearfix"> 
 						<a href="#" class="log-twitter">Sign up</a>    
