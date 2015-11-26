@@ -90,23 +90,24 @@
 	}
 %>
 </select></td>
-<td><span class="label"><%=Messages.getString("company_product_type") %> :</span></td>
-	<td><select id="itemTypeSpan"
+<td width="15%"><span class="label"><%=Messages.getString("company_product_type") %> :</span></td>
+	<td width="15%"><select class="input-text" id="itemTypeSpan"
 	name="type">
 		<option value="0">Select</option>
 		<option value="1">Light</option>
 		<option value="2">Medium</option>
 		<option value="3">Heavy</option>
 </select></td>
-<td width="15%"><span class="label"> <%=Messages.getString("company_product_max_value")%> : </span></td>
-<td width="15%"><input type="text"
-name="maxVal" value=""></td>
+
 
 <th width="80px" rowspan="4" colspan="2">
 <div class="error-div" id="SaveStockAlartError"></div></th>
 	</tr>
 	
 	<tr>
+	<td><span class="label"> <%=Messages.getString("company_product_max_value")%> : </span></td>
+<td><input type="text"
+name="maxVal" value=""></td>
 <td><span class="label"> <%=Messages.getString("company_product_min_value")%> :</span></td>
 <td><input type="text"
 name="minVal" value=""></td>
