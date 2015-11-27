@@ -49,6 +49,7 @@
 		<mapping class="com.ims.dto.StockAlertDTO"/>
 		<mapping class="com.ims.dto.SaleItemDTO"/>
 		<mapping class="com.ims.dto.SaleMasterDTO"/>
+		<mapping class="com.ims.dto.BuyerDTO"/>
     </session-factory>
 
 </hibernate-configuration>

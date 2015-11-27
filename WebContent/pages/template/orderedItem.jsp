@@ -44,45 +44,52 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 	<td bgcolor="#cccccc"><%=(mesure*saleItemDTO.getUnitPrice()+((mesure*saleItemDTO.getUnitPrice()*saleItemDTO.getVatPercentage()))/100) %></td>
 	<td bgcolor="skyblue"><img height="20px" align="right" alt="edit field" src="images/edit.png"/></td>
 </tr>
-	<%}
-	
-	}%>
-</table>
+	<%}%>
+	</table>
+	<% }%>
+<form id="saleingDetail" name="SalesProduct" action="SalesProduct" method="post">
 
 <table width=80%>
 									<tr>
-										<td><span class="label"><%=Messages.getString("product_vat_amount")%>
+										<td>
+										<input type="hidden" name="requestType" value="saleItem">
+										<span class="label"><%=Messages.getString("product_vat_amount")%>
 												:</span></td>
 										<td><input type="text" name="vatAmount" value="<%=totalVat %>"
 											class="input-text"></td>
 										<td><span class="label"><%=Messages.getString("customer_vat_no")%>
 												:</span></td>
-										<td><input type="text" name="subTotal" value=""
+										<td><input type="text" name="customerVatNo" value=""
 											class="input-text"></td>
 
 									</tr>
 									<tr>
-										<td><span class="label"><%=Messages.getString("product_sub_total")%>
+										<td><span class="label"><%=Messages.getString("sub_total_with_vat")%>
 												:</span></td>
-										<td><input type="text" name="subTotal" value="<%=totalWithVat %>"
+										<td><input type="text" name="totalWithVat" value="<%=totalWithVat %>"
 											class="input-text" readonly="readonly"></td>
+										<td><span class="label"><%=Messages.getString("company_buyer_name")%>
+												:</span></td>
+										<td><input type="text" name="customerName" value=""
+											class="input-text"></td>	
 
 									</tr>
 
 									<tr>
 										<td><span class="label"><%=Messages.getString("discount_over_total")%>:</span></td>
-										<td><input type="text" name="totalCost" value=""
+										<td><input type="text" name="discount" value=""
 											class="input-text"></td>
 									</tr>
 									<tr>
 										<td><span class="label"><%=Messages.getString("product_total_cost")%>
 												:</span></td>
-										<td><input type="text" name="totalCost" value="<%=totalWithVat %>"
+										<td><input type="text" id="totalCost" value="<%=totalWithVat %>"
 											class="input-text"></td>
 									</tr>
 									<tr>
-										<th colspan="2" rowspan="2"><input type="button"
+										<th colspan="2" rowspan="2"><input type="submit"
 											name="submit" value="Submit" class="btn-style"
-											onclick="salesProduct()"></th>
+											onclick="saleProduct()"></th>
 									</tr>
 								</table>
+								</form>

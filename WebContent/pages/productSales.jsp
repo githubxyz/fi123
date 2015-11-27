@@ -197,6 +197,9 @@
 				}
 			});
 		}
+		function saleProduct(){
+			
+		}
 	</script>
 </body>
 </html>

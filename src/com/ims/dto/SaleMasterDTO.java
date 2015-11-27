@@ -13,8 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "sales_master")
 public class SaleMasterDTO implements Serializable {
@@ -30,6 +34,7 @@ public class SaleMasterDTO implements Serializable {
 	private Date billDate;
 	private String customerVatNo;
 	private String billNo;
+	private BuyerDTO buyer;
 	
 	@Id
 	@Column(name = "id")
@@ -42,6 +47,7 @@ public class SaleMasterDTO implements Serializable {
 		this.id = id;
 	}
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="saleMasterId")
+	@Cascade({CascadeType.SAVE_UPDATE})
 	public Set<SaleItemDTO> getItems() {
 		return items;
 	}
@@ -76,7 +82,7 @@ public class SaleMasterDTO implements Serializable {
 	public void setBranchId(int branchId) {
 		this.branchId = branchId;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false)
 	public UserDTO getSaleBy() {
 		return saleBy;
@@ -111,6 +117,15 @@ public class SaleMasterDTO implements Serializable {
 	}
 	public void setBillNo(String billNo) {
 		this.billNo = billNo;
+	}
+	
+	@OneToOne(fetch= FetchType.EAGER)
+    @JoinColumn(name="customer_id")
+	public BuyerDTO getBuyer() {
+		return buyer;
+	}
+	public void setBuyer(BuyerDTO buyer) {
+		this.buyer = buyer;
 	}
 	@Override
 	public String toString() {

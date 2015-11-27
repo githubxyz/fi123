@@ -25,7 +25,7 @@ public class SaleItemDTO implements Serializable {
 	private double totalWithoutVat;
 	private int branchId;
 	private double vatPercentage;
-	private int saleMasterId;
+	private SaleMasterDTO saleMasterId;
 	private double unitPrice=0.0;
 	
 	@Id
@@ -38,7 +38,7 @@ public class SaleItemDTO implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "product_master_id", nullable = false)
 	public ProductMasterDTO getProductMaster() {
 		return productMaster;
@@ -96,11 +96,13 @@ public class SaleItemDTO implements Serializable {
 		this.vatPercentage = vatPercentage;
 	}
 	
-	@Column(name="sale_master_id")
-	public int getSaleMasterId() {
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="sale_master_id",nullable = false)
+	public SaleMasterDTO getSaleMasterId() {
 		return saleMasterId;
 	}
-	public void setSaleMasterId(int saleMasterId) {
+	public void setSaleMasterId(SaleMasterDTO saleMasterId) {
 		this.saleMasterId = saleMasterId;
 	}
 	@Column(name="unit_price")

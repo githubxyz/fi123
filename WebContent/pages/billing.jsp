@@ -1,4 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.ims.dto.SaleItemDTO"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="com.ims.dto.SaleMasterDTO"%>
+<%@page import="com.ims.utility.IRequestAttribute"%>
 <%@page import="com.ims.utility.Messages"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -15,7 +19,9 @@
 </head>
 
 <body>
-
+<%
+SaleMasterDTO saleMasterDTO=(SaleMasterDTO)request.getAttribute(IRequestAttribute.SALE_ITEM_DETAIL);
+%>
 	<div id="page-wrap">
 
 		<div id="header"><%=Messages.getString("billing_header")%></div>
@@ -110,7 +116,29 @@ c/o Steve Widget</div> -->
 		      <th><%=Messages.getString("invoice_unit")%></th>
 		      <th><%=Messages.getString("invoice_amount")%></th>
 		  </tr>
+		  <%if(saleMasterDTO!=null){ 
+			  for (Iterator it = saleMasterDTO.getItems().iterator(); it.hasNext();) {
+				  SaleItemDTO saleItemDTO=(SaleItemDTO)it.next();
+		  %>
 		  
+		  <tr class="item-row">
+		      <td class="item-name"><div class="delete-wpr"><div><%=saleItemDTO.getProductMaster().getProductName() %></div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		      <% 
+		      double mesure=0.0;
+		      boolean quantityUnit=true;
+		      if(saleItemDTO.getMesure()==null||saleItemDTO.getMesure()==0.0){
+		    	  mesure= saleItemDTO.getQuantity();
+		      }else{
+		    	  mesure=saleItemDTO.getMesure();
+		    	  quantityUnit=false;
+		      }
+		      %>
+		      <td class="qty"><div><%=saleItemDTO.getMesure()==null||saleItemDTO.getMesure()==0.0?saleItemDTO.getQuantity():saleItemDTO.getMesure() %></div></td>
+		      <td><div class="cost">&#x20B9;<%=saleItemDTO.getUnitPrice() %></div></td>
+		      <td><div class="description"><%=quantityUnit?saleItemDTO.getProductMaster().getQty_unit():saleItemDTO.getProductMaster().getWeight_unit() %></div></td>
+		      <td><span class="price">&#x20B9;<%=mesure*saleItemDTO.getUnitPrice() %></span></td>
+		  </tr>
+		  <%}} %>
 		  <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><div>Web Updates</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
 		      <td class="qty"><div>100</div></td>
