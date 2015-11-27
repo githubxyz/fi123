@@ -32,7 +32,7 @@
 <body>
 
 <script>
-alert(<%=request.getAttribute("msg")%>);
+//alert(<%=request.getAttribute("msg")%>);
 </script>
 	<div id="container">
 		<div id="header">
