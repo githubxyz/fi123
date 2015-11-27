@@ -5,22 +5,26 @@
 <%@page import="java.util.List"%>
 <%
 List<SaleItemDTO> saleItemDTOs=(List<SaleItemDTO>) session.getAttribute(ISessionAttribute.SALE_ITEM_LIST);
+double totalWithVat=0.0;
+double totalVat=0.0;
 if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 %>
 
-<table>
-	<tr>
-		<td>Item</td>
-		<td>Quantity</td>
-		<td>Rate</td>
-		<td>Amount</td>
+<table width=100%>
+	<tr bgcolor="#67a0f5">
+		<td width=30%>Item</td>
+		<td width=20%>Quantity</td>
+		<td width=20%>Rate</td>
+		<td width=20%>Amount</td>
+		<td width=10%>Edit</td>
 	</tr>
 	<%
+	
 	for (Iterator it = saleItemDTOs.iterator(); it.hasNext();) {
 		SaleItemDTO saleItemDTO=(SaleItemDTO)it.next();
 	%>
 	<tr>
-	<td><%=saleItemDTO.getProductMaster().getProductName() %></td>
+	<td bgcolor="skyblue"><%=saleItemDTO.getProductMaster().getProductName() %></td>
 	<%
 	double mesure=0.0;
 	boolean onlyQuantity=true;
@@ -31,9 +35,14 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 		mesure=saleItemDTO.getQuantity();
 	}
 	%>
-	<td><%=mesure %> &nbsp;<%=(onlyQuantity?saleItemDTO.getProductMaster().getQty_unit():saleItemDTO.getProductMaster().getWeight_unit()) %></td>
-	<td><%=saleItemDTO.getUnitPrice() %></td>
-	<td><%=(mesure*saleItemDTO.getUnitPrice()) %></td>
+	<td bgcolor="#cccccc"><%=mesure %> &nbsp;<%=(onlyQuantity?saleItemDTO.getProductMaster().getQty_unit():saleItemDTO.getProductMaster().getWeight_unit()) %></td>
+	<td bgcolor="skyblue"><%=saleItemDTO.getUnitPrice() %></td>
+	<% 
+	totalWithVat+=(mesure*saleItemDTO.getUnitPrice()+((mesure*saleItemDTO.getUnitPrice()*saleItemDTO.getVatPercentage()))/100);
+	totalVat+=(mesure*saleItemDTO.getUnitPrice()*saleItemDTO.getVatPercentage())/100;
+	%>
+	<td bgcolor="#cccccc"><%=(mesure*saleItemDTO.getUnitPrice()+((mesure*saleItemDTO.getUnitPrice()*saleItemDTO.getVatPercentage()))/100) %></td>
+	<td bgcolor="skyblue"><img height="20px" align="right" alt="edit field" src="images/edit.png"/></td>
 </tr>
 	<%}
 	
@@ -44,7 +53,7 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 									<tr>
 										<td><span class="label"><%=Messages.getString("product_vat_amount")%>
 												:</span></td>
-										<td><input type="text" name="vatAmount" value=""
+										<td><input type="text" name="vatAmount" value="<%=totalVat %>"
 											class="input-text"></td>
 										<td><span class="label"><%=Messages.getString("customer_vat_no")%>
 												:</span></td>
@@ -55,8 +64,8 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 									<tr>
 										<td><span class="label"><%=Messages.getString("product_sub_total")%>
 												:</span></td>
-										<td><input type="text" name="subTotal" value=""
-											class="input-text"></td>
+										<td><input type="text" name="subTotal" value="<%=totalWithVat %>"
+											class="input-text" readonly="readonly"></td>
 
 									</tr>
 

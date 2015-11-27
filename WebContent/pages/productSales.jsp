@@ -74,18 +74,18 @@
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_product_sales")%></b></font>
 						</div>
-						<form action="" method="post" style="paddin-: 20px;" id="addItemForm">
-							
-								<div class="inpu-div">
-									<table width="100%">
-										<tbody>
-											<tr>
-												<input type="hidden" name="id" value="">
+						<form action="" method="post" style="paddin-: 20px;"
+							id="addItemForm">
+
+							<div class="inpu-div">
+								<table width="100%">
+									<tbody>
+										<tr>
+											<input type="hidden" name="id" value="">
 												<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
 														:
 												</span></td>
-												<td width="15%">
-												<select name="groupCode"
+												<td width="15%"><select name="groupCode"
 													class="input-text">
 														<option value=" ">Select Product Group..</option>
 														<%
@@ -116,88 +116,87 @@
 
 												<th width="80px" rowspan="4" colspan="2"><div
 														class="error-div" id="saveMasterError"></div></th>
-											</tr>
-											<tr>
-												<td><span class="label"> <%=Messages.getString("company_product_quantity")%>
-														:
-												</span></td>
-												<td><input type="text" name="quantity" value=""
-													class="input-text"></td>
-												<td><span class="label">Total :
-												</span></td>
-												<td><input type="text" name="mesure" value=""
-													class="input-text"></td>
-												<td><span id="unit">KG</span></td>
-											</tr>
-											<tr>
-												<td><span class="label"> <%=Messages.getString("company_unit_price")%>
-														:
-												</span></td>
-												<td><input type="text" name="unitPrice" value=""
-													class="input-text"></td>
-												<td><span class="label"> <%=Messages.getString("vat_percentage")%></span>
-												</td>
-												<td><input type="text" name="vatPercentage" value=""
-													class="input-text"></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="inpu-div"
-									style="width: 80%; float: left; text-align: center">
-									<input type="button" name="Add Item" value="Add Item"
-										class="btn-style" onclick="addItem()">
-								</div>
-								</form>
-								</div>
-								<!-- master page view -->
-								
-								
-
-								</div>
-									<div style="margin-bottom: 10px;" id="productListDiv">
-									<jsp:include page="template/orderedItem.jsp" />
-								</div>							</div>
-								<div id="content_bottom"></div>
+										</tr>
+										<tr>
+											<td><span class="label"> <%=Messages.getString("company_product_quantity")%>
+													:
+											</span></td>
+											<td><input type="text" name="quantity" value=""
+												class="input-text"></td>
+											<td><span class="label">Total : </span></td>
+											<td><input type="text" name="mesure" value=""
+												class="input-text"></td>
+											<td><span id="unit">KG</span></td>
+										</tr>
+										<tr>
+											<td><span class="label"> <%=Messages.getString("company_unit_price")%>
+													:
+											</span></td>
+											<td><input type="text" name="unitPrice" value=""
+												class="input-text"></td>
+											<td><span class="label"> <%=Messages.getString("vat_percentage")%></span>
+											</td>
+											<td><input type="text" name="vatPercentage" value=""
+												class="input-text"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="inpu-div"
+								style="width: 80%; float: left; text-align: center">
+								<input type="button" name="Add Item" value="Add Item"
+									class="btn-style" onclick="addItem()">
+							</div>
+						</form>
+					</div>
+					<!-- master page view -->
 
 
-								</div>
 
-								</div>
-								<script type="text/javascript">
-									function changeProduct(){
-										var masterId=$("#productMasterId").val();
-										var saveSucc = $.ajax({
-											type : 'post',
-											url : 'SalesProduct',
-											data : 'requestType=addItem&masterId=' + masterId,
-											error : function(xhr, ajaxOptions, thrownError) {
-												//  $('#spinner_buis').hide();
-												alert("error from  -> " + thrownError);
-											},
-											success : function(data) {
-												$("#editDiv").html(data);
+				</div>
+				<div style="margin-bottom: 10px;" id="productListDiv">
+					<jsp:include page="template/orderedItem.jsp" />
+				</div>
+			</div>
+			<div id="content_bottom"></div>
 
-											}
-										});
-									}
-									function addItem(){
-										var masterId=$("#addItemForm").serialize();
-										var saveSucc = $.ajax({
-											type : 'post',
-											url : 'SalesProduct',
-											data : masterId+'&requestType=addItem',
-											error : function(xhr, ajaxOptions, thrownError) {
-												//  $('#spinner_buis').hide();
-												alert("error from  -> " + thrownError);
-											},
-											success : function(data) {
-												$("#productListDiv").html(data);
 
-											}
-										});
-									}
+		</div>
 
-								</script>
+	</div>
+	<script type="text/javascript">
+		function changeProduct() {
+			var masterId = $("#productMasterId").val();
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'SalesProduct',
+				data : 'requestType=addItem&masterId=' + masterId,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					alert("error from  -> " + thrownError);
+				},
+				success : function(data) {
+					$("#editDiv").html(data);
+
+				}
+			});
+		}
+		function addItem() {
+			var masterId = $("#addItemForm").serialize();
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'SalesProduct',
+				data : masterId + '&requestType=addItem',
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					alert("error from  -> " + thrownError);
+				},
+				success : function(data) {
+					$("#productListDiv").html(data);
+
+				}
+			});
+		}
+	</script>
 </body>
 </html>
