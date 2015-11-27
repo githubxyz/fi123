@@ -31,7 +31,9 @@
 
 <body>
 
-
+<script>
+alert(<%=request.getAttribute("msg")%>);
+</script>
 	<div id="container">
 		<div id="header">
 			<%@ include file="./include/header.jsp"%>
@@ -148,7 +150,7 @@
 						</div>
 						<div class="inpu-div"
 							style="width: 65%; float: left; text-align: center">
-							<input type="button" class="btn-style" name="save" value="Submit" onclick="saveStock()">
+							<input type="submit" class="btn-style" name="save" value="Submit">
 						</div>
 					</form>
 				</div>
@@ -180,35 +182,6 @@
 				}
 			});
 		}
-		function saveStock() {
-			id=$("#saveStockForm").serialize();
-			var saveSucc = $.ajax({
-				type : 'post',
-				url : 'saveStock',
-				data :id,
-				error : function(xhr, ajaxOptions, thrownError) {
-					//  $('#spinner_buis').hide();
-					/* alert("error from  -> " + thrownError); */
-					alert("Please provide proper value in all fields");
-					$(':input','#saveStockForm')
-					  .removeAttr('checked')
-					  .removeAttr('selected')
-					  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
-					  .val('');
-				},
-				success : function(data) {
-					//alert("success");
-					//$("#itemTypeSpan").html(data);
-					alert("Item saved successfully");
-					$(':input','#saveStockForm')
-					  .removeAttr('checked')
-					  .removeAttr('selected')
-					  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
-					  .val('');
-				}
-			});
-		}
-		
 	</script>
 </body>
 </html>
