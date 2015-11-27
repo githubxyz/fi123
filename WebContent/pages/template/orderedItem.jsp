@@ -77,7 +77,7 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 									<tr>
 										<td><span class="label"><%=Messages.getString("product_total_cost")%>
 												:</span></td>
-										<td><input type="text" name="totalCost" value=""
+										<td><input type="text" name="totalCost" value="<%=totalWithVat %>"
 											class="input-text"></td>
 									</tr>
 									<tr>

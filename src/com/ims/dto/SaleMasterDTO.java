@@ -41,7 +41,7 @@ public class SaleMasterDTO implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@OneToMany(fetch = FetchType.LAZY,mappedBy="saleMasterId")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="saleMasterId")
 	public Set<SaleItemDTO> getItems() {
 		return items;
 	}
