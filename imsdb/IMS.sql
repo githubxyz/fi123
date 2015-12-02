@@ -2,6 +2,10 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.4.4
+-- Dumped by pg_dump version 9.4.4
+-- Started on 2015-11-29 13:42:04
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -10,6 +14,7 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
+-- TOC entry 200 (class 3079 OID 11855)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -17,6 +22,8 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
+-- TOC entry 2192 (class 0 OID 0)
+-- Dependencies: 200
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -26,6 +33,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
+-- TOC entry 213 (class 1255 OID 458624)
 -- Name: get_day_order(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -69,6 +77,7 @@ $$;
 ALTER FUNCTION public.get_day_order() OWNER TO postgres;
 
 --
+-- TOC entry 214 (class 1255 OID 458625)
 -- Name: insert_orderno_trig_fun(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -88,6 +97,7 @@ $$;
 ALTER FUNCTION public.insert_orderno_trig_fun() OWNER TO postgres;
 
 --
+-- TOC entry 215 (class 1255 OID 458626)
 -- Name: prod_det_before_updt_tri_fun(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -114,6 +124,7 @@ $$;
 ALTER FUNCTION public.prod_det_before_updt_tri_fun() OWNER TO postgres;
 
 --
+-- TOC entry 216 (class 1255 OID 458627)
 -- Name: product_det_aftins_tri_fun(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -143,6 +154,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- TOC entry 172 (class 1259 OID 458628)
 -- Name: branch; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -163,6 +175,7 @@ CREATE TABLE branch (
 ALTER TABLE branch OWNER TO postgres;
 
 --
+-- TOC entry 173 (class 1259 OID 458634)
 -- Name: branch_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -177,6 +190,7 @@ CREATE SEQUENCE branch_seqs
 ALTER TABLE branch_seqs OWNER TO postgres;
 
 --
+-- TOC entry 174 (class 1259 OID 458636)
 -- Name: corder_day_order_sequence; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -191,6 +205,7 @@ CREATE SEQUENCE corder_day_order_sequence
 ALTER TABLE corder_day_order_sequence OWNER TO postgres;
 
 --
+-- TOC entry 175 (class 1259 OID 458638)
 -- Name: customer; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -209,6 +224,7 @@ CREATE TABLE customer (
 ALTER TABLE customer OWNER TO postgres;
 
 --
+-- TOC entry 176 (class 1259 OID 458644)
 -- Name: customer_payment_info; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -227,6 +243,7 @@ CREATE TABLE customer_payment_info (
 ALTER TABLE customer_payment_info OWNER TO postgres;
 
 --
+-- TOC entry 177 (class 1259 OID 458649)
 -- Name: customer_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -241,6 +258,7 @@ CREATE SEQUENCE customer_seqs
 ALTER TABLE customer_seqs OWNER TO postgres;
 
 --
+-- TOC entry 178 (class 1259 OID 458651)
 -- Name: product_details; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -267,6 +285,7 @@ CREATE TABLE product_details (
 ALTER TABLE product_details OWNER TO postgres;
 
 --
+-- TOC entry 179 (class 1259 OID 458659)
 -- Name: product_details_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -281,6 +300,7 @@ CREATE SEQUENCE product_details_seqs
 ALTER TABLE product_details_seqs OWNER TO postgres;
 
 --
+-- TOC entry 180 (class 1259 OID 458661)
 -- Name: product_group_map; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -293,6 +313,7 @@ CREATE TABLE product_group_map (
 ALTER TABLE product_group_map OWNER TO postgres;
 
 --
+-- TOC entry 181 (class 1259 OID 458664)
 -- Name: product_group_map_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -307,6 +328,7 @@ CREATE SEQUENCE product_group_map_seqs
 ALTER TABLE product_group_map_seqs OWNER TO postgres;
 
 --
+-- TOC entry 182 (class 1259 OID 458666)
 -- Name: product_master; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -324,6 +346,7 @@ CREATE TABLE product_master (
 ALTER TABLE product_master OWNER TO postgres;
 
 --
+-- TOC entry 183 (class 1259 OID 458670)
 -- Name: product_master_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -338,6 +361,7 @@ CREATE SEQUENCE product_master_seqs
 ALTER TABLE product_master_seqs OWNER TO postgres;
 
 --
+-- TOC entry 184 (class 1259 OID 458672)
 -- Name: purchase_payment_info; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -354,6 +378,7 @@ CREATE TABLE purchase_payment_info (
 ALTER TABLE purchase_payment_info OWNER TO postgres;
 
 --
+-- TOC entry 185 (class 1259 OID 458678)
 -- Name: purchase_payment_info_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -368,6 +393,7 @@ CREATE SEQUENCE purchase_payment_info_seqs
 ALTER TABLE purchase_payment_info_seqs OWNER TO postgres;
 
 --
+-- TOC entry 186 (class 1259 OID 458680)
 -- Name: sales_details; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -389,6 +415,7 @@ CREATE TABLE sales_details (
 ALTER TABLE sales_details OWNER TO postgres;
 
 --
+-- TOC entry 187 (class 1259 OID 458683)
 -- Name: sales_details_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -403,6 +430,7 @@ CREATE SEQUENCE sales_details_seqs
 ALTER TABLE sales_details_seqs OWNER TO postgres;
 
 --
+-- TOC entry 188 (class 1259 OID 458685)
 -- Name: sales_master; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -424,6 +452,7 @@ CREATE TABLE sales_master (
 ALTER TABLE sales_master OWNER TO postgres;
 
 --
+-- TOC entry 189 (class 1259 OID 458692)
 -- Name: sales_master_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -438,6 +467,7 @@ CREATE SEQUENCE sales_master_seqs
 ALTER TABLE sales_master_seqs OWNER TO postgres;
 
 --
+-- TOC entry 190 (class 1259 OID 458694)
 -- Name: stock_alert; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -453,6 +483,7 @@ CREATE TABLE stock_alert (
 ALTER TABLE stock_alert OWNER TO postgres;
 
 --
+-- TOC entry 191 (class 1259 OID 458697)
 -- Name: stock_alert_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -467,6 +498,7 @@ CREATE SEQUENCE stock_alert_seqs
 ALTER TABLE stock_alert_seqs OWNER TO postgres;
 
 --
+-- TOC entry 192 (class 1259 OID 458699)
 -- Name: stock_deatils; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -486,6 +518,7 @@ CREATE TABLE stock_deatils (
 ALTER TABLE stock_deatils OWNER TO postgres;
 
 --
+-- TOC entry 193 (class 1259 OID 458702)
 -- Name: stock_deatils_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -500,6 +533,7 @@ CREATE SEQUENCE stock_deatils_seqs
 ALTER TABLE stock_deatils_seqs OWNER TO postgres;
 
 --
+-- TOC entry 194 (class 1259 OID 458704)
 -- Name: system_config_parameter; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -512,6 +546,7 @@ CREATE TABLE system_config_parameter (
 ALTER TABLE system_config_parameter OWNER TO postgres;
 
 --
+-- TOC entry 195 (class 1259 OID 458710)
 -- Name: user_branch_map; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -525,6 +560,7 @@ CREATE TABLE user_branch_map (
 ALTER TABLE user_branch_map OWNER TO postgres;
 
 --
+-- TOC entry 196 (class 1259 OID 458713)
 -- Name: user_master; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -545,6 +581,7 @@ CREATE TABLE user_master (
 ALTER TABLE user_master OWNER TO postgres;
 
 --
+-- TOC entry 197 (class 1259 OID 458719)
 -- Name: user_master_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -559,6 +596,7 @@ CREATE SEQUENCE user_master_seqs
 ALTER TABLE user_master_seqs OWNER TO postgres;
 
 --
+-- TOC entry 198 (class 1259 OID 458721)
 -- Name: user_type; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -572,6 +610,7 @@ CREATE TABLE user_type (
 ALTER TABLE user_type OWNER TO postgres;
 
 --
+-- TOC entry 199 (class 1259 OID 458727)
 -- Name: user_type_seqs; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -586,6 +625,8 @@ CREATE SEQUENCE user_type_seqs
 ALTER TABLE user_type_seqs OWNER TO postgres;
 
 --
+-- TOC entry 2157 (class 0 OID 458628)
+-- Dependencies: 172
 -- Data for Name: branch; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -594,155 +635,203 @@ INSERT INTO branch (id, branch_name, branch_code, branch_city, branch_pin, branc
 
 
 --
+-- TOC entry 2193 (class 0 OID 0)
+-- Dependencies: 173
 -- Name: branch_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('branch_seqs', 1, false);
+SELECT pg_catalog.setval('branch_seqs', 0, true);
 
 
 --
+-- TOC entry 2194 (class 0 OID 0)
+-- Dependencies: 174
 -- Name: corder_day_order_sequence; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('corder_day_order_sequence', 1, true);
+SELECT pg_catalog.setval('corder_day_order_sequence', 0, true);
 
 
 --
+-- TOC entry 2160 (class 0 OID 458638)
+-- Dependencies: 175
 -- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2161 (class 0 OID 458644)
+-- Dependencies: 176
 -- Data for Name: customer_payment_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2195 (class 0 OID 0)
+-- Dependencies: 177
 -- Name: customer_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('customer_seqs', 1, true);
+SELECT pg_catalog.setval('customer_seqs', 0, true);
 
 
 --
+-- TOC entry 2163 (class 0 OID 458651)
+-- Dependencies: 178
 -- Data for Name: product_details; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2196 (class 0 OID 0)
+-- Dependencies: 179
 -- Name: product_details_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('product_details_seqs', 1, true);
+SELECT pg_catalog.setval('product_details_seqs', 0, true);
 
 
 --
+-- TOC entry 2165 (class 0 OID 458661)
+-- Dependencies: 180
 -- Data for Name: product_group_map; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2197 (class 0 OID 0)
+-- Dependencies: 181
 -- Name: product_group_map_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('product_group_map_seqs', 1, true);
+SELECT pg_catalog.setval('product_group_map_seqs', 0, true);
 
 
 --
+-- TOC entry 2167 (class 0 OID 458666)
+-- Dependencies: 182
 -- Data for Name: product_master; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2198 (class 0 OID 0)
+-- Dependencies: 183
 -- Name: product_master_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('product_master_seqs', 1, true);
+SELECT pg_catalog.setval('product_master_seqs', 0, true);
 
 
 --
+-- TOC entry 2169 (class 0 OID 458672)
+-- Dependencies: 184
 -- Data for Name: purchase_payment_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2199 (class 0 OID 0)
+-- Dependencies: 185
 -- Name: purchase_payment_info_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('purchase_payment_info_seqs', 1, true);
+SELECT pg_catalog.setval('purchase_payment_info_seqs', 0, true);
 
 
 --
+-- TOC entry 2171 (class 0 OID 458680)
+-- Dependencies: 186
 -- Data for Name: sales_details; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2200 (class 0 OID 0)
+-- Dependencies: 187
 -- Name: sales_details_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('sales_details_seqs', 1, true);
+SELECT pg_catalog.setval('sales_details_seqs', 0, true);
 
 
 --
+-- TOC entry 2173 (class 0 OID 458685)
+-- Dependencies: 188
 -- Data for Name: sales_master; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2201 (class 0 OID 0)
+-- Dependencies: 189
 -- Name: sales_master_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('sales_master_seqs', 1, true);
+SELECT pg_catalog.setval('sales_master_seqs', 0, true);
 
 
 --
+-- TOC entry 2175 (class 0 OID 458694)
+-- Dependencies: 190
 -- Data for Name: stock_alert; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2202 (class 0 OID 0)
+-- Dependencies: 191
 -- Name: stock_alert_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('stock_alert_seqs', 1, true);
+SELECT pg_catalog.setval('stock_alert_seqs', 0, true);
 
 
 --
+-- TOC entry 2177 (class 0 OID 458699)
+-- Dependencies: 192
 -- Data for Name: stock_deatils; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2203 (class 0 OID 0)
+-- Dependencies: 193
 -- Name: stock_deatils_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('stock_deatils_seqs', 9, true);
+SELECT pg_catalog.setval('stock_deatils_seqs', 0, true);
 
 
 --
+-- TOC entry 2179 (class 0 OID 458704)
+-- Dependencies: 194
 -- Data for Name: system_config_parameter; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2180 (class 0 OID 458710)
+-- Dependencies: 195
 -- Data for Name: user_branch_map; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
+-- TOC entry 2181 (class 0 OID 458713)
+-- Dependencies: 196
 -- Data for Name: user_master; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -751,13 +840,17 @@ INSERT INTO user_master (id, user_name, password, first_name, middle_name, last_
 
 
 --
+-- TOC entry 2204 (class 0 OID 0)
+-- Dependencies: 197
 -- Name: user_master_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('user_master_seqs', 1, false);
+SELECT pg_catalog.setval('user_master_seqs', 0, true);
 
 
 --
+-- TOC entry 2183 (class 0 OID 458721)
+-- Dependencies: 198
 -- Data for Name: user_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -768,13 +861,16 @@ INSERT INTO user_type (id, user_type, description) VALUES (4, 'VIEWONLY', 'User 
 
 
 --
+-- TOC entry 2205 (class 0 OID 0)
+-- Dependencies: 199
 -- Name: user_type_seqs; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('user_type_seqs', 1, false);
+SELECT pg_catalog.setval('user_type_seqs', 0, true);
 
 
 --
+-- TOC entry 1982 (class 2606 OID 458730)
 -- Name: branch_bcode_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -783,6 +879,7 @@ ALTER TABLE ONLY branch
 
 
 --
+-- TOC entry 1984 (class 2606 OID 458732)
 -- Name: branch_name_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -791,6 +888,7 @@ ALTER TABLE ONLY branch
 
 
 --
+-- TOC entry 1986 (class 2606 OID 458734)
 -- Name: branch_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -799,6 +897,7 @@ ALTER TABLE ONLY branch
 
 
 --
+-- TOC entry 1992 (class 2606 OID 458736)
 -- Name: customer_payment_info_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -807,6 +906,7 @@ ALTER TABLE ONLY customer_payment_info
 
 
 --
+-- TOC entry 1988 (class 2606 OID 458738)
 -- Name: customer_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -815,6 +915,7 @@ ALTER TABLE ONLY customer
 
 
 --
+-- TOC entry 1990 (class 2606 OID 458740)
 -- Name: customer_vat_no_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -823,6 +924,7 @@ ALTER TABLE ONLY customer
 
 
 --
+-- TOC entry 2000 (class 2606 OID 458742)
 -- Name: prod_mast_prodcode_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -831,6 +933,7 @@ ALTER TABLE ONLY product_master
 
 
 --
+-- TOC entry 2002 (class 2606 OID 458744)
 -- Name: prod_mast_prodname_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -839,6 +942,7 @@ ALTER TABLE ONLY product_master
 
 
 --
+-- TOC entry 1994 (class 2606 OID 458746)
 -- Name: product_details_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -847,6 +951,7 @@ ALTER TABLE ONLY product_details
 
 
 --
+-- TOC entry 1996 (class 2606 OID 458748)
 -- Name: product_group_map_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -855,6 +960,7 @@ ALTER TABLE ONLY product_group_map
 
 
 --
+-- TOC entry 1998 (class 2606 OID 458750)
 -- Name: product_group_map_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -863,6 +969,7 @@ ALTER TABLE ONLY product_group_map
 
 
 --
+-- TOC entry 2004 (class 2606 OID 458752)
 -- Name: product_master_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -871,6 +978,7 @@ ALTER TABLE ONLY product_master
 
 
 --
+-- TOC entry 2006 (class 2606 OID 458754)
 -- Name: purchase_payment_info_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -879,6 +987,7 @@ ALTER TABLE ONLY purchase_payment_info
 
 
 --
+-- TOC entry 2008 (class 2606 OID 458756)
 -- Name: sales_details_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -887,6 +996,7 @@ ALTER TABLE ONLY sales_details
 
 
 --
+-- TOC entry 2010 (class 2606 OID 458758)
 -- Name: sales_master_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -895,6 +1005,7 @@ ALTER TABLE ONLY sales_master
 
 
 --
+-- TOC entry 2012 (class 2606 OID 458760)
 -- Name: stock_alert_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -903,6 +1014,7 @@ ALTER TABLE ONLY stock_alert
 
 
 --
+-- TOC entry 2014 (class 2606 OID 458762)
 -- Name: stock_alert_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -911,6 +1023,7 @@ ALTER TABLE ONLY stock_alert
 
 
 --
+-- TOC entry 2016 (class 2606 OID 458764)
 -- Name: stock_deatils_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -919,6 +1032,7 @@ ALTER TABLE ONLY stock_deatils
 
 
 --
+-- TOC entry 2018 (class 2606 OID 458766)
 -- Name: user_branch_map_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -927,6 +1041,7 @@ ALTER TABLE ONLY user_branch_map
 
 
 --
+-- TOC entry 2020 (class 2606 OID 458768)
 -- Name: user_branch_map_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -935,6 +1050,7 @@ ALTER TABLE ONLY user_branch_map
 
 
 --
+-- TOC entry 2022 (class 2606 OID 458770)
 -- Name: user_master_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -943,6 +1059,7 @@ ALTER TABLE ONLY user_master
 
 
 --
+-- TOC entry 2024 (class 2606 OID 458772)
 -- Name: user_master_uname_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -951,6 +1068,7 @@ ALTER TABLE ONLY user_master
 
 
 --
+-- TOC entry 2026 (class 2606 OID 458774)
 -- Name: user_type_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -959,6 +1077,7 @@ ALTER TABLE ONLY user_type
 
 
 --
+-- TOC entry 2047 (class 2620 OID 458775)
 -- Name: insert_orderno_trig; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -966,6 +1085,7 @@ CREATE TRIGGER insert_orderno_trig BEFORE INSERT ON sales_master FOR EACH ROW EX
 
 
 --
+-- TOC entry 2045 (class 2620 OID 458776)
 -- Name: prod_det_before_updt_tri; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -973,6 +1093,7 @@ CREATE TRIGGER prod_det_before_updt_tri BEFORE UPDATE ON product_details FOR EAC
 
 
 --
+-- TOC entry 2046 (class 2620 OID 458777)
 -- Name: product_det_aftins_tri; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -980,6 +1101,7 @@ CREATE TRIGGER product_det_aftins_tri AFTER INSERT ON product_details FOR EACH R
 
 
 --
+-- TOC entry 2027 (class 2606 OID 458778)
 -- Name: customer_payment_info_sales_mastid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -988,6 +1110,7 @@ ALTER TABLE ONLY customer_payment_info
 
 
 --
+-- TOC entry 2028 (class 2606 OID 458783)
 -- Name: prod_det_branchid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -996,6 +1119,7 @@ ALTER TABLE ONLY product_details
 
 
 --
+-- TOC entry 2029 (class 2606 OID 458788)
 -- Name: prod_det_paymentinfo_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1004,6 +1128,7 @@ ALTER TABLE ONLY product_details
 
 
 --
+-- TOC entry 2030 (class 2606 OID 458793)
 -- Name: prod_det_prodmastid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1012,6 +1137,7 @@ ALTER TABLE ONLY product_details
 
 
 --
+-- TOC entry 2031 (class 2606 OID 458798)
 -- Name: prod_det_usrmastid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1020,6 +1146,7 @@ ALTER TABLE ONLY product_details
 
 
 --
+-- TOC entry 2032 (class 2606 OID 458803)
 -- Name: product_master_groupid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1028,6 +1155,7 @@ ALTER TABLE ONLY product_master
 
 
 --
+-- TOC entry 2033 (class 2606 OID 458808)
 -- Name: sales_details_braanch_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1036,6 +1164,7 @@ ALTER TABLE ONLY sales_details
 
 
 --
+-- TOC entry 2034 (class 2606 OID 458813)
 -- Name: sales_details_pm_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1044,6 +1173,7 @@ ALTER TABLE ONLY sales_details
 
 
 --
+-- TOC entry 2035 (class 2606 OID 458818)
 -- Name: sales_details_sale_master_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1052,6 +1182,7 @@ ALTER TABLE ONLY sales_details
 
 
 --
+-- TOC entry 2036 (class 2606 OID 458823)
 -- Name: sales_master_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1060,6 +1191,7 @@ ALTER TABLE ONLY sales_master
 
 
 --
+-- TOC entry 2037 (class 2606 OID 458828)
 -- Name: sales_master_sales_braanch_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1068,6 +1200,7 @@ ALTER TABLE ONLY sales_master
 
 
 --
+-- TOC entry 2038 (class 2606 OID 458833)
 -- Name: sales_master_sales_user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1076,6 +1209,7 @@ ALTER TABLE ONLY sales_master
 
 
 --
+-- TOC entry 2039 (class 2606 OID 458838)
 -- Name: stock_alert_prodmasid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1084,6 +1218,7 @@ ALTER TABLE ONLY stock_alert
 
 
 --
+-- TOC entry 2040 (class 2606 OID 458843)
 -- Name: stock_deatils_branid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1092,6 +1227,7 @@ ALTER TABLE ONLY stock_deatils
 
 
 --
+-- TOC entry 2041 (class 2606 OID 458848)
 -- Name: stock_det_prodmastid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1100,6 +1236,7 @@ ALTER TABLE ONLY stock_deatils
 
 
 --
+-- TOC entry 2042 (class 2606 OID 458853)
 -- Name: user_branch_map_branchid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1108,6 +1245,7 @@ ALTER TABLE ONLY user_branch_map
 
 
 --
+-- TOC entry 2043 (class 2606 OID 458858)
 -- Name: user_branch_map_usrid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1116,6 +1254,7 @@ ALTER TABLE ONLY user_branch_map
 
 
 --
+-- TOC entry 2044 (class 2606 OID 458863)
 -- Name: user_mast_usrtypeid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1124,6 +1263,8 @@ ALTER TABLE ONLY user_master
 
 
 --
+-- TOC entry 2191 (class 0 OID 0)
+-- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -1133,7 +1274,11 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
+-- Completed on 2015-11-29 13:42:04
+
 --
 -- PostgreSQL database dump complete
 --
+
+ALTER TABLE product_details ADD gown character varying(128);
 

@@ -178,6 +178,7 @@ public class ProductDetailDTO implements Serializable {
 		this.purchaseRef = purchaseRef;
 	}
 
+
 	@Override
 	public String toString() {
 		return "ProductDetailDTO [id=" + id + ", quantity=" + quantity + ", weight=" + weight + ", purchaseDate="

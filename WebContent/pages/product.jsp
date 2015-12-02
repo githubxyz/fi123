@@ -13,9 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/include-style.css" type="text/css"
 	media="all">
-<title>Friends Interior</title>
-
-	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<title>Friends Interior</title> <script type="text/javascript"
+		src="js/jquery/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript"
 		src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.dataTables.js"></script>
@@ -84,94 +83,104 @@
 			<div id="content_main">
 				<div class="rcorners"
 					style="margin-bottom: 20px; height: 220px; border-color: #cccccc">
-					
+
 					<div class="input-form" style="width: 100%">
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
 						</div>
-						<form action="saveProduct"  method="post" style="paddin-: 20px;"
+						<form action="saveProduct" method="post" style="paddin-: 20px;"
 							id="saveProductForm">
-							
-								<div id="editDiv">
-									<div class="inpu-div">
-										<table width="100%">
-											<tbody>
-												<tr>
-													<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
-															:
-													</span></td>
-													<td width="15%"><input type="text"
-														name="productGroupCode" value="" class="input-text"></td>
-													<td width="15%"><span class="label"> <%=Messages.getString("product_name")%>
-															:
-													</span></td>
-													<td width="15%"><input type="text" name="productName"
-														value="" class="input-text"></td>
 
-													<th width="80px" rowspan="4" colspan="2"><div
-															class="error-div" id="saveMasterError"></div></th>
-												</tr>
-												<tr>
-													<td><span class="label"> <%=Messages.getString("product_code")%>
-															:
-													</span></td>
-													<td><input type="text" name="productCode" value=""
-														class="input-text"></td>
-													<td><span class="label"> <%=Messages.getString("subitemtype_req")%>
-															:
-													</span></td>
-													<td><input type="checkbox" name="sub_item_type_req" value="1"></td>
-												</tr>
-												<tr>
-													<td><span class="label"> <%=Messages.getString("unit_quantiity")%>
-															:
-													</span></td>
-													<td><select name="qty_unit" class="input-text">
-															<option value=" ">Select unit for quantity..</option>
-															<option value="Number">Number</option>
-															<option value="Packet">Packet</option>
-															<option value="Piece">Piece</option>
-															<option value="Dozon">Dozon</option>
-													</select></td>
-													<td><span class="label"> <%=Messages.getString("unit_weight")%>
-															:
-													</span></td>
-													<td><select name="weight_unit" class="input-text">
-															<option value=" ">Select unit for weight..</option>
-															<option value="Gram">Gram</option>
-															<option value="Kilogram">Kilogram</option>
-															<option value="Ton">Ton</option>
-															<option value="Quintal">Quintal</option>
-															<option value="Sq Feet">Sq Feet</option>
-													</select></td>
-												</tr>
-											</tbody>
-										</table>
+							<div id="editDiv">
+								<div class="inpu-div">
+									<table width="100%">
+										<tbody>
+											<tr>
+												<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
+														:
+												</span></td>
+												<td width="15%"><input type="text"
+													name="productGroupCode" value="" class="input-text"></td>
+												<td width="15%"><span class="label"> <%=Messages.getString("product_name")%>
+														:
+												</span></td>
+												<td width="15%"><input type="text" name="productName"
+													value="" class="input-text"></td>
 
-									</div>
-									<br></br><br></br><br></br><br></br>
-									<div class="inpu-div"
-										style="width: 65%; float: left; text-align: center">
-										<input type="button" name="submit" value="Submit"
-											class="btn-style" onclick="saveProduct()"> 
-									</div> 
-									
+												<th width="80px" rowspan="4" colspan="2"><div
+														class="error-div" id="saveMasterError"></div></th>
+											</tr>
+											<tr>
+												<td><span class="label"> <%=Messages.getString("product_code")%>
+														:
+												</span></td>
+												<td><input type="text" name="productCode" value=""
+													class="input-text"></td>
+												<td><span class="label"> <%=Messages.getString("subitemtype_req")%>
+														:
+												</span></td>
+												<td><input type="checkbox" name="sub_item_type_req"
+													value="1"></td>
+											</tr>
+											<tr>
+												<td><span class="label"> <%=Messages.getString("unit_quantiity")%>
+														:
+												</span></td>
+												<td><select name="qty_unit" class="input-text">
+														<option value=" ">Select unit for quantity..</option>
+														<option value="Number">Number</option>
+														<option value="Packet">Packet</option>
+														<option value="Piece">Piece</option>
+														<option value="Dozon">Dozon</option>
+												</select></td>
+												<td><span class="label"> <%=Messages.getString("unit_weight")%>
+														:
+												</span></td>
+												<td><select name="weight_unit" class="input-text">
+														<option value=" ">Select unit for weight..</option>
+														<option value="Gram">Gram</option>
+														<option value="Kilogram">Kilogram</option>
+														<option value="Ton">Ton</option>
+														<option value="Quintal">Quintal</option>
+														<option value="Sq Feet">Sq Feet</option>
+												</select></td>
+												<tr>
+													<td><span class="label"> <%=Messages.getString("company_gown")%>
+															:
+													</span></td>
+													<td><input type="text" name="gown"></td>
+												</tr>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+								<br></br>
+								<br></br>
+								<br></br>
+								<br></br>
+								<div class="inpu-div"
+									style="width: 65%; float: left; text-align: center">
+									<input type="button" name="submit" value="Submit"
+										class="btn-style" onclick="saveProduct()">
 								</div>
 
-								<br></br>
+							</div>
 
-								</form>
+							<br></br>
 
-							
-							
+						</form>
+
+
+
 					</div>
 
 
 				</div>
-<!-- master page view -->
-							<div style="margin-bottom: 20px;" id="productListDiv">
-								<jsp:include page="productList.jsp" />
-							</div>
+				<!-- master page view -->
+				<div style="margin-bottom: 20px;" id="productListDiv">
+					<jsp:include page="productList.jsp" />
+				</div>
 
 
 			</div>
@@ -203,36 +212,39 @@
 	<script type="text/javascript">
 		//alert("jj");
 		function saveProduct() {
-			var saveSucc = $.ajax({
-				type : 'post',
-				url : 'saveProduct',
-				data : $('#saveProductForm').serialize(),
-				error : function(xhr, ajaxOptions, thrownError) {
-					//  $('#spinner_buis').hide();
-					/* alert("error from  -> " + thrownError); */
-					alert("Please provide proper value in all fields");
-					$(':input','#saveProductForm')
-					  .removeAttr('checked')
-					  .removeAttr('selected')
-					  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
-					  .val('');
-				},
-				success : function(data) {
-					if (saveSucc.getResponseHeader('error') == '1') {
-						$("#saveMasterError").html(data);
-					} else {
-						$("#productListDiv").html(data);
-						$("#saveMasterError").html("");
-						alert("Item saved successfully");
-						$(':input','#saveProductForm')
-						  .removeAttr('checked')
-						  .removeAttr('selected')
-						  .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
-						  .val('');
-					}
+			var saveSucc = $
+					.ajax({
+						type : 'post',
+						url : 'saveProduct',
+						data : $('#saveProductForm').serialize(),
+						error : function(xhr, ajaxOptions, thrownError) {
+							//  $('#spinner_buis').hide();
+							/* alert("error from  -> " + thrownError); */
+							alert("Please provide proper value in all fields");
+							$(':input', '#saveProductForm')
+									.removeAttr('checked')
+									.removeAttr('selected')
+									.not(
+											':button, :submit, :reset, :hidden, :radio, :checkbox')
+									.val('');
+						},
+						success : function(data) {
+							if (saveSucc.getResponseHeader('error') == '1') {
+								$("#saveMasterError").html(data);
+							} else {
+								$("#productListDiv").html(data);
+								$("#saveMasterError").html("");
+								alert("Item saved successfully");
+								$(':input', '#saveProductForm')
+										.removeAttr('checked')
+										.removeAttr('selected')
+										.not(
+												':button, :submit, :reset, :hidden, :radio, :checkbox')
+										.val('');
+							}
 
-				}
-			});
+						}
+					});
 		}
 		function editProduct(id) {
 			var saveSucc = $.ajax({

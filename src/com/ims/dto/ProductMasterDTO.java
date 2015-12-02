@@ -28,6 +28,7 @@ public class ProductMasterDTO implements Serializable {
 	ProductGroupMapDTO prGroupMapDTO;
 	String qty_unit;
 	boolean sub_item_type_req;
+	private String gown;
 	
 	@Id
 	@Column(name = "id")
@@ -93,7 +94,14 @@ public class ProductMasterDTO implements Serializable {
 	public void setSub_item_type_req(boolean sub_item_type_req) {
 		this.sub_item_type_req = sub_item_type_req;
 	}
-	
+	@Column(name="gown")
+	public String getGown() {
+		return gown;
+	}
+
+	public void setGown(String gown) {
+		this.gown = gown;
+	}
 	
 	/*public boolean getSub_item_type_req() {
 		return sub_item_type_req;
