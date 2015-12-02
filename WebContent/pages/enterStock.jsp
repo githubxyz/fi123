@@ -126,7 +126,7 @@
 					<form class="form-2" action="saveStock" method="post"
 						id="saveStockForm">
 						<%
-							List<ProductMasterDTO> productdtos = (List<ProductMasterDTO>) request
+							List<ProductMasterDTO> productdtos2 = (List<ProductMasterDTO>) request
 									.getAttribute(IRequestAttribute.PRODUCT_LIST);
 							List<ProductGroupMapDTO> groupMapDTOs = (List<ProductGroupMapDTO>) request
 									.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
@@ -174,7 +174,7 @@
 
 												<option value="0">Select</option>
 												<%
-													for (Iterator it = productdtos.iterator(); it.hasNext();) {
+													for (Iterator it = productdtos2.iterator(); it.hasNext();) {
 														ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
 												%>
 												<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
@@ -214,10 +214,6 @@
 										<td><input type="text" name="vat"></td>
 									</tr>
 									<tr>
-										<td><span class="label"> <%=Messages.getString("company_gown")%>
-												:
-										</span></td>
-										<td><input type="text" name="gown"></td>
 										<td><span class="label"> <%=Messages.getString("company_k&p")%>
 												:
 										</span></td>
