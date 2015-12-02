@@ -173,19 +173,19 @@ c/o Steve Widget</div> -->
 		  </tr> --> 
 		  <tr id="hiderow">
 		    <td colspan="5"><%=Messages.getString("invoice_subtotal")%></td>
-		    <td colspan="1">Sum of item amount</td>
+		    <td colspan="1"><%=saleMasterDTO.getTotalWithVat() %></td>
 		  </tr>
 		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><div>Output Vat @14.5% Round Off</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		      <td class="item-name"><div class="delete-wpr"><div>Discount</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
 		      <td class="qty"><div></div></td>
-		      <td><div class="cost">14.50</div></td>
+		      <td><div class="cost"></div></td>
 		      <td></td>
-		      <td><div class="">%</div></td>
-		      <td><span class="price">&#x20B9;(650.00+120)*14.50/100</span></td>
+		      <td><div class=""></div></td>
+		      <td><span class="price"><%=saleMasterDTO.getDiscount() %></span></td>
 		  </tr>
 		   <tr id="hiderow">
 		    <td colspan="5"><%=Messages.getString("invoice_total")%></td>
-		    <td colspan="1">&#x20B9;15,218</td>
+		    <td colspan="1"><%=saleMasterDTO.getTotalWithVat()-saleMasterDTO.getDiscount() %></td>
 		  </tr>
 		  <tr id="hiderow">
 		    <td colspan="6"><%=Messages.getString("invoice_amount_txt")%><br>&#x20B9; Fifteen thousand two hundred eighteen only </td>
