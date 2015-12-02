@@ -56,4 +56,12 @@
     <servlet-name>purchaseview</servlet-name>
     <url-pattern>/ViewPurchase</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>CustomerInfo</servlet-name>
+    <servlet-class>com.ims.ui.CustomerInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerInfo</servlet-name>
+    <url-pattern>/CustomerInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

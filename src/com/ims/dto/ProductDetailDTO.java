@@ -34,6 +34,7 @@ public class ProductDetailDTO implements Serializable {
 	private boolean available;
 	private boolean deleted;
 	private String kAndP;
+	private String gown;
 	private PurchasePaymentInfoDTO purchaseRef;
 	@Id
 	@Column(name = "id")
@@ -178,11 +179,19 @@ public class ProductDetailDTO implements Serializable {
 		this.purchaseRef = purchaseRef;
 	}
 
+	@Column(name="gown")
+	public String getGown() {
+		return gown;
+	}
+
+	public void setGown(String gown) {
+		this.gown = gown;
+	}
 	@Override
 	public String toString() {
 		return "ProductDetailDTO [id=" + id + ", quantity=" + quantity + ", weight=" + weight + ", purchaseDate="
 				+ purchaseDate + ", amount=" + amount + ", vat=" + vat + ", type=" + type + ", productMaster="
-				+ productMaster + ", branch=" + branch +", user="+user+"]";
+				+ productMaster + ", branch=" + branch +", user="+user+",gown="+gown+"]";
 	}
 
 }
