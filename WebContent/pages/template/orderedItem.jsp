@@ -77,8 +77,7 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 
 									<tr>
 										<td><span class="label"><%=Messages.getString("discount_over_total")%>:</span></td>
-										<td><input type="text" name="discount" value=""
-											class="input-text"></td>
+										<td><input type="number" step="0.1" name="discount" id="discount"  value="" class="input-text" onblur="getDiscount()"></td>
 									</tr>
 									<tr>
 										<td><span class="label"><%=Messages.getString("product_total_cost")%>

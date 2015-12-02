@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.ims.dto.SaleItemDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.ims.dto.SaleMasterDTO"%>
@@ -74,7 +75,9 @@ c/o Steve Widget</div> -->
                 </tr>
                 <tr>
                     <td class="meta-head"><%=Messages.getString("invoice_date")%></td>
-                    <td><div id="date">December 15, 2009</div></td>
+                    <td><div id="date">
+                    <%String newstring = new SimpleDateFormat("dd/MM/yyyy").format(saleMasterDTO.getBillDate()); %>
+                    <%=newstring %></div></td>
                 </tr>
                 <tr>
                     <td class="meta-head"><%=Messages.getString("invoice_delivery_note")%></td>
@@ -114,6 +117,7 @@ c/o Steve Widget</div> -->
 		      <th><%=Messages.getString("invoice_quantity")%></th>
 		      <th><%=Messages.getString("invoice_rate")%></th>
 		      <th><%=Messages.getString("invoice_unit")%></th>
+		      <th>Vat %</th>
 		      <th><%=Messages.getString("invoice_amount")%></th>
 		  </tr>
 		  <%if(saleMasterDTO!=null){ 
@@ -136,23 +140,24 @@ c/o Steve Widget</div> -->
 		      <td class="qty"><div><%=saleItemDTO.getMesure()==null||saleItemDTO.getMesure()==0.0?saleItemDTO.getQuantity():saleItemDTO.getMesure() %></div></td>
 		      <td><div class="cost">&#x20B9;<%=saleItemDTO.getUnitPrice() %></div></td>
 		      <td><div class="description"><%=quantityUnit?saleItemDTO.getProductMaster().getQty_unit():saleItemDTO.getProductMaster().getWeight_unit() %></div></td>
-		      <td><span class="price">&#x20B9;<%=mesure*saleItemDTO.getUnitPrice() %></span></td>
+		      <td><%=saleItemDTO.getVatPercentage() %></td>
+		      <td><span class="price">&#x20B9;<%=(mesure*saleItemDTO.getUnitPrice())+saleItemDTO.getVatAmount() %></span></td>
 		  </tr>
 		  <%}} %>
-		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><div>Web Updates</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		  <!-- <tr class="item-row">
+		      <td class="item-name"><div class="delete-wpr"><div>Web Updates</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 		      <td class="qty"><div>100</div></td>
 		      <td><div class="cost">&#x20B9;650.00</div></td>
 		      <td><div class="description">Pcs.</div></td>
 		      <td><span class="price">&#x20B9;650.00</span></td>
 		  </tr>
 		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><div>Item2</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
+		      <td class="item-name"><div class="delete-wpr"><div>Item2</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 		      <td class="qty"><div>10</div></td>
 		      <td><div class="cost">&#x20B9;14.50</div></td>
 		      <td><div class="description">KG</div></td>
 		      <td><span class="price">&#x20B9;120</span></td>
-		  </tr>
+		  </tr> -->
 		  
 		   <!-- <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><div>SSL Renewals</div><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
@@ -167,33 +172,34 @@ c/o Steve Widget</div> -->
 		    <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
 		  </tr> --> 
 		  <tr id="hiderow">
-		    <td colspan="4"><%=Messages.getString("invoice_subtotal")%></td>
+		    <td colspan="5"><%=Messages.getString("invoice_subtotal")%></td>
 		    <td colspan="1">Sum of item amount</td>
 		  </tr>
 		  <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><div>Output Vat @14.5% Round Off</div><!-- <a class="delete" href="javascript:;" title="Remove row">X</a> --></div></td>
 		      <td class="qty"><div></div></td>
 		      <td><div class="cost">14.50</div></td>
-		      <td><div class="description">%</div></td>
+		      <td></td>
+		      <td><div class="">%</div></td>
 		      <td><span class="price">&#x20B9;(650.00+120)*14.50/100</span></td>
 		  </tr>
 		   <tr id="hiderow">
-		    <td colspan="4"><%=Messages.getString("invoice_total")%></td>
+		    <td colspan="5"><%=Messages.getString("invoice_total")%></td>
 		    <td colspan="1">&#x20B9;15,218</td>
 		  </tr>
 		  <tr id="hiderow">
-		    <td colspan="5"><%=Messages.getString("invoice_amount_txt")%><br>&#x20B9; Fifteen thousand two hundred eighteen only </td>
+		    <td colspan="6"><%=Messages.getString("invoice_amount_txt")%><br>&#x20B9; Fifteen thousand two hundred eighteen only </td>
 		    
 		  </tr>
 		  
 		  <tr>
-		      <td colspan="2" class="blank"> </td>
+		      <td colspan="3" class="blank"> </td>
 		      <td colspan="2" class="total-line"><%=Messages.getString("invoice_amount_paid")%></td>
 
 		      <td class="total-value"><div id="paid">&#x20B9;0.00</div></td>
 		  </tr>
 		  <tr>
-		      <td colspan="2" class="blank"> </td>
+		      <td colspan="3" class="blank"> </td>
 		      <td colspan="2" class="total-line balance"><%=Messages.getString("invoice_balance_due")%></td>
 		      <td class="total-value balance"><div class="due">&#x20B9;875.00</div></td>
 		  </tr>
