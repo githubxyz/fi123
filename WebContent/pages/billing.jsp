@@ -71,8 +71,8 @@ c/o Steve Widget</div> -->
             <table id="meta">
                 <tr>
                     <td class="meta-head"><%=Messages.getString("invoice_no")%></td>
-                    <td><div>000123</div></td>
-                </tr>
+                    <td><div><%=saleMasterDTO.getBillNo() %></div></td>
+                </tr> 
                 <tr>
                     <td class="meta-head"><%=Messages.getString("invoice_date")%></td>
                     <td><div id="date">
