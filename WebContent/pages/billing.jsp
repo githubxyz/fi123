@@ -22,6 +22,7 @@
 <body>
 <%
 SaleMasterDTO saleMasterDTO=(SaleMasterDTO)request.getAttribute(IRequestAttribute.SALE_ITEM_DETAIL);
+
 %>
 	<div id="page-wrap">
 
@@ -192,7 +193,7 @@ c/o Steve Widget</div> -->
 		    
 		  </tr>
 		  
-		  <tr>
+		 <%--  <tr>
 		      <td colspan="3" class="blank"> </td>
 		      <td colspan="2" class="total-line"><%=Messages.getString("invoice_amount_paid")%></td>
 
@@ -202,7 +203,7 @@ c/o Steve Widget</div> -->
 		      <td colspan="3" class="blank"> </td>
 		      <td colspan="2" class="total-line balance"><%=Messages.getString("invoice_balance_due")%></td>
 		      <td class="total-value balance"><div class="due">&#x20B9;875.00</div></td>
-		  </tr>
+		  </tr> --%>
 		
 		</table>
 		
@@ -210,7 +211,7 @@ c/o Steve Widget</div> -->
 		  
 		  	Company's VAT TIN : 19808181045<br>
 			Company's CST No. : 19808181045<br>
-			Buyer's VAT TIN/Sales Tax No. : 19781977077
+			Buyer's VAT TIN/Sales Tax No. : <%=saleMasterDTO.getCustomerVatNo() %>
 		  <table border="0">
 		  <tr>
 		  <td>

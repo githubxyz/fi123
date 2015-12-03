@@ -50,6 +50,7 @@
 		<mapping class="com.ims.dto.SaleItemDTO"/>
 		<mapping class="com.ims.dto.SaleMasterDTO"/>
 		<mapping class="com.ims.dto.BuyerDTO"/>
+		<mapping class="com.ims.dto.BranchDTO"/>
     </session-factory>
 
 </hibernate-configuration>
