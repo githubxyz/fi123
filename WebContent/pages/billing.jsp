@@ -242,7 +242,7 @@ c/o Steve Widget</div> -->
 		  <div id="terms" align="left">
 		  
 		  <div>This is a Computer Geenerated Invoice</div>
-		  <input type="button" name="submit" value="Print" onclick="">
+		  <input type="button" name="submit" value="Print" onclick="javascript:window.print();">
 		  &nbsp;&nbsp;&nbsp;&nbsp;
 		 <a href="./login"> Back to Dashboard </a>
 		</div>
