@@ -1,6 +1,7 @@
 package com.ims.ui;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.List;
 
@@ -46,6 +47,21 @@ public class SaveStock extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	protected void editProductDetails(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+    	RequestDispatcher rd=request.getRequestDispatcher("/pages/template/editProductDetails.jsp");
+    	logger.info("in editProduct");
+		try {
+			IProductDetailService productDetailService=new ProductDetailServiceImpl();
+			int id=Integer.parseInt(request.getParameter("id").trim());
+			ProductDetailDTO list=productDetailService.loadProductDetails(id);
+			request.setAttribute(IRequestAttribute.PRODUCT_DETAILS_LIST_BY_ID, list);			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		rd.forward(request, response);
+    }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -74,12 +90,31 @@ public class SaveStock extends HttpServlet {
 		// TODO Auto-generated method stub
 		IProductService productService = new ProductServiceImpl();
 		IProductDetailService detailService=new ProductDetailServiceImpl();
+		
 		try {
 			List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
 			List<ProductGroupMapDTO> productGroupMapDTOs = detailService.getProductGroupCodeLists();
 			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
 			request.setAttribute(IRequestAttribute.PRODUCT_GROUP_LIST, productGroupMapDTOs);
+			
+			ProductDetailDTO pd=new ProductDetailDTO();
+			BeanUtils.populate(pd, request.getParameterMap());
+			IProductDetailService productDetailService=new ProductDetailServiceImpl();
+			HttpSession session = request.getSession(true);
+			int branchId=(int) session.getAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID);
+			if(pd!=null)
+				productDetailService.listOfPurchase(branchId);
+			List<ProductDetailDTO> list=productDetailService.listOfPurchase(branchId);
+			request.setAttribute(ISessionAttribute.PURCHASE_LIST, list);
+			
+			
 		} catch (OperationFailedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

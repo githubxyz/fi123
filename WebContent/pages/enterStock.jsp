@@ -131,6 +131,7 @@
 							List<ProductGroupMapDTO> groupMapDTOs = (List<ProductGroupMapDTO>) request
 									.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
 						%>
+                   
 						<div class="inpu-div">
 
 
@@ -228,6 +229,9 @@
 							style="width: 65%; float: left; text-align: center">
 							<input type="submit" class="btn-style" name="save" value="Submit">
 						</div>
+						 
+							
+						
 					</form>
 				</div>
 
@@ -259,6 +263,21 @@
 				success : function(data) {
 					//alert(data);
 					$("#itemTypeSpan").html(data);
+
+				}
+			});
+		}
+		function editProductDetaild(id) {
+			var saveSucc = $.ajax({
+				type : 'get',
+				url : 'saveStock',
+				data : 'editProductDetails=yes&id=' + id,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					alert("error from  -> " + thrownError);
+				},
+				success : function(data) {
+					$("#editDiv").html(data);
 
 				}
 			});

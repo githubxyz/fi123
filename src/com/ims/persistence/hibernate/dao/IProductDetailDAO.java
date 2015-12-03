@@ -13,4 +13,6 @@ public interface IProductDetailDAO {
 	public List<ProductDetailDTO> getProductDetail(int id) throws PersistenceException;
 
 	public ProductMasterDTO updateProductDetail(ProductMasterDTO productMasterDTO) throws PersistenceException;
+
+	public ProductDetailDTO geProductDetailByIDDTO(int id) throws PersistenceException;
 }

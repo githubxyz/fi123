@@ -11,4 +11,5 @@ import com.ims.persistence.hibernate.PersistenceException;
 public interface IProductDetailService {
 	public List<ProductDetailDTO> listOfPurchase(int branchcode)throws OperationFailedException;
 	public List<ProductGroupMapDTO> getProductGroupCodeLists() throws OperationFailedException;
+	public ProductDetailDTO loadProductDetails(int id)throws OperationFailedException;
 }

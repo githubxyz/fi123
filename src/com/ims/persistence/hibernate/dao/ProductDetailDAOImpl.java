@@ -67,10 +67,24 @@ public class ProductDetailDAOImpl implements IProductDetailDAO {
 		return productDetailDTOs;
 		}
 
+
 	@Override
 	public ProductMasterDTO updateProductDetail(ProductMasterDTO productMasterDTO) throws PersistenceException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public ProductDetailDTO geProductDetailByIDDTO(int id) throws PersistenceException {
+		// TODO Auto-generated method stub
+		ProductDetailDTO pd=null;
+		try {
+			pd=(ProductDetailDTO) session.load(ProductDetailDTO.class, id);
+			logger.info(pd);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return pd;
 	}
 
 }
