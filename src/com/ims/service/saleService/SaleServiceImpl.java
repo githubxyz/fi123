@@ -58,7 +58,8 @@ public class SaleServiceImpl implements ISaleService {
 
 			ISaleMasterlDAO saleMasterlDAO = new SaleMasterDaoImpl(session);
 			saleMasterDTO = saleMasterlDAO.saveSellingDetail(saleMasterDTO);
-
+			
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -74,6 +75,23 @@ public class SaleServiceImpl implements ISaleService {
 			}
 		}
 		// TODO Auto-generated method stub
+		try {
+			session = impl.openSessionAndBeginTransaction();
+
+			saleMasterDTO=(SaleMasterDTO) session.load(SaleMasterDTO.class, saleMasterDTO.getId());
+			logger.info("Saved saleMasterDTO="+saleMasterDTO);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			try {
+				// close session
+				impl.closeAndCommitSession();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new OperationFailedException();
+			}
+		}
 		logger.info("EXIT....");
 		return saleMasterDTO;
 	}

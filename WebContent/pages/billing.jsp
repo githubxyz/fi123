@@ -186,10 +186,12 @@ c/o Steve Widget</div> -->
 		  </tr>
 		   <tr id="hiderow">
 		    <td colspan="5"><%=Messages.getString("invoice_total")%></td>
-		    <td colspan="1"><%=saleMasterDTO.getTotalWithVat()-saleMasterDTO.getDiscount() %></td>
+		    <td colspan="1"><%=saleMasterDTO.getTotalWithVat()-saleMasterDTO.getDiscount() %>
+		    <input type="hidden" id="rupees" value="<%=saleMasterDTO.getTotalWithVat()-saleMasterDTO.getDiscount() %>"/>
+		    </td>
 		  </tr>
 		  <tr id="hiderow">
-		    <td colspan="6"><%=Messages.getString("invoice_amount_txt")%><br>&#x20B9; Fifteen thousand two hundred eighteen only </td>
+		    <td colspan="6"><%=Messages.getString("invoice_amount_txt")%><br><div id="container"></div></td>
 		    
 		  </tr>
 		  
@@ -246,7 +248,27 @@ c/o Steve Widget</div> -->
 		</div>
 	<br></br>
 	</div>
-	
+	<script>
+	var a = ['', 'one ', 'two ', 'three ', 'four ', 'five ', 'six ', 'seven ', 'eight ', 'nine ', 'ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+	var b = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+	    inWords($('#rupees').val());
+
+
+	function inWords(num) {
+		num=parseInt(num);
+	    if ((num = num.toString()).length > 9) return 'overflow';
+	    n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+	    if (!n) return;
+	    var str = '';
+	    str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+	    str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+	    str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+	    str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+	    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+	    $('#container').html(str)
+	}
+	</script>
 </body>
 
 </html>
