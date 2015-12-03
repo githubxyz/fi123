@@ -197,8 +197,13 @@
 				}
 			});
 		}
-		function saleProduct(){
-			
+		function getDiscount(){
+			discount=$("#discount").val();
+			discount=parseFloat(discount);
+			totalCost=$("#totalCost").val();
+			totalCost=parseFloat(totalCost);
+			totalCost=totalCost-discount;
+			$("#totalCost").val(totalCost);
 		}
 	</script>
 </body>

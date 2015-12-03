@@ -42,6 +42,15 @@ public class SaleServiceImpl implements ISaleService {
 			for (Iterator it = items.iterator(); it.hasNext();) {
 				SaleItemDTO saleItemDTO=(SaleItemDTO) it.next();
 				saleItemDTO.setSaleMasterId(saleMasterDTO);
+				double mesure=0.0;
+				if(saleItemDTO.getMesure()!=null && saleItemDTO.getMesure()>0.0){
+					mesure=saleItemDTO.getMesure();
+				}else{
+					mesure=saleItemDTO.getQuantity();
+				}
+				saleItemDTO.setTotalWithoutVat(mesure*saleItemDTO.getUnitPrice());
+				saleItemDTO.setVatAmount((mesure*saleItemDTO.getUnitPrice()*saleItemDTO.getVatPercentage())/100);
+				saleItemDTO.setTotalWithVat(mesure*saleItemDTO.getUnitPrice()+((mesure*saleItemDTO.getUnitPrice()*saleItemDTO.getVatPercentage())/100));
 				itemSet.add(saleItemDTO);
 			}
 
