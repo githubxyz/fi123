@@ -222,16 +222,11 @@
 									</tr>
 								</tbody>
 							</table>
-
-
 						</div>
 						<div class="inpu-div"
 							style="width: 65%; float: left; text-align: center">
 							<input type="submit" class="btn-style" name="save" value="Submit">
-						</div>
-						 
-							
-						
+						</div>	
 					</form>
 				</div>
 
