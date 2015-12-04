@@ -1280,5 +1280,5 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-ALTER TABLE product_details ADD gown character varying(128);
+ALTER TABLE product_master ADD gown character varying(128);
 
