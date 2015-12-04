@@ -26,7 +26,7 @@
 						:
 				</span></td>
 				<td width="15%"><input type="text" name="billrefid"
-					value="<%=pd.getPurchaseRef()%>" class="input-text"></td>
+					value="<%=pd.getPurchaseRef().getBillNo()%>" class="input-text"></td>
 
 				<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
 						:
@@ -82,17 +82,20 @@
 				<td><span class="label"> <%=Messages.getString("company_product_weight")%>
 						:
 				</span></td>
-				<td><input type="text" name="weight" value= "<%=pd.getWeight()%>"></input></td>
+				<td><input type="text" name="weight"
+					value="<%=pd.getWeight()%>"></input></td>
 				<td><span class="label"> <%=Messages.getString("company_product_quantity")%>
 						:
 				</span></td>
-				<td><input type="text" name="quantity" value="<%=pd.getQuantity()%>"></td>
+				<td><input type="text" name="quantity"
+					value="<%=pd.getQuantity()%>"></td>
 			</tr>
 			<tr>
 				<td><span class="label"> <%=Messages.getString("company_cost_per_item")%>
 						:
 				</span></td>
-				<td><input type="text" name="amount" value="<%=pd.getAmount()%>"></td>
+				<td><input type="text" name="amount"
+					value="<%=pd.getAmount()%>"></td>
 				<td><span class="label"> <%=Messages.getString("company_vat_amount")%>
 						:
 				</span></td>
@@ -106,10 +109,4 @@
 			</tr>
 		</tbody>
 	</table>
-
-
-</div>
-<div class="inpu-div"
-	style="width: 65%; float: left; text-align: center">
-	<input type="submit" class="btn-style" name="save" value="Submit">
 </div>

@@ -73,7 +73,7 @@
     if (purchoseList1 != null) {
                 for (Iterator it = purchoseList1.iterator(); it.hasNext(); ) {
                     ProductDetailDTO sd = (ProductDetailDTO) it.next();%>
-        <tr style="border:1px solid #ccc!important;">
+        <tr style="border:1px solid #ccc!important;" onclick="editProductDetails(<%=sd.getId()%>)">
             <td align="center"><%=sd.getId() %>
             </td>
             <td align="center"><%=sd.getProductMaster().getProductName() %>

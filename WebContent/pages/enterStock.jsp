@@ -28,76 +28,79 @@
 <!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
 <script src="./js/jquery-2.0.3.min.js"></script>
 <link rel="stylesheet" href="./css/styles.css">
-<script src="./js/script.js"></script>
-<script>
-	src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
-</script>
-<script type="text/javascript">
-	$(document).ready(function() {
+	<script src="./js/script.js"></script>
+	<script>
+		src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+	</script>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
 
-		var oTable = $('#example').dataTable({
-			"bJQueryUI" : true,
-			bRetrieve : true,
-			"sPaginationType" : "full_numbers",
-			"oLanguage" : {
-				"sSearch" : "Search all columns:"
-			},
-			"sDom" : 'R<"H"lfr>t<"F"ip>',
-			// "sDom": '<"H"Tfr>t<"F"ip>',
-			// "sDom": 'Rlfrtip',
-			"bStateSave" : true,
-			// "bDestroy":true,
+					var oTable = $('#example').dataTable({
+						"bJQueryUI" : true,
+						bRetrieve : true,
+						"sPaginationType" : "full_numbers",
+						"oLanguage" : {
+							"sSearch" : "Search all columns:"
+						},
+						"sDom" : 'R<"H"lfr>t<"F"ip>',
+						// "sDom": '<"H"Tfr>t<"F"ip>',
+						// "sDom": 'Rlfrtip',
+						"bStateSave" : true,
+						// "bDestroy":true,
 
-			"oColReorder" : {
-				"aiOrder" : [ 0, 1, 2, 3 ]
-			},
-			sScrollY : "",
-			"bPaginate" : true
+						"oColReorder" : {
+							"aiOrder" : [ 0, 1, 2, 3 ]
+						},
+						sScrollY : "",
+						"bPaginate" : true
 
+					});
+
+					$("#example tfoot input").keyup(
+							function() {
+
+								oTable.fnFilter(this.value, $(
+										"#example tfoot input").index(this));
+							});
+
+					$("#example tfoot input").each(function(i) {
+						var id = $(this).attr("id").split("-")[1];
+						asInitVals[id] = this.value;
+					});
+
+					$("#example tfoot input").focus(function() {
+						if (this.className == "search_init") {
+							this.className = "";
+							this.value = "";
+						}
+					});
+
+					$("#example tfoot input").blur(function(i) {
+						var id = $(this).attr("id").split("-")[1];
+						if (this.value == "") {
+							this.className = "search_init";
+							/*alert("jj");*/
+							// this.value = asInitVals[$("#example tfoot input").index(this)];
+							this.value = asInitVals[id];
+						}
+					});
+				});
+	</script>
+	<!-- Highlighted menu -->
+	<script>
+		src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+	</script>
+	<script>
+		$(document).ready(function() {
+			$("#purchaseentry").css("background-color", "#f78900");
 		});
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="css/include-style.css" type="text/css"
+		media="all">
 
-		$("#example tfoot input").keyup(function() {
-
-			oTable.fnFilter(this.value, $("#example tfoot input").index(this));
-		});
-
-		$("#example tfoot input").each(function(i) {
-			var id = $(this).attr("id").split("-")[1];
-			asInitVals[id] = this.value;
-		});
-
-		$("#example tfoot input").focus(function() {
-			if (this.className == "search_init") {
-				this.className = "";
-				this.value = "";
-			}
-		});
-
-		$("#example tfoot input").blur(function(i) {
-			var id = $(this).attr("id").split("-")[1];
-			if (this.value == "") {
-				this.className = "search_init";
-				/*alert("jj");*/
-				// this.value = asInitVals[$("#example tfoot input").index(this)];
-				this.value = asInitVals[id];
-			}
-		});
-	});
-</script>
-<!-- Highlighted menu -->
-<script>
-	src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
-</script>
-<script>
-	$(document).ready(function() {
-		$("#purchaseentry").css("background-color", "#f78900");
-	});
-</script>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/include-style.css" type="text/css"
-	media="all">
-
-<title>Friends Interior</title>
+		<title>Friends Interior</title>
 </head>
 
 <body>
@@ -131,102 +134,105 @@
 							List<ProductGroupMapDTO> groupMapDTOs = (List<ProductGroupMapDTO>) request
 									.getAttribute(IRequestAttribute.PRODUCT_GROUP_LIST);
 						%>
-                   
-						<div class="inpu-div">
+						<div id="editDiv">
 
 
-							<table width="100%">
-								<tbody>
-									<tr>
-										<td width="15%"><span class="label"> <%=Messages.getString("purchase_ref_id")%>
-												:
-										</span></td>
-										<td width="15%"><input type="text" name="billrefid"
-											value="" class="input-text"></td>
+							<div class="inpu-div">
 
-										<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
-												:
-										</span></td>
-										<td width="15%"><select name="groupId" class="input-text"
-											id="groupId" onchange="changeGroup()">
 
-												<option value="0">Select</option>
-												<!-- Value fetching from product_group_map  -->
-												<%
-													for (Iterator it = groupMapDTOs.iterator(); it.hasNext();) {
-														ProductGroupMapDTO productGroupMapDTO = (ProductGroupMapDTO) it.next();
-												%>
-												<option value="<%=productGroupMapDTO.getId()%>"><%=productGroupMapDTO.getCode()%></option>
-												<%
-													}
-												%>
-										</select></td>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td width="15%"><span class="label"> <%=Messages.getString("purchase_ref_id")%>
+													:
+											</span></td>
+											<td width="15%"><input type="text" name="billrefid"
+												value="" class="input-text"></td>
 
-										<th width="80px" rowspan="4" colspan="2"><div
-												class="error-div" id="saveMasterError"></div></th>
-									</tr>
+											<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
+													:
+											</span></td>
+											<td width="15%"><select name="groupId"
+												class="input-text" id="groupId" onchange="changeGroup()">
 
-									<tr>
-										<td><span class="label"> <%=Messages.getString("product_name")%>
-												:
-										</span></td>
-										<td><select name="prodId" class="input-text" id="prodId"
-											onchange="changeProduct()">
-
-												<option value="0">Select</option>
-												<%
-													for (Iterator it = productdtos2.iterator(); it.hasNext();) {
-														ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
-												%>
-												<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
-												<%
-													}
-												%>
-										</select></td>
-										<td><span class="label"><%=Messages.getString("company_product_type")%>
-												:</span></td>
-										<td><span id="itemTypeSpan" class="input-text"><select
-												name="type" class="input-text">
 													<option value="0">Select</option>
-													<option value="1">Light</option>
-													<option value="2">Medium</option>
-													<option value="3">Heavy</option>
-											</select> </span></td>
-									</tr>
+													<!-- Value fetching from product_group_map  -->
+													<%
+														for (Iterator it = groupMapDTOs.iterator(); it.hasNext();) {
+															ProductGroupMapDTO productGroupMapDTO = (ProductGroupMapDTO) it.next();
+													%>
+													<option value="<%=productGroupMapDTO.getId()%>"><%=productGroupMapDTO.getCode()%></option>
+													<%
+														}
+													%>
+											</select></td>
 
-									<tr>
-										<td><span class="label"> <%=Messages.getString("company_product_weight")%>
-												:
-										</span></td>
-										<td><input type="text" name="weight"></td>
-										<td><span class="label"> <%=Messages.getString("company_product_quantity")%>
-												:
-										</span></td>
-										<td><input type="text" name="quantity"></td>
-									</tr>
-									<tr>
-										<td><span class="label"> <%=Messages.getString("company_cost_per_item")%>
-												:
-										</span></td>
-										<td><input type="text" name="amount"></td>
-										<td><span class="label"> <%=Messages.getString("company_vat_amount")%>
-												:
-										</span></td>
-										<td><input type="text" name="vat"></td>
-									</tr>
-									<tr>
-										<td><span class="label"> <%=Messages.getString("company_k&p")%>
-												:
-										</span></td>
-										<td><input type="text" name="kAndP"></td>
-									</tr>
-								</tbody>
-							</table>
+											<th width="80px" rowspan="4" colspan="2"><div
+													class="error-div" id="saveMasterError"></div></th>
+										</tr>
+
+										<tr>
+											<td><span class="label"> <%=Messages.getString("product_name")%>
+													:
+											</span></td>
+											<td><select name="prodId" class="input-text" id="prodId"
+												onchange="changeProduct()">
+
+													<option value="0">Select</option>
+													<%
+														for (Iterator it = productdtos2.iterator(); it.hasNext();) {
+															ProductMasterDTO productMasterDTO = (ProductMasterDTO) it.next();
+													%>
+													<option value="<%=productMasterDTO.getId()%>"><%=productMasterDTO.getProductName()%></option>
+													<%
+														}
+													%>
+											</select></td>
+											<td><span class="label"><%=Messages.getString("company_product_type")%>
+													:</span></td>
+											<td><span id="itemTypeSpan" class="input-text"><select
+													name="type" class="input-text">
+														<option value="0">Select</option>
+														<option value="1">Light</option>
+														<option value="2">Medium</option>
+														<option value="3">Heavy</option>
+												</select> </span></td>
+										</tr>
+
+										<tr>
+											<td><span class="label"> <%=Messages.getString("company_product_weight")%>
+													:
+											</span></td>
+											<td><input type="text" name="weight"></td>
+											<td><span class="label"> <%=Messages.getString("company_product_quantity")%>
+													:
+											</span></td>
+											<td><input type="text" name="quantity"></td>
+										</tr>
+										<tr>
+											<td><span class="label"> <%=Messages.getString("company_cost_per_item")%>
+													:
+											</span></td>
+											<td><input type="text" name="amount"></td>
+											<td><span class="label"> <%=Messages.getString("company_vat_amount")%>
+													:
+											</span></td>
+											<td><input type="text" name="vat"></td>
+										</tr>
+										<tr>
+											<td><span class="label"> <%=Messages.getString("company_k&p")%>
+													:
+											</span></td>
+											<td><input type="text" name="kAndP"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 						<div class="inpu-div"
 							style="width: 65%; float: left; text-align: center">
 							<input type="submit" class="btn-style" name="save" value="Submit">
-						</div>	
+						</div>
 					</form>
 				</div>
 
@@ -245,7 +251,9 @@
 	<script type="text/javascript">
 		//alert("jj");
 		function changeProduct() {
+			
 			id = $("#prodId").val();
+			alert(id);
 			var saveSucc = $.ajax({
 				type : 'post',
 				url : 'saveStock',
@@ -256,13 +264,14 @@
 
 				},
 				success : function(data) {
-					//alert(data);
+					alert(data);
 					$("#itemTypeSpan").html(data);
 
 				}
 			});
 		}
-		function editProductDetaild(id) {
+		function editProductDetails(id) {
+			//alert(id);
 			var saveSucc = $.ajax({
 				type : 'post',
 				url : 'saveStock',
