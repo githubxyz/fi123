@@ -136,15 +136,15 @@
 						<tr>
 							<th align="center" style="background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;color: #555555;">
 								Sl No</th>
+								<th align="center"
+								style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+								Product Gr Code</th>
 							<th align="center"
 								style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
 								Product Name</th>
 							<th align="center"
 								style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
 								Product Code</th>
-							<th align="center"
-								style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-								Unit Of Mesure</th>
 							<th align="center"
 								style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
 								Weight</th>
@@ -173,10 +173,9 @@
 						%>
 						<tr style="border: 1px solid #ccc !important;">
 							<td align="center"><%=sd.getId()%></td>
+							<td align="center"><%=sd.getProductMaster().getPrGroupMapDTO().getCode()%></td>
 							<td align="center"><%=sd.getProductName()%></td>
 							<td align="center"><%=sd.getProductCode()%></td>
-							<td align="center">
-							</td>
 							<td align="center"><%=sd.getWeight()%></td>
 							<td align="center"><%=sd.getQuantity()%></td>
 							<td align="center"><%=sd.getBranchId()%></td>
@@ -242,7 +241,6 @@
 								<input type="text" id="col9" name="col9" value="Type to search"
 								class="search_init" />
 							</th>
-
 						</tr>
 					</tfoot>
 					<%--</table>--%>

@@ -21,6 +21,10 @@
             </th>
             <th align="center"
                 style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
+                Product Gr Code
+            </th>
+            <th align="center"
+                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
                 Product Name
             </th>
             <th align="center"
@@ -76,6 +80,8 @@
         <tr style="border:1px solid #ccc!important;" onclick="editProductDetails(<%=sd.getId()%>)">
             <td align="center"><%=sd.getId() %>
             </td>
+            <td align="center"><%=sd.getProductMaster().getPrGroupMapDTO().getCode() %>
+            </td>
             <td align="center"><%=sd.getProductMaster().getProductName() %>
             </td>
             <td align="center"><%=sd.getProductMaster().getProductCode() %></td>
@@ -130,6 +136,9 @@
                 <input type="text" id="col7" name="col7" value="Type to search" class="search_init"/></th>
             <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
+        	<th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+                <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
+        
         </tr>
         </tfoot>
         <%--</table>--%>
@@ -156,7 +165,7 @@
                     // "bDestroy":true,
 
                     "oColReorder": {
-                        "aiOrder": [0, 1, 2, 3,4,5,6,7,8,9,10,11,12]
+                        "aiOrder": [0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13]
                     },
                     sScrollY: "",
                     "bPaginate": true
