@@ -70,7 +70,7 @@ public class SaveStock extends HttpServlet {
 	protected void PopulateType(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("Populate data");
-		String prodIdStr = (String) request.getParameter("productDetailsId");
+		String prodIdStr = (String) request.getParameter("productId");
 		int productId = 0;
 		logger.info("Populate data-->>"+prodIdStr);
 		try {
