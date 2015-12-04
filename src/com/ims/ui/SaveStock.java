@@ -132,7 +132,10 @@ public class SaveStock extends HttpServlet {
 		logger.info("in........" + request.getParameter("selectType"));
 		if (request.getParameter("selectType") != null && request.getParameter("selectType").toString().length() > 0) {
 			PopulateType(request, response);
-		} else {
+		}else if(request.getParameter("editProductDetails") != null && request.getParameter("editProductDetails").toString().length() > 0){
+			
+		}
+		else {
 			boolean error = false;
 			try {
 				int productId = Integer.parseInt(request.getParameter("prodId"));

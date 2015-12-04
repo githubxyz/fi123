@@ -264,7 +264,7 @@
 		}
 		function editProductDetaild(id) {
 			var saveSucc = $.ajax({
-				type : 'get',
+				type : 'post',
 				url : 'saveStock',
 				data : 'editProductDetails=yes&id=' + id,
 				error : function(xhr, ajaxOptions, thrownError) {
