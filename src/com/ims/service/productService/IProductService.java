@@ -15,5 +15,4 @@ public interface IProductService {
 	public List<ProductMasterDTO> listProduct()throws OperationFailedException;
 	public ProductMasterDTO loadProductMaster(int id)throws OperationFailedException;
 	public ProductGroupMapDTO getProductGroupByCode(String code) throws OperationFailedException;
-		
 }

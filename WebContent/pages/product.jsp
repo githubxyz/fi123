@@ -132,16 +132,26 @@
 														<option value="Packet">Packet</option>
 														<option value="Piece">Piece</option>
 														<option value="Dozon">Dozon</option>
+														<option value="Roll">Roll</option>
+														<option value="Bag">Bag</option>
+														<option value="Box">Box</option>
+														<option value="Bundle">Bundle</option>
+														<option value="Drum">Drum</option>
+														<option value="Liter">Liter</option>
+														<option value="Set">Set</option>
+														<option value="Pair">Pair</option>
 												</select></td>
 												<td><span class="label"> <%=Messages.getString("unit_weight")%>
 														:
 												</span></td>
 												<td><select name="weight_unit" class="input-text">
 														<option value=" ">Select unit for weight..</option>
+														<option value=" ">Select unit for weight..</option>
 														<option value="Gram">Gram</option>
 														<option value="Kilogram">Kilogram</option>
 														<option value="Ton">Ton</option>
 														<option value="Quintal">Quintal</option>
+														<option value="Feet">Feet</option>
 														<option value="Sq Feet">Sq Feet</option>
 												</select></td>
 												<tr>
@@ -155,10 +165,7 @@
 									</table>
 
 								</div>
-								<br></br>
-								<br></br>
-								<br></br>
-								<br></br>
+								<br></br> <br></br> <br></br> <br></br>
 								<div class="inpu-div"
 									style="width: 65%; float: left; text-align: center">
 									<input type="button" name="submit" value="Submit"

@@ -175,7 +175,7 @@
 											<td><span class="label"> <%=Messages.getString("product_name")%>
 													:
 											</span></td>
-											<td><select name="prodId" class="input-text" id="prodId"
+											<td><span id="GrTypeSpan" class="input-text"><select name="prodId" class="input-text" id="prodId"
 												onchange="changeProduct()">
 
 													<option value="0">Select</option>
@@ -187,7 +187,7 @@
 													<%
 														}
 													%>
-											</select></td>
+											</select></span></td>
 											<td><span class="label"><%=Messages.getString("company_product_type")%>
 													:</span></td>
 											<td><span id="itemTypeSpan" class="input-text"><select
@@ -253,7 +253,7 @@
 		function changeProduct() {
 			
 			id = $("#prodId").val();
-			alert(id);
+			//alert(id);
 			var saveSucc = $.ajax({
 				type : 'post',
 				url : 'saveStock',
@@ -264,7 +264,7 @@
 
 				},
 				success : function(data) {
-					alert(data);
+				//	alert(data);
 					$("#itemTypeSpan").html(data);
 
 				}
@@ -282,6 +282,26 @@
 				},
 				success : function(data) {
 					$("#editDiv").html(data);
+
+				}
+			});
+		}
+		function changeGroup() {
+			
+			id = $("#groupId").val();
+			//alert(id);
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'saveStock',
+				data : "grSelectType=1&productGrId=" + id,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					/* alert("error from  -> " + thrownError); */
+
+				},
+				success : function(data) {
+				//	alert(data);
+					$("#GrTypeSpan").html(data);
 
 				}
 			});

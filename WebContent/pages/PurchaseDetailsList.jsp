@@ -1,150 +1,177 @@
 <%@page import="java.text.DateFormat"%>
 <%@page import="javax.xml.crypto.KeySelector.Purpose"%>
 <%@page import="com.ims.dto.ProductDetailDTO"%>
-<%@page import="com.ims.utility.ISessionAttribute" %>
-<%@page import="com.ims.dto.StockDetailDTO" %>
-<%@page import="com.ims.utility.Messages" %>
-<%@page import="java.util.Iterator" %>
-<%@page import="java.util.List" %>
+<%@page import="com.ims.utility.ISessionAttribute"%>
+<%@page import="com.ims.dto.StockDetailDTO"%>
+<%@page import="com.ims.utility.Messages"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page import="java.text.DateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
-<g:set var="gv1"/>
+	pageEncoding="ISO-8859-1"%>
+<g:set var="gv1" />
 
 
-	<table id="example" cellpadding="0" cellspacing="0" border="1" class="display dataTable">
-        <thead>
-        <tr>
-            <th align="center"
-                style="background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;color: #555555;">
-                Sl No
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Product Gr Code
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Product Name
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Product Code
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Unit Of Measure
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Weight
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Quantity
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Type
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Purchase Date
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Vat Amount
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                Branch Id
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                User Name
-            </th>
-            <th align="center"
-                style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;">
-                K & P
-            </th>
-        </tr>
-        </thead>
+<table id="example" cellpadding="0" cellspacing="0" border="1"
+	class="display dataTable">
+	<thead>
+		<tr>
+			<th align="center" style="background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;color: #555555;">
+				Sl No</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Product Gr Code</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Product Name</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Product Code</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Weight</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Quantity</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Type</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Purchase Date</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Vat Amount</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				Branch Id</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				User Name</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				K & P</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 5% 5% repeat-x; color: #555555;">
+				<%=Messages.getString("edit_row")%></th>
+		</tr>
+	</thead>
 
-        <tbody>
+	<tbody>
 
-    <% List<ProductDetailDTO> purchoseList1 = (List<ProductDetailDTO>) request.getAttribute(ISessionAttribute.PURCHASE_LIST);
+		<% List<ProductDetailDTO> purchoseList1 = (List<ProductDetailDTO>) request.getAttribute(ISessionAttribute.PURCHASE_LIST);
             
     if (purchoseList1 != null) {
                 for (Iterator it = purchoseList1.iterator(); it.hasNext(); ) {
                     ProductDetailDTO sd = (ProductDetailDTO) it.next();%>
-        <tr style="border:1px solid #ccc!important;" onclick="editProductDetails(<%=sd.getId()%>)">
-            <td align="center"><%=sd.getId() %>
-            </td>
-            <td align="center"><%=sd.getProductMaster().getPrGroupMapDTO().getCode() %>
-            </td>
-            <td align="center"><%=sd.getProductMaster().getProductName() %>
-            </td>
-            <td align="center"><%=sd.getProductMaster().getProductCode() %></td>
-            
-            <td align="center"></td>
-            <td align="center"><%=sd.getWeight() %></td>
-            <td align="center"><%=sd.getQuantity()%></td>
-            <td align="center"><%=sd.getType()==0? "":(sd.getType()==1?"Light":(sd.getType()==2?"Medium":"Heavy")) %></td>
-            
-           <%DateFormat shortDF = DateFormat.getDateInstance();%>
-            <td align="center"><%= shortDF.format(sd.getPurchaseDate()) %></td>
-            <td align="center"><%=sd.getVat()%></td>
-            <td align="center"><%=sd.getBranch()%></td>
-           <td align="center"><%=sd.getUser().getFirstName().concat(" ").concat(sd.getUser().getLastName()) %></td>
-            <%-- <td align="center"><%=sd.getSaleQuantity()%></td> --%>
-            <td align="center"><%=sd.getkAndP()==null?"":sd.getkAndP()%></td>
-        </tr>
-        <%
+		<tr style="border: 1px solid #ccc !important;"
+			onclick="editProductDetails(<%=sd.getId()%>)">
+			<td align="center"><%=sd.getId() %></td>
+			<td align="center"><%=sd.getProductMaster().getPrGroupMapDTO().getCode() %>
+			</td>
+			<td align="center"><%=sd.getProductMaster().getProductName() %>
+			</td>
+			<td align="center"><%=sd.getProductMaster().getProductCode() %></td>
+			<td align="center"><%=sd.getWeight() %></td>
+			<td align="center"><%=sd.getQuantity()%></td>
+			<td align="center"><%=sd.getType()==0? "":(sd.getType()==1?"Light":(sd.getType()==2?"Medium":"Heavy")) %></td>
+
+			<%DateFormat shortDF = DateFormat.getDateInstance();%>
+			<td align="center"><%= shortDF.format(sd.getPurchaseDate()) %></td>
+			<td align="center"><%=sd.getVat()%></td>
+			<td align="center"><%=sd.getBranch()%></td>
+			<td align="center"><%=sd.getUser().getFirstName().concat(" ").concat(sd.getUser().getLastName()) %></td>
+			<%-- <td align="center"><%=sd.getSaleQuantity()%></td> --%>
+			<td align="center"><%=sd.getkAndP()==null?"":sd.getkAndP()%></td>
+			<td align="center" width="5%"><img align="right"
+				src="images/edit.png" height="20px" alt="edit field"></img></td>
+		</tr>
+		<%
                 }
             }
         %>
 
 
-        </tbody>
+	</tbody>
 
-        <tfoot>
+	<tfoot>
 
-        <tr>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col1" name="col1" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col2" name="col2" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col3" name="col3" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col4" name="col4" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col5" name="col5" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col6" name="col6" value="Type to search" class="search_init"/></th>
-      <!--       <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
+		<tr style="width: 40px">
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col1" name="col1" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col2" name="col2" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col3" name="col3" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col4" name="col4" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col5" name="col5" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col6" name="col6" value="Type to search"
+				class="search_init" />
+			</th>
+			<!--       <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
                 <input type="text" id="col7" name="col7" value="Type to search" class="search_init"/></th>
-       -->      <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col4" name="col4" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col5" name="col5" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col6" name="col6" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col7" name="col7" value="Type to search" class="search_init"/></th>
-            <th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
-        	<th style=" background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;color: #555555;font-size:11px!important;">
-                <input type="text" id="col9" name="col9" value="Type to search" class="search_init"/></th>
-        
-        </tr>
-        </tfoot>
-        <%--</table>--%>
-        <%--</ul>--%>
-    </table>
-	  <script type="text/javascript">
+       -->
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col9" name="col9" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col4" name="col4" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col5" name="col5" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col6" name="col6" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col7" name="col7" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col9" name="col9" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col3" name="col3" value="Type to search"
+				class="search_init" />
+			</th>
+
+		</tr>
+	</tfoot>
+	<%--</table>--%>
+	<%--</ul>--%>
+</table>
+<script type="text/javascript">
 
            
                 //alert("test");
@@ -201,4 +228,3 @@
                 });
             
     </script>
-   

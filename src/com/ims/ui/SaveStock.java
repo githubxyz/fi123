@@ -199,7 +199,11 @@ public class SaveStock extends HttpServlet {
 				&& request.getParameter("editProductDetails").toString().length() > 0) {
 			PopulateEdit(request, response);
 
-		} else {
+		} else if(request.getParameter("productGrId") != null
+				&& request.getParameter("productGrId").toString().length() > 0){
+			PopulateProductGroup(request, response);
+		}
+		else {
 			boolean error = false;
 			try {
 				int productId = Integer.parseInt(request.getParameter("prodId"));
@@ -237,6 +241,32 @@ public class SaveStock extends HttpServlet {
 			}
 		}
 
+	}
+
+	protected void PopulateProductGroup(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		logger.info("PopulateProductGroup Data");
+		
+		String prodIdStr = (String) request.getParameter("productGrId");
+		logger.info("PopulateProductGroup Data"+prodIdStr);
+		int productMasterId = 0;
+		try {
+			productMasterId = Integer.parseInt(prodIdStr);
+			IProductService productService = new ProductServiceImpl();
+			ProductMasterDTO productMasterDTO = productService.loadProductMaster(productMasterId);
+			logger.info("data get" + productMasterDTO.getPrGroupMapDTO().getId());
+			request.setAttribute(IRequestAttribute.PRODUCT_MASTER, productMasterDTO);
+			List<ProductMasterDTO> prMasterDTOs = productService.listProduct();
+			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		
+		//rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/template/productBasedOnGroup.jsp");
+		rd.forward(request, response);
 	}
 
 }
