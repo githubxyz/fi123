@@ -82,7 +82,7 @@ public class Login extends HttpServlet {
 			result = IUS.isValidLoginCradential(uDTO);
 			if(result==null)
 			{
-				RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("/failure.jsp");
+				RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("/login.jsp");
                 requestDispatcher1.forward(request, response);
 			}
 			else

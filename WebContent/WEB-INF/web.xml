@@ -64,4 +64,21 @@
     <servlet-name>CustomerInfo</servlet-name>
     <url-pattern>/CustomerInfo</url-pattern>
   </servlet-mapping>
+  <error-page>
+        <error-code>500</error-code>
+        <location>/login.jsp</location>
+</error-page>
+<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>JSP Files</web-resource-name>
+            <description>No direct access to JSP files</description>
+            <url-pattern>/pages/*</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>No direct browser access to JSP files</description>
+            <role-name>NobodyHasThisRole</role-name>
+        </auth-constraint>
+    </security-constraint>
 </web-app>
