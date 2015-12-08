@@ -76,6 +76,7 @@ public class ViewStockServiceImpl implements IViewStockService {
 			session = impl.openSessionAndBeginTransaction();
 			IStockDetailDAO stockDetailDAO = new StockDetailDAOImpl(session);
 			dtos = stockDetailDAO.getAllStockDetail(branchcode);
+			logger.info("Stock found for branch "+branchcode+" is="+dtos);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);

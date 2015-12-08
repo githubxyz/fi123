@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.ws.RequestWrapper;
 
+import org.apache.log4j.Logger;
+
 //import org.apache.catalina.connector.Request;
 
 import com.ims.dto.StockDetailDTO;
@@ -30,7 +32,7 @@ import com.ims.utility.ISessionAttribute;
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private Logger logger = Logger.getLogger("com.biz");  
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -64,6 +66,7 @@ public class Login extends HttpServlet {
         String login1 = request.getParameter("login1");
         String password = request.getParameter("password");
         String branchIdString=request.getParameter("branchId");
+        logger.info("branchId="+branchIdString);
         int branchId=0;
         if(branchIdString!=null){
         	branchIdString=branchIdString.trim();
@@ -83,7 +86,7 @@ public class Login extends HttpServlet {
                 requestDispatcher1.forward(request, response);
 			}
 			else
-			{				
+			{		
 				s.setAttribute(ISessionAttribute.LOGGEDINUSER, result);
 				s.setAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID, branchId);
 				doGet(request, response);

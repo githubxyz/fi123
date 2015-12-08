@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -37,12 +39,14 @@ public class ViewStock extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	StockDetailDTO sd=new StockDetailDTO();
 		boolean error=false;
+		HttpSession session = request.getSession(true);
 		try {
 			BeanUtils.populate(sd, request.getParameterMap());
 			IViewStockService viewStockService=new ViewStockServiceImpl();
-			if(sd!=null)
-				viewStockService.getAllStockDetail(1);
-			List<StockDetailDTO> list=viewStockService.getAllStockDetail(1);
+			int branchId=(int) session.getAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID);
+			/*if(sd!=null)
+				viewStockService.getAllStockDetail(1);*/
+			List<StockDetailDTO> list=viewStockService.getAllStockDetail(branchId);
 			request.setAttribute(ISessionAttribute.STOCK_LIST, list);
 			
 		} catch (Exception e) {
@@ -67,12 +71,14 @@ public class ViewStock extends HttpServlet {
 		// TODO Auto-generated method stub
 		StockDetailDTO sd=new StockDetailDTO();
 		boolean error=false;
+		HttpSession session = request.getSession(true);
 		try {
 			BeanUtils.populate(sd, request.getParameterMap());
+			int branchId=(int) session.getAttribute(ISessionAttribute.LOGGEDIN_USER_BRANCHID);
 			IViewStockService viewStockService=new ViewStockServiceImpl();
 			if(sd!=null)
 				viewStockService.getAllStockDetail(1);
-			List<StockDetailDTO> list=viewStockService.getAllStockDetail(1);
+			List<StockDetailDTO> list=viewStockService.getAllStockDetail(branchId);
 			request.setAttribute(ISessionAttribute.STOCK_LIST, list);
 			
 		} catch (Exception e) {
