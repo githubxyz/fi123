@@ -85,8 +85,7 @@
 												<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
 														:
 												</span></td>
-												<td width="15%"><select name="groupCode"
-													class="input-text">
+												<td width="15%"><select name="groupCode" onchange="changeGroup()" id="groupId" class="input-text">
 														<option value=" ">Select Product Group..</option>
 														<%
 															for (Iterator it = productGroupMapDTOs.iterator(); it.hasNext();) {
@@ -205,6 +204,27 @@
 			totalCost=totalCost-discount;
 			$("#totalCost").val(totalCost);
 		}
+function changeGroup() {
+			
+			id = $("#groupId").val();
+			//alert(id);
+			var saveSucc = $.ajax({
+				type : 'post',
+				url : 'SalesProduct',
+				data : "requestType=populateGroup&productGrId=" + id,
+				error : function(xhr, ajaxOptions, thrownError) {
+					//  $('#spinner_buis').hide();
+					/* alert("error from  -> " + thrownError); */
+
+				},
+				success : function(data) {
+				//	alert(data);
+					$("#itemSpan").html(data);
+
+				}
+			});
+		}
+
 	</script>
 </body>
 </html>

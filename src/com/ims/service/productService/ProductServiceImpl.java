@@ -222,5 +222,40 @@ public ProductGroupMapDTO getProductGroupByCode(String code) throws OperationFai
 	}
 	return dto;
 }
+@Override
+public List<ProductMasterDTO> listProductByGroupId(int groupId) throws OperationFailedException {
+	logger.info("ENTRY....");
+	List<ProductMasterDTO> dtos=new ArrayList<ProductMasterDTO>();
+	// create a session
+	Session session = null;
+	// create PersistenceManagerImpl
+	IPersistenceManager impl = new PersistenceManagerImpl();
+	
+	try {
+		session = impl.openSessionAndBeginTransaction();
+		IProductMasterDAO productMasterDAO=new ProductMasterDAOImpl(session);
+		dtos=productMasterDAO.listProductMasterByGroupId(groupId);
+	} catch (Exception e) {
+		e.printStackTrace();
+		logger.error(e);
+		throw new OperationFailedException();
+
+	}finally {
+		try {
+			// close session
+			impl.closeAndCommitSession();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new OperationFailedException();
+		}
+	}
+	logger.info("Exit.........");
+
+
+	return dtos;
+
+
+}
 
 }

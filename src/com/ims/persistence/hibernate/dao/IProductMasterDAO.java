@@ -10,4 +10,5 @@ public ProductMasterDTO saveProductMaster(ProductMasterDTO productMasterDTO)thro
 public ProductMasterDTO getProductMaster(int id) throws PersistenceException;
 public ProductMasterDTO updateProductMaster(ProductMasterDTO productMasterDTO) throws PersistenceException;	
 public List<ProductMasterDTO> listProductMaster() throws PersistenceException;	
+public List<ProductMasterDTO> listProductMasterByGroupId(int groupId) throws PersistenceException;
 }

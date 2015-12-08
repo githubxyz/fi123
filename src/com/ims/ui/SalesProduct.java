@@ -84,7 +84,9 @@ public class SalesProduct extends HttpServlet {
 			addItem(request, response);
 		} else if (requestType != null && requestType.trim().equals("saleItem")) {
 			saleProduct(request,response);
-		} else {
+		}else if(requestType != null && requestType.equals("populateGroup")){ 
+			PopulateProductGroup(request, response);
+		}else {
 			doGet(request, response);
 		}
 		
@@ -151,5 +153,30 @@ public class SalesProduct extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/template/orderedItem.jsp");
 		rd.forward(request, response);
 	}
+	
+	protected void PopulateProductGroup(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		logger.info("PopulateProductGroup Data");
+		
+		String prodIdStr = (String) request.getParameter("productGrId");
+		logger.info("PopulateProductGroup Data"+prodIdStr);
+		int productGrId = 0;
+		try {
+			productGrId = Integer.parseInt(prodIdStr);
+			IProductService productService = new ProductServiceImpl();
+			
+			List<ProductMasterDTO> prMasterDTOs = productService.listProductByGroupId(productGrId);
+			request.setAttribute(IRequestAttribute.PRODUCT_LIST, prMasterDTOs);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		
+		//rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/template/itemList.jsp");
+		rd.forward(request, response);
+	}
+
 
 }

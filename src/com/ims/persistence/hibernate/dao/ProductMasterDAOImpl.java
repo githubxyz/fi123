@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.ProductMasterDTO;
@@ -77,6 +78,29 @@ public class ProductMasterDAOImpl implements IProductMasterDAO {
 				
 				logger.info("Exit");
 			
+		return list;
+	}
+	@Override
+	public List<ProductMasterDTO> listProductMasterByGroupId(int groupId) throws PersistenceException {
+		// TODO Auto-generated method stub
+		logger.info("Entry");
+		List<ProductMasterDTO> list=null;
+		try {
+			
+			Criteria q=session.createCriteria(ProductMasterDTO.class);
+			ProductGroupMapDTO pGroupMapDTO=new ProductGroupMapDTO();
+			pGroupMapDTO.setId(groupId);
+			q.add(Restrictions.eq("prGroupMapDTO", pGroupMapDTO));
+			list=q.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+			throw new PersistenceException(e,
+					IPersistenceErrorCode.DATABASE_PROBLEM);
+		}
+		
+		logger.info("Exit");
+	
 		return list;
 	}
 }
