@@ -8,4 +8,5 @@ public interface ISessionAttribute {
   String PRODUCTMASTER_LIST="productList";
   String STOCLALART_LIST="stockAlartList";
   String SALE_ITEM_LIST="saledItemList";
+  String BRANCH_LIST="branchList";
 }
