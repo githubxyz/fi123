@@ -1,7 +1,13 @@
 package com.ims.persistence.hibernate.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import com.ims.dto.ProductGroupMapDTO;
 import com.ims.dto.PurchasePaymentInfoDTO;
@@ -56,6 +62,29 @@ public class PurchasePaymentInfoDAOImpl implements IPurchasePaymentInfoDAO {
 		logger.info("Exit");
 		return productGroupMapDTO;
 
+	}
+	@Override
+	public List<PurchasePaymentInfoDTO> getVendorList(Date fromDate, Date toDate,String billNo) throws PersistenceException {
+		// TODO Auto-generated method stub
+		List<PurchasePaymentInfoDTO> infoDTOs=new ArrayList<>();
+		logger.info("entry");
+		try{
+			Criteria orderCrit = session.createCriteria(PurchasePaymentInfoDTO.class, "MASTER");
+			//orderCrit.add(Restrictions.between("invoiceStartDate",));
+			if(billNo!=null && (!billNo.trim().equals(""))){
+				orderCrit.add(Restrictions.eq("billNo", billNo.trim().toUpperCase()));
+			}
+			infoDTOs=orderCrit.list();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			logger.error(e);
+			throw new PersistenceException(e,
+					IPersistenceErrorCode.DATABASE_PROBLEM);
+		}
+		
+		logger.info("Exit");
+		return infoDTOs;
 	}
 
 }
