@@ -68,6 +68,9 @@
 						<div class="heading">
 							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
 						</div>
+						<div id="vendorDetail">
+						
+						</div>
 
 					</div>
 
@@ -88,6 +91,23 @@
 		</div>
 
 	</div>
+<script>
+function editVendor(id){
+	var saveSucc = $.ajax({
+		type : 'post',
+		url : 'vendorInfo',
+		data : 'type=edit&billNo=' + id,
+		error : function(xhr, ajaxOptions, thrownError) {
+			//  $('#spinner_buis').hide();
+			alert("error from  -> " + thrownError);
+		},
+		success : function(data) {
+			$("#vendorDetail").html(data);
 
+		}
+	});
+
+}
+</script>
 </body>
 </html>

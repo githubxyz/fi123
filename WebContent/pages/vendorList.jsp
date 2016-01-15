@@ -28,7 +28,7 @@ List<PurchasePaymentInfoDTO> purchasePaymentInfoDTOs = (List<PurchasePaymentInfo
 					PurchasePaymentInfoDTO purchasePayment = (PurchasePaymentInfoDTO) it.next();
 		%>
 <tr style="border: 1px solid #ccc !important;"
-			onclick="editProduct(<%=purchasePayment.getId()%>)">
+			onclick="editVendor('<%=purchasePayment.getBillNo()%>')">
 			<td align="center"><%=purchasePayment.getBillNo()%></td>
 			<td align="center"><%=purchasePayment.getCompany_name()%></td>
 		

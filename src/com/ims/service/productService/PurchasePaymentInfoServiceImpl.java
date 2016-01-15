@@ -104,4 +104,39 @@ public class PurchasePaymentInfoServiceImpl implements IPurchasePaymentService {
 		return paymentInfoSaved;
 	}
 
+	@Override
+	public PurchasePaymentInfoDTO loadByBillNo(String billNo) throws OperationFailedException, ValidationException {
+		logger.info("ENTRY....");
+		PurchasePaymentInfoDTO paymentInfoSaved=null;
+		// create a session
+		Session session = null;
+		// create PersistenceManagerImpl
+		IPersistenceManager impl = new PersistenceManagerImpl();
+		Collection errorCodes=new ArrayList();
+		try {
+			
+			
+			session = impl.openSessionAndBeginTransaction();
+			IPurchasePaymentInfoDAO dao=new PurchasePaymentInfoDAOImpl(session);
+			paymentInfoSaved=dao.getPaymentInfo(billNo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+				throw (ValidationException) e;
+			
+		}finally {
+			try {
+				// close session
+				impl.closeAndCommitSession();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new OperationFailedException();
+			}
+		}
+		logger.info("Exit.........");
+		return paymentInfoSaved;
+	}
+
 }

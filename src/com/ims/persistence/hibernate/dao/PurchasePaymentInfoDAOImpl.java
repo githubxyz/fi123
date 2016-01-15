@@ -45,13 +45,13 @@ public class PurchasePaymentInfoDAOImpl implements IPurchasePaymentInfoDAO {
 		logger.info("Entry");
 		try {
 			if(billNo!=null)
-				billNo=billNo.toUpperCase().trim();
+				billNo=billNo.toLowerCase().trim();
 			String sql="from PurchasePaymentInfoDTO  where billNo= :billNo";
 			logger.info("billNo="+billNo);
 			org.hibernate.Query q=session.createQuery(sql);
 			q.setParameter("billNo", billNo);
 			productGroupMapDTO=(PurchasePaymentInfoDTO)q.uniqueResult();
-			logger.info(productGroupMapDTO);
+			logger.info("PurchasePaymentInfoDTO ="+productGroupMapDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
