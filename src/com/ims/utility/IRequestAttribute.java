@@ -6,5 +6,6 @@ public interface IRequestAttribute {
 	public static String PRODUCT_MASTER="productMaster";
 	public static String PRODUCT_GROUP_LIST="PRODUCT_GROUP_LIST";
 	public static String SALE_ITEM_DETAIL="SALE_ITEM_DETAIL";
-	public static String PRODUCT_DETAILS_LIST_BY_ID="PRODUCT_DETAILS_LIST_BY_ID";	
+	public static String PRODUCT_DETAILS_LIST_BY_ID="PRODUCT_DETAILS_LIST_BY_ID";
+	public static String VENDOR_LIST = "VENDOR_LIST";	
 }
