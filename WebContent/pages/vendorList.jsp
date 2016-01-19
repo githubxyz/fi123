@@ -35,4 +35,72 @@ List<PurchasePaymentInfoDTO> purchasePaymentInfoDTOs = (List<PurchasePaymentInfo
 </tr>
 <%}} %>
 </tbody>
+<tfoot>
+
+		<tr>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col1" name="col1" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col2" name="col2" value="Type to search"
+				class="search_init" />
+			</th>
+			
+
+		</tr>
+	</tfoot>
 </table>
+<script type="text/javascript">
+		var asInitVals = new Array();
+
+		var oTable = $('#example').dataTable({
+			"bJQueryUI" : true,
+			bRetrieve : true,
+			"sPaginationType" : "full_numbers",
+			"oLanguage" : {
+				"sSearch" : "Search all columns:"
+			},
+			"sDom" : 'R<"H"lfr>t<"F"ip>',
+			// "sDom": '<"H"Tfr>t<"F"ip>',
+			// "sDom": 'Rlfrtip',
+			"bStateSave" : true,
+			// "bDestroy":true,
+
+			"oColReorder" : {
+				"aiOrder" : [ 0, 1]
+			},
+			sScrollY : "",
+			"bPaginate" : true
+
+		});
+
+		$("#example tfoot input").keyup(function() {
+
+			oTable.fnFilter(this.value, $("#example tfoot input").index(this));
+		});
+
+		$("#example tfoot input").each(function(i) {
+			var id = $(this).attr("id").split("-")[1];
+			asInitVals[id] = this.value;
+		});
+
+		$("#example tfoot input").focus(function() {
+			if (this.className == "search_init") {
+				this.className = "";
+				this.value = "";
+			}
+		});
+
+		$("#example tfoot input").blur(function(i) {
+			var id = $(this).attr("id").split("-")[1];
+			if (this.value == "") {
+				this.className = "search_init";
+				/* alert("jj"); */
+				// this.value = asInitVals[$("#example tfoot input").index(this)];
+				this.value = asInitVals[id];
+			}
+		});
+		</script>
