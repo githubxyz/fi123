@@ -15,11 +15,11 @@
 	<%=Messages.getString("vendor_name")%><input type="text"
 		name="company_name" value="<%=paymentInfoDTO.getCompany_name()%>" />
 	<br>
-	<%=Messages.getString("vendor_payment")%><input type="text"
+	<%=Messages.getString("vendor_payment")%><input type="number" step="any"
 		name="payment" value="<%=paymentInfoDTO.getPayment()%>" /> <br>
 	<%=Messages.getString("vendor_balance")%> 
-	<input type="text" name="balance" value="<%=paymentInfoDTO.getBalance() %>"> <br>
-	<%=Messages.getString("vendor_advance")%><input type="text"
+	<input type="number" step="any" name="balance" value="<%=paymentInfoDTO.getBalance() %>"> <br>
+	<%=Messages.getString("vendor_advance")%><input type="number" step="any"
 		name="advance" value="<%=paymentInfoDTO.getAdvance()%>" /> <input
 		type="submit" name="save">
 </form>
