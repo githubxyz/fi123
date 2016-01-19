@@ -23,7 +23,7 @@ public class BranchServiceImpl implements IBranchService{
 	private static Logger logger = Logger.getLogger("com.biz");
 
 	@Override
-	public BranchDTO getBranchById() throws OperationFailedException {
+	public BranchDTO getBranchById(int branchid) throws OperationFailedException {
 		logger.info("ENTRY....");
 		Session session = null;
 		BranchDTO branchDTO = null;
