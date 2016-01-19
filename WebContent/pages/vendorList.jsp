@@ -12,10 +12,22 @@
 		<tr style="width: 40px">
 			<th align="center"
 				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-				<%=Messages.getString("product_group_code")%></th>
+				<%=Messages.getString("purchase_ref_id")%></th>
 			<th align="center"
 				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
-				<%=Messages.getString("product_name")%>
+				<%=Messages.getString("vendor_name")%>
+			</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				<%=Messages.getString("vendor_payment")%>
+			</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				<%=Messages.getString("vendor_balance")%>
+			</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
+				<%=Messages.getString("vendor_advance")%>
 			</th>
 			<th align="center"
 				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 5% 5% repeat-x; color: #555555;">
@@ -34,6 +46,9 @@ List<PurchasePaymentInfoDTO> purchasePaymentInfoDTOs = (List<PurchasePaymentInfo
 			onclick="editVendor('<%=purchasePayment.getBillNo()%>')">
 			<td align="center"><%=purchasePayment.getBillNo()%></td>
 			<td align="center"><%=purchasePayment.getCompany_name()%></td>
+			<td align="center"><%=purchasePayment.getPayment()%></td>
+			<td align="center"><%=purchasePayment.getBalance()%></td>
+			<td align="center"><%=purchasePayment.getAdvance()%></td>
 			<td align="center" width="5%"><img align="right"
 				src="images/edit.png" height="20px" alt="edit field"></img></td>
 		
@@ -51,6 +66,21 @@ List<PurchasePaymentInfoDTO> purchasePaymentInfoDTOs = (List<PurchasePaymentInfo
 			<th
 				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
 				<input type="text" id="col2" name="col2" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col3" name="col3" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col4" name="col4" value="Type to search"
+				class="search_init" />
+			</th>
+			<th
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555; font-size: 11px !important;">
+				<input type="text" id="col5" name="col5" value="Type to search"
 				class="search_init" />
 			</th>
 			
@@ -75,7 +105,7 @@ List<PurchasePaymentInfoDTO> purchasePaymentInfoDTOs = (List<PurchasePaymentInfo
 			// "bDestroy":true,
 
 			"oColReorder" : {
-				"aiOrder" : [ 0, 1]
+				"aiOrder" : [ 0, 1, 2, 3, 4, 5]
 			},
 			sScrollY : "",
 			"bPaginate" : true
