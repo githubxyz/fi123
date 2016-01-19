@@ -46,7 +46,7 @@
  </span></td><td>
  <input type="number" step="any"
   name="advance" value="<%=paymentInfoDTO.getAdvance()%>" />
-</td></tr><tr><th colspan="4">
-  <input
-  type="submit" name="save"></th></tr></tbody></table>
+</td></tr></tr></tbody></table><div style="width: 65%; float: left; text-align: center" class="inpu-div">
+
+  <input type="submit" class="btn-style" name="save" value="Submit"></div>
 </form>
