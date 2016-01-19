@@ -10,7 +10,7 @@
 
 	<input type="hidden" name="id" value="<%=paymentInfoDTO.getId()%>" />
 	<input type="hidden" name="type" value="save" />
-	<%=Messages.getString("purchase_ref_id")%><input type="text"
+	<%=Messages.getString("purchase_ref_id")%><input type="text" 
 		name="billNo" value="<%=paymentInfoDTO.getBillNo()%>" /> <br>
 	<%=Messages.getString("vendor_name")%><input type="text"
 		name="company_name" value="<%=paymentInfoDTO.getCompany_name()%>" />
