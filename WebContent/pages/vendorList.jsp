@@ -17,6 +17,9 @@
 				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; color: #555555;">
 				<%=Messages.getString("product_name")%>
 			</th>
+			<th align="center"
+				style="background: #e6e6e6 url('images/ui-bg_glass_75_e6e6e6_1x400.png') 5% 5% repeat-x; color: #555555;">
+				<%=Messages.getString("edit_row")%></th>
 
 	</tr>
 </thead>
@@ -31,6 +34,8 @@ List<PurchasePaymentInfoDTO> purchasePaymentInfoDTOs = (List<PurchasePaymentInfo
 			onclick="editVendor('<%=purchasePayment.getBillNo()%>')">
 			<td align="center"><%=purchasePayment.getBillNo()%></td>
 			<td align="center"><%=purchasePayment.getCompany_name()%></td>
+			<td align="center" width="5%"><img align="right"
+				src="images/edit.png" height="20px" alt="edit field"></img></td>
 		
 </tr>
 <%}} %>
