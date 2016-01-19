@@ -10,7 +10,7 @@
 			<%=Messages.getString("company_welcome") %> <%=dto.getFirstName()%> <%=dto.getLastName() %>
 			</font>
 			</td>
-			<td>  <font color="#f59a1b" size="3" align="right"><b><i>Logout</i></b>
+			<td>  <font color="#f59a1b" size="3" align="right"><b><i><a style="color:brown; float:none; display:inline;" href="logout">Logout</a></i></b>
 			
 			<!-- <h3><img src="images/setting.png" height="35px" alt="Setting"> &nbsp;&nbsp; <img src="images/logout.png" height="35px" alt="Logout">
 				</h3> --> </font>

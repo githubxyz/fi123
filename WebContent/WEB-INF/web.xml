@@ -72,6 +72,14 @@
     <servlet-name>VendorInfo</servlet-name>
     <url-pattern>/vendorInfo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.ims.ui.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
   
   <error-page>
     <error-code>500</error-code>
