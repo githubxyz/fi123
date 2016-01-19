@@ -66,7 +66,7 @@
 
 					<div class="input-form" style="width: 100%">
 						<div class="heading">
-							<font size="4px" color="#67a0f5"><b><%=Messages.getString("company_master_entry")%></b></font>
+							<font size="4px" color="#67a0f5"><b><%=Messages.getString("vendor_payment_menu")%></b></font>
 						</div>
 						<div id="vendorDetail">
 						
