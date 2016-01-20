@@ -80,7 +80,6 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
-  
   <error-page>
     <error-code>500</error-code>
     <location>/login.jsp</location>

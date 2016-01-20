@@ -1,8 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.ims.utility.ISessionAttribute"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.ims.dto.SaleItemDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.ims.dto.SaleMasterDTO"%>
+<%@page import="com.ims.dto.BranchDTO"%>
 <%@page import="com.ims.utility.IRequestAttribute"%>
 <%@page import="com.ims.utility.Messages"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -210,7 +212,11 @@ c/o Steve Widget</div> -->
 		</table>
 		
 		<div id="terms1">
-		  
+		  <%
+BranchDTO branchDTO=(BranchDTO)request.getAttribute(ISessionAttribute.BRANCH_LIST);
+
+%>
+
 		  	Company's VAT TIN : 19808181045<br>
 			Company's CST No. : 19808181045<br>
 			Buyer's VAT TIN/Sales Tax No. : <%=saleMasterDTO.getCustomerVatNo() %>
