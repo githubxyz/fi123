@@ -85,7 +85,8 @@
 												<td width="15%"><span class="label"> <%=Messages.getString("product_group_code")%>
 														:
 												</span></td>
-												<td width="15%"><select name="groupCode" onchange="changeGroup()" id="groupId" class="input-text">
+												<td width="15%"><select name="groupCode"
+													onchange="changeGroup()" id="groupId" class="input-text">
 														<option value=" ">Select Product Group..</option>
 														<%
 															for (Iterator it = productGroupMapDTOs.iterator(); it.hasNext();) {
@@ -196,16 +197,16 @@
 				}
 			});
 		}
-		function getDiscount(){
-			discount=$("#discount").val();
-			discount=parseFloat(discount);
-			totalCost=$("#totalCost").val();
-			totalCost=parseFloat(totalCost);
-			totalCost=totalCost-discount;
+		function getDiscount() {
+			discount = $("#discount").val();
+			discount = parseFloat(discount);
+			totalCost = $("#totalCost").val();
+			totalCost = parseFloat(totalCost);
+			totalCost = totalCost - discount;
 			$("#totalCost").val(totalCost);
 		}
-function changeGroup() {
-			
+		function changeGroup() {
+
 			id = $("#groupId").val();
 			//alert(id);
 			var saveSucc = $.ajax({
@@ -218,13 +219,12 @@ function changeGroup() {
 
 				},
 				success : function(data) {
-				//	alert(data);
+					//	alert(data);
 					$("#itemSpan").html(data);
 
 				}
 			});
 		}
-
 	</script>
 </body>
 </html>

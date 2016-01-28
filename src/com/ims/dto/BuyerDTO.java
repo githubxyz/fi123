@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class BuyerDTO implements Serializable{
 	private int id;
 	private String customerName;
-	
+	private String vatNo;
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen")
@@ -33,6 +33,13 @@ public class BuyerDTO implements Serializable{
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+	@Column(name="vat_no")
+	public String getVatNo() {
+		return vatNo;
+	}
+	public void setVatNo(String vatNo) {
+		this.vatNo = vatNo;
+	}
 	
-
+	
 }

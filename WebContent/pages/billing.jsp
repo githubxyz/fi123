@@ -1,10 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@page import="com.ims.utility.ISessionAttribute"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.ims.dto.SaleItemDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.ims.dto.SaleMasterDTO"%>
-<%@page import="com.ims.dto.BranchDTO"%>
 <%@page import="com.ims.utility.IRequestAttribute"%>
 <%@page import="com.ims.utility.Messages"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,8 +38,8 @@ SaleMasterDTO saleMasterDTO=(SaleMasterDTO)request.getAttribute(IRequestAttribut
 <%=Messages.getString("company_mobile")%>: <%=Messages.getString("company_mobile_no")%>  <br>
 <%=Messages.getString("company_email")%>: <%=Messages.getString("company_email_id")%>  <br>
 <b><%=Messages.getString("company_buyer")%></b><br>
-<%=Messages.getString("company_buyer_name")%><br>
-<%=Messages.getString("company_buyer_address")%><br>
+<%=saleMasterDTO.getBuyer().getCustomerName()%><br>
+<%-- <%=Messages.getString("company_buyer_address")%> --%><br>
             
             </div>
 
@@ -212,14 +210,10 @@ c/o Steve Widget</div> -->
 		</table>
 		
 		<div id="terms1">
-		  <%
-BranchDTO branchDTO=(BranchDTO)request.getAttribute(ISessionAttribute.BRANCH_LIST);
-
-%>
-
-		  	Company's VAT TIN : 19808181045<br>
-			Company's CST No. : 19808181045<br>
-			Buyer's VAT TIN/Sales Tax No. : <%=saleMasterDTO.getCustomerVatNo() %>
+		  
+		  	<!-- Company's VAT TIN : 19808181045 --><br>
+			<%-- Company's CST No. : 19808181045<br>
+			Buyer's VAT TIN/Sales Tax No. : <%=saleMasterDTO.getCustomerVatNo() %> --%>
 		  <table border="0">
 		  <tr>
 		  <td>

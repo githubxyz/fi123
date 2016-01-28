@@ -59,7 +59,7 @@ if(saleItemDTOs!=null && saleItemDTOs.size()>0){
 											class="input-text"></td>
 										<td><span class="label"><%=Messages.getString("customer_vat_no")%>
 												:</span></td>
-										<td><input type="text" name="customerVatNo" value=""
+										<td><input type="text" name="vatNo" value=""
 											class="input-text"></td>
 
 									</tr>
