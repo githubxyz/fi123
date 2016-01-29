@@ -56,8 +56,8 @@
 				</li>
 				<li><a href="#" id="salesuser"><%=Messages.getString("company_sales_user")%></a>
 				</li>
-				<li><a href="billing" id="billing"><%=Messages.getString("company_billing")%></a>
-				</li>
+				<!--<li><a href="billing" id="billing"><%=Messages.getString("company_billing")%></a>
+				</li>-->
 
 			</ul></li>
 	</ul>
