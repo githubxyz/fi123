@@ -140,6 +140,12 @@
 														<option value="Liter">Liter</option>
 														<option value="Set">Set</option>
 														<option value="Pair">Pair</option>
+														<option value="Pair">SqFeet</option>
+														<option value="Pair">Feet</option>
+														<option value="Pair">SqMetre</option>
+														<option value="Pair">Metre</option>
+														<option value="Pair">centimetre</option>
+														<option value="Pair">Inch</option>
 												</select></td>
 												<td><span class="label"> <%=Messages.getString("unit_weight")%>
 														:
@@ -151,9 +157,7 @@
 														<option value="Kilogram">Kilogram</option>
 														<option value="Ton">Ton</option>
 														<option value="Quintal">Quintal</option>
-														<option value="Feet">Feet</option>
-														<option value="Sq Feet">Sq Feet</option>
-												</select></td>
+														</select></td>
 												<tr>
 													<td><span class="label"> <%=Messages.getString("company_gown")%>
 															:
