@@ -12,5 +12,6 @@ public interface IStockAlartService {
 	public StockAlertDTO saveStockAlert(StockAlertDTO stockAlertDTO) throws OperationFailedException;
 	public List<StockAlertDTO> listStockAlart()throws OperationFailedException;
 	public List<StockDetailDTO> getLowStockProduct() throws OperationFailedException ;
+	public List<StockDetailDTO> getHighStockProduct() throws OperationFailedException ;
 		
 }

@@ -50,6 +50,8 @@ public class Login extends HttpServlet {
 		try {
 			 List<StockDetailDTO> list=alartService.getLowStockProduct();
 			 request.setAttribute(IRequestAttribute.LOWALART_LIST, list);
+			 List<StockDetailDTO> hlist=alartService.getHighStockProduct();
+			 request.setAttribute(IRequestAttribute.HIGHALART_LIST, hlist);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

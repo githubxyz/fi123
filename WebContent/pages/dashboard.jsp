@@ -101,8 +101,9 @@ table.gradienttable td p {
 
 <body>
 <%
-List<StockDetailDTO> list1 = (List<StockDetailDTO>) request
-							.getAttribute(IRequestAttribute.LOWALART_LIST);%>
+List<StockDetailDTO> list1 = (List<StockDetailDTO>) request.getAttribute(IRequestAttribute.LOWALART_LIST);
+List<StockDetailDTO> hlist = (List<StockDetailDTO>) request.getAttribute(IRequestAttribute.HIGHALART_LIST);
+%>
 
 	<div id="container">
 		<div id="header">
@@ -214,6 +215,24 @@ List<StockDetailDTO> list1 = (List<StockDetailDTO>) request
 					<%
 						}
 						}
+						
+						List<StockDetailDTO> hlist1 = (List<StockDetailDTO>) request
+								.getAttribute(IRequestAttribute.HIGHALART_LIST);
+						if (hlist1 != null && hlist1.size() > 0) {
+							for (Iterator it2 = hlist1.iterator(); it2.hasNext();) {
+								StockDetailDTO sd2 = (StockDetailDTO) it2.next();
+					%>
+					<tr>
+						<td><%=sd2.getProductName()%></td>
+						<td><%=sd2.getType() %></td>
+						<td><%=sd2.getWeight()%></td>
+						<td><%=sd2.getQuantity()%></td>
+						<td><img src="./images/Uparrow.png" height="35px"
+							alt="under usage"></img></td>
+					</tr>
+					<%
+						}
+						}
 					%>
 				</table>
 			</div>
@@ -246,9 +265,22 @@ List<StockDetailDTO> list1 = (List<StockDetailDTO>) request
 				<%
 					}
 					}
+			}
+						if (hlist != null && hlist.size() > 0) {
+							for (Iterator it2 = hlist.iterator(); it2.hasNext();) {
+								StockDetailDTO sd2 = (StockDetailDTO) it2.next();
+					%>
+					<tr>
+						<td><%=sd2.getProductName()%></td>
+						<td><img src="./images/Uparrow.png" height="35px"
+							alt="under usage"></img></td>
+					</tr>
+					<%
+						}
+					}
 				%>
 			</table>
-			<%} %>
+			
 		</div>
 	</div>
 

@@ -154,5 +154,39 @@ public class StockAlartServicesImpl implements IStockAlartService {
 		  }
 		  return lowStocks;
 		 }
+	 
+	 public List<StockDetailDTO> getHighStockProduct() throws OperationFailedException {
+		  List<StockDetailDTO> stockDetails=new ArrayList<>();
+		  List<StockDetailDTO> highStocks=new ArrayList<>();
+		  Session session = null;
+		  // create PersistenceManagerImpl
+		  IPersistenceManager impl = new PersistenceManagerImpl();
+
+		  try {
+		   session = impl.openSessionAndBeginTransaction();
+		   IStockDetailDAO detailDAO=new StockDetailDAOImpl(session);
+		   stockDetails=detailDAO.getStockForAlertCheck();
+		   IStockAlartDAO stockAlartDAO=new StockAlartDAOImpl(session);
+		   List<StockAlertDTO> stockAlerts=stockAlartDAO.listStockAlart();
+		   for(Iterator it=stockAlerts.iterator();it.hasNext();){
+		    StockAlertDTO stockAlertDTO=(StockAlertDTO) it.next();
+		    for(Iterator stocDetIt=stockDetails.iterator();stocDetIt.hasNext();){
+		     StockDetailDTO stockDetailDTO=(StockDetailDTO) stocDetIt.next();
+		     if(stockAlertDTO.getProductMaster().getId()==stockDetailDTO.getProductMaster().getId() && stockAlertDTO.getType()==stockDetailDTO.getType()){     
+		       if(stockDetailDTO.getQuantity()>stockAlertDTO.getMaxVal()){
+		    	   highStocks.add(stockDetailDTO);
+		       }
+		      
+		     }
+		    }
+		   }
+		   
+		  } catch (Exception e) {
+		   // TODO: handle exception
+		   e.printStackTrace();
+		   throw new OperationFailedException();
+		  }
+		  return highStocks;
+		 }
 
 }
