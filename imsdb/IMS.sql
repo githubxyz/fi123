@@ -919,8 +919,8 @@ ALTER TABLE ONLY customer
 -- Name: customer_vat_no_uk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY customer
-    ADD CONSTRAINT customer_vat_no_uk UNIQUE (vat_no);
+--ALTER TABLE ONLY customer
+  --  ADD CONSTRAINT customer_vat_no_uk UNIQUE (vat_no);
 
 
 --
@@ -1282,3 +1282,91 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 
 ALTER TABLE product_master ADD gown character varying(128);
 
+----------------- MOdify --------------------
+ALTER TABLE sales_details ADD type integer;
+
+CREATE OR REPLACE FUNCTION prod_det_before_updt_tri_fun()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+ctr integer;
+BEGIN
+	if(TG_OP='UPDATE') then
+		select count(id) into ctr from stock_deatils where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		if(ctr>0) then
+			update stock_deatils set quantity=coalesce(quantity,0)-coalesce(OLD.quantity,0),weight=coalesce(weight,0)-coalesce(OLD.weight,0) where product_master_id=OLD.product_master_id and type=OLD.type and branch_id=OLD.branch_id;
+			update stock_deatils set quantity=coalesce(quantity,0)+coalesce(NEW.quantity,0),weight=coalesce(weight,0)+coalesce(NEW.weight,0) where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		else
+			insert into stock_deatils (id,product_code,product_name,quantity,weight,product_master_id,branch_id,k_and_p,type) values (nextval('stock_deatils_seqs'),(select product_code from product_master where id=NEW.product_master_id),(select product_name from product_master where id=NEW.product_master_id),NEW.quantity,NEW.weight,NEW.product_master_id,NEW.branch_id,NEW.k_and_p,NEW.type);
+		end if;
+	end if;
+return NEW;
+END;
+$BODY$
+  LANGUAGE plpgsql;
+  
+CREATE OR REPLACE FUNCTION product_det_aftins_tri_fun()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+ctr integer;
+BEGIN
+	if(TG_OP='INSERT') then
+		select count(id) into ctr from stock_deatils where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		if(ctr>0) then
+			update stock_deatils set quantity=coalesce(quantity,0)+coalesce(NEW.quantity,0),weight=coalesce(weight,0)+coalesce(NEW.weight,0) where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		else
+			insert into stock_deatils (id,product_code,product_name,quantity,weight,product_master_id,branch_id,k_and_p,type) values (nextval('stock_deatils_seqs'),(select product_code from product_master where id=NEW.product_master_id),(select product_name from product_master where id=NEW.product_master_id),NEW.quantity,NEW.weight,NEW.product_master_id,NEW.branch_id,NEW.k_and_p,NEW.type);
+		end if;
+	end if;
+return NEW;
+END;
+$BODY$
+  LANGUAGE plpgsql;
+  
+----------------------------------
+
+CREATE OR REPLACE FUNCTION sales_det_before_updt_tri_fun()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+ctr integer;
+BEGIN
+	if(TG_OP='UPDATE') then
+		select count(id) into ctr from stock_deatils where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		if(ctr>0) then
+			update stock_deatils set quantity=coalesce(quantity,0)+coalesce(OLD.quantity,0),weight=coalesce(weight,0)+coalesce(OLD.weight,0) where product_master_id=OLD.product_master_id and type=OLD.type and branch_id=OLD.branch_id;
+			update stock_deatils set quantity=coalesce(quantity,0)-coalesce(NEW.quantity,0),weight=coalesce(weight,0)-coalesce(NEW.weight,0) where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		else
+			insert into stock_deatils (id,product_code,product_name,quantity,weight,product_master_id,branch_id,k_and_p,type) values (nextval('stock_deatils_seqs'),(select product_code from product_master where id=NEW.product_master_id),(select product_name from product_master where id=NEW.product_master_id),-NEW.quantity,-NEW.weight,NEW.product_master_id,NEW.branch_id,NEW.k_and_p,NEW.type);
+		end if;
+	end if;
+return NEW;
+END;
+$BODY$
+  LANGUAGE plpgsql;
+  
+CREATE TRIGGER sales_det_before_updt_tri BEFORE UPDATE ON sales_details FOR EACH ROW EXECUTE PROCEDURE sales_det_before_updt_tri_fun();
+  
+
+
+CREATE OR REPLACE FUNCTION sales_det_aftins_tri_fun()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+ctr integer;
+BEGIN
+	if(TG_OP='INSERT') then
+		select count(id) into ctr from stock_deatils where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		if(ctr>0) then
+			update stock_deatils set quantity=coalesce(quantity,0)-coalesce(NEW.quantity,0),weight=coalesce(weight,0)-coalesce(NEW.weight,0) where product_master_id=NEW.product_master_id and type=NEW.type and branch_id=NEW.branch_id;
+		else
+			insert into stock_deatils (id,product_code,product_name,quantity,weight,product_master_id,branch_id,k_and_p,type) values (nextval('stock_deatils_seqs'),(select product_code from product_master where id=NEW.product_master_id),(select product_name from product_master where id=NEW.product_master_id),-NEW.quantity,-NEW.weight,NEW.product_master_id,NEW.branch_id,NEW.k_and_p,NEW.type);
+		end if;
+	end if;
+return NEW;
+END;
+$BODY$
+  LANGUAGE plpgsql;  
+  
+CREATE TRIGGER sales_det_aftins_tri AFTER INSERT ON sales_details FOR EACH ROW EXECUTE PROCEDURE sales_det_aftins_tri_fun();
